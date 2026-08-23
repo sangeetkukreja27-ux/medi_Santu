@@ -707,6 +707,124 @@ const router = useRouter();
         </div>
       </section>
 
+      {/* NEW SECTION: GLOBAL PHARMACEUTICAL & WAREHOUSING INFRASTRUCTURE SHOWCASE */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full text-left">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 mb-8">
+          <div>
+            <span className="text-xs font-black text-[#00A877] uppercase tracking-widest">State-of-the-Art Facilities</span>
+            <h2 className="text-2xl sm:text-3xl font-black text-slate-800 tracking-tight mt-1">
+              Global Infrastructure & Quality Assurance
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-500 font-semibold mt-1">
+              Our temperature-monitored distribution hubs and certified cleanrooms ensure 100% authentic medicine delivery.
+            </p>
+          </div>
+          <Link 
+            href="/about" 
+            className="text-xs font-black text-[#005B41] hover:text-[#00A877] transition-colors flex items-center gap-1.5 bg-emerald-50 py-2.5 px-5 rounded-xl border border-emerald-500/10"
+          >
+            <span>Explore Facilities</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          {/* Card 1 */}
+          <div className="bg-white rounded-3xl border border-slate-100 overflow-hidden shadow-sm hover-lift group flex flex-col">
+            <div className="relative h-48 w-full overflow-hidden bg-slate-100">
+              <img 
+                src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&auto=format&fit=crop" 
+                alt="Cold Chain Warehousing" 
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80" />
+              <span className="absolute bottom-3 left-3 bg-[#005B41] text-white text-[9px] font-black uppercase tracking-wider py-1 px-3 rounded-full">
+                Cold Chain Storage
+              </span>
+            </div>
+            <div className="p-5 flex flex-col gap-2">
+              <h3 className="text-sm font-extrabold text-slate-800 group-hover:text-[#005B41] transition-colors">
+                2°C - 8°C Temperature Controlled Hubs
+              </h3>
+              <p className="text-xs text-slate-500 font-semibold leading-relaxed">
+                Biologics and temperature-sensitive therapeutics preserved under continuous IoT temperature monitoring.
+              </p>
+            </div>
+          </div>
+
+          {/* Card 2 */}
+          <div className="bg-white rounded-3xl border border-slate-100 overflow-hidden shadow-sm hover-lift group flex flex-col">
+            <div className="relative h-48 w-full overflow-hidden bg-slate-100">
+              <img 
+                src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&auto=format&fit=crop" 
+                alt="Cleanroom Packaging" 
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80" />
+              <span className="absolute bottom-3 left-3 bg-[#00A877] text-white text-[9px] font-black uppercase tracking-wider py-1 px-3 rounded-full">
+                WHO-GMP Cleanroom
+              </span>
+            </div>
+            <div className="p-5 flex flex-col gap-2">
+              <h3 className="text-sm font-extrabold text-slate-800 group-hover:text-[#005B41] transition-colors">
+                Tamper-Evident Insulated Packaging
+              </h3>
+              <p className="text-xs text-slate-500 font-semibold leading-relaxed">
+                Every consignment is packed with batch documentation, COA clearance certificates, and security seals.
+              </p>
+            </div>
+          </div>
+
+          {/* Card 3 */}
+          <div className="bg-white rounded-3xl border border-slate-100 overflow-hidden shadow-sm hover-lift group flex flex-col">
+            <div className="relative h-48 w-full overflow-hidden bg-slate-100">
+              <img 
+                src="https://images.unsplash.com/photo-1586528116493-a029325540fa?w=600&auto=format&fit=crop" 
+                alt="Global Air Cargo Freight" 
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80" />
+              <span className="absolute bottom-3 left-3 bg-[#005B41] text-white text-[9px] font-black uppercase tracking-wider py-1 px-3 rounded-full">
+                107+ Countries
+              </span>
+            </div>
+            <div className="p-5 flex flex-col gap-2">
+              <h3 className="text-sm font-extrabold text-slate-800 group-hover:text-[#005B41] transition-colors">
+                Express Global Air Freight Network
+              </h3>
+              <p className="text-xs text-slate-500 font-semibold leading-relaxed">
+                Priority customs-cleared international cargo flights dispatching medicines daily across all continents.
+              </p>
+            </div>
+          </div>
+
+          {/* Card 4 */}
+          <div className="bg-white rounded-3xl border border-slate-100 overflow-hidden shadow-sm hover-lift group flex flex-col">
+            <div className="relative h-48 w-full overflow-hidden bg-slate-100">
+              <img 
+                src="https://images.unsplash.com/photo-1532187643603-ba119ca4109e?w=600&auto=format&fit=crop" 
+                alt="Analytical Quality Lab" 
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80" />
+              <span className="absolute bottom-3 left-3 bg-[#00A877] text-white text-[9px] font-black uppercase tracking-wider py-1 px-3 rounded-full">
+                Analytical QC
+              </span>
+            </div>
+            <div className="p-5 flex flex-col gap-2">
+              <h3 className="text-sm font-extrabold text-slate-800 group-hover:text-[#005B41] transition-colors">
+                Analytical Quality & Batch Testing
+              </h3>
+              <p className="text-xs text-slate-500 font-semibold leading-relaxed">
+                In-house clinical specialists verify active pharmaceutical ingredients (API) purity and expiration dates.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
       {/* NEW SECTION 3: CLIENT TESTIMONIALS & TRUST SHOWCASE */}
       <section className="w-full bg-[#03221a] text-white py-14 px-4 sm:px-6 lg:px-8 my-6 text-left relative overflow-hidden">
         <div className="max-w-7xl mx-auto flex flex-col gap-10">
