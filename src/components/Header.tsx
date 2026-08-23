@@ -173,7 +173,7 @@ export const Header: React.FC = () => {
 
           {/* User Account & Cart Info */}
           <div className="flex items-center gap-4 lg:gap-6 ml-2">
-            <Link href="/account" className="flex items-center gap-2 text-slate-700 hover:text-[#005B41] transition-colors group">
+            <Link href="/login" className="flex items-center gap-2 text-slate-700 hover:text-[#005B41] transition-colors group">
               <div className="bg-slate-50 p-2 rounded-full group-hover:bg-slate-100 transition-colors border border-slate-200 shadow-sm">
                 <User className="w-4.5 h-4.5 text-slate-700 group-hover:text-[#005B41] transition-colors" />
               </div>
