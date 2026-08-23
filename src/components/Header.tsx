@@ -171,6 +171,22 @@ export const Header: React.FC = () => {
             </button>
           </form>
 
+          {/* Sourcing Basket Cart Icon */}
+          <Link href="/cart" className="flex items-center gap-2 text-slate-700 hover:text-[#005B41] transition-colors group relative ml-1 sm:ml-3">
+            <div className="bg-slate-50 p-2.5 rounded-full group-hover:bg-slate-100 transition-colors relative border border-slate-200 shadow-sm">
+              <ShoppingCart className="w-5 h-5 text-slate-700 group-hover:text-[#005B41] transition-colors" />
+              {cartCount > 0 && (
+                <span className="absolute -top-1.5 -right-1.5 bg-[#00A877] text-white font-bold text-[10px] w-5 h-5 rounded-full flex items-center justify-center border-2 border-white">
+                  {cartCount}
+                </span>
+              )}
+            </div>
+            <div className="hidden lg:block text-left text-xs font-medium">
+              <span className="block text-slate-400 text-[10px] leading-tight font-semibold">Sourcing Basket</span>
+              <span className="block text-slate-800 font-bold group-hover:text-[#005B41] text-xs">{cartCount} Items</span>
+            </div>
+          </Link>
+
         </div>
       </div>
 
