@@ -266,14 +266,13 @@ export default function ProductDetailPage() {
               type="button"
               onClick={() => {
                 if (product) {
-                  addToCart(product, quantity);
-                  router.push("/cart");
+                  openInquiryModal(product);
                 }
               }}
               className="bg-[#005B41] hover:bg-[#004833] text-white py-4 rounded-xl text-xs font-extrabold uppercase tracking-wider transition-all shadow-md shadow-[#005b41]/10 flex items-center justify-center gap-2 hover:scale-[1.02] cursor-pointer mt-1"
             >
               <ShoppingCart className="w-4 h-4 text-white" />
-              <span>Add to Cart & View Basket</span>
+              <span>Add to Cart & Inquire Now</span>
             </button>
           </form>
 
