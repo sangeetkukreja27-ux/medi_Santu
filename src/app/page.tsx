@@ -286,11 +286,11 @@ const router = useRouter();
               <img 
                 src={settings.heroImage} 
                 alt="Medicine sourcing collection" 
-                className="rounded-3xl shadow-2xl border border-white/60 w-full h-auto object-cover max-h-[360px]"
+                className="rounded-3xl shadow-2xl border border-white/60 w-full h-auto object-cover max-h-[360px] animate-float-slow"
               />
 
               {/* Quality Stamps Badge */}
-              <div className="absolute -bottom-5 -right-3 sm:-right-5 bg-emerald-500 hover:scale-105 transition-all text-white p-3.5 w-24 h-24 sm:w-28 sm:h-28 rounded-full flex flex-col items-center justify-center border-[6px] border-white shadow-2xl text-center leading-none select-none z-10">
+              <div className="absolute -bottom-5 -right-3 sm:-right-5 bg-[#00A877] text-white p-3.5 w-24 h-24 sm:w-28 sm:h-28 rounded-full flex flex-col items-center justify-center border-[6px] border-white shadow-2xl text-center leading-none select-none z-10 animate-pulse-glow hover:scale-110 transition-transform duration-300">
                 <span className="block text-[9px] uppercase font-black tracking-widest text-[#0b241e]/70">Quality</span>
                 <span className="block text-[11px] sm:text-xs font-black tracking-tight uppercase leading-snug my-0.5">Approved</span>
                 <span className="block text-[7px] uppercase font-black text-[#0b241e]/50">Guaranteed</span>
@@ -430,7 +430,7 @@ const router = useRouter();
             return (
               <div 
                 key={product.id} 
-                className="bg-white rounded-2xl border border-slate-100 hover:border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col group relative text-left"
+                className="bg-white rounded-2xl border border-slate-100 hover:border-[#005B41]/30 shadow-sm hover-lift transition-all duration-300 overflow-hidden flex flex-col group relative text-left"
               >
                 {/* Image panel */}
                 <div className="relative h-40 min-h-[160px] w-full bg-slate-50 flex items-center justify-center p-3 flex-shrink-0">
