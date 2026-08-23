@@ -476,13 +476,26 @@ const router = useRouter();
                       <span className="block text-[9px] text-slate-400 font-bold uppercase -mt-0.5">{product.unit}</span>
                     </div>
                     
-                    <button 
-                      onClick={() => openInquiryModal(product)}
-                      className="w-full py-2.5 rounded-xl text-[11px] font-extrabold uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 shadow-sm cursor-pointer mt-1 bg-[#005B41] hover:bg-[#004833] text-white hover:scale-[1.02]"
-                    >
-                      <ShoppingCart className="w-3.5 h-3.5" />
-                      <span>Add to Cart & Inquire</span>
-                    </button>
+                    {/* Action Bar (Exact UI Mockup: Left Cart icon, Right Buy Now) */}
+                    <div className="flex items-center gap-1.5 w-full mt-1">
+                      <button 
+                        onClick={() => addToCart(product, 1)}
+                        title="Add to Cart"
+                        className={`py-2 px-3 border rounded-xl flex items-center justify-center transition-all ${
+                          isItemInCart 
+                            ? "bg-emerald-50 text-[#00A877] border-emerald-500/20" 
+                            : "bg-white text-slate-500 border-slate-200 hover:text-[#005B41] hover:bg-slate-50"
+                        }`}
+                      >
+                        <ShoppingCart className="w-3.5 h-3.5" />
+                      </button>
+                      <button
+                        onClick={() => openInquiryModal(product)}
+                        className="flex-1 bg-[#005B41] hover:bg-[#004833] text-white py-2 rounded-xl text-[10px] font-black uppercase tracking-wider transition-all text-center hover:scale-[1.02] cursor-pointer"
+                      >
+                        Buy Now
+                      </button>
+                    </div>
 
                   </div>
                 </div>

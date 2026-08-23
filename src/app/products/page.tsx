@@ -496,13 +496,26 @@ const ProductsContent: React.FC = () => {
                           <span className="block text-[9px] text-slate-400 font-semibold uppercase -mt-0.5">{product.unit}</span>
                         </div>
                         
-                        <button 
-                          onClick={() => openInquiryModal(product)}
-                          className="w-full py-2.5 rounded-xl text-[11px] font-extrabold uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 shadow-sm cursor-pointer mt-1 bg-[#005B41] hover:bg-[#004833] text-white hover:scale-[1.02]"
-                        >
-                          <ShoppingCart className="w-3.5 h-3.5" />
-                          <span>Add to Cart & Inquire</span>
-                        </button>
+                        {/* Action Bar (Exact UI Mockup: Left Cart icon, Right Buy Now) */}
+                        <div className="flex items-center gap-1.5 w-2/3">
+                          <button 
+                            onClick={() => addToCart(product, 1)}
+                            title="Add to Cart"
+                            className={`py-2 px-2.5 border rounded-xl flex items-center justify-center transition-all ${
+                              isItemInCart 
+                                ? "bg-emerald-50 text-[#00A877] border-emerald-500/20" 
+                                : "bg-white text-slate-500 border-slate-200 hover:text-[#005B41] hover:bg-slate-50"
+                            }`}
+                          >
+                            <ShoppingCart className="w-3.5 h-3.5" />
+                          </button>
+                          <button
+                            onClick={() => openInquiryModal(product)}
+                            className="bg-[#005B41] hover:bg-[#004833] text-white py-2 px-4 rounded-xl text-[10px] font-black uppercase tracking-wider transition-all text-center hover:scale-[1.02] flex-[2] cursor-pointer"
+                          >
+                            Buy Now
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -561,13 +574,25 @@ const ProductsContent: React.FC = () => {
                         <span className="block text-[10px] text-slate-400 font-semibold uppercase">{product.unit}</span>
                       </div>
                       
-                      <button
-                        onClick={() => openInquiryModal(product)}
-                        className="w-full sm:w-auto px-5 py-2.5 rounded-xl text-xs font-extrabold uppercase tracking-wider transition-all shadow-sm flex items-center justify-center gap-2 cursor-pointer bg-[#005B41] text-white hover:bg-[#004833] hover:scale-[1.02]"
-                      >
-                        <ShoppingCart className="w-3.5 h-3.5" />
-                        <span>Add to Cart & Inquire</span>
-                      </button>
+                      <div className="flex items-center gap-2">
+                        <button 
+                          onClick={() => addToCart(product, 1)}
+                          title="Add to Cart"
+                          className={`p-2.5 border rounded-xl flex items-center justify-center transition-all ${
+                            isItemInCart 
+                              ? "bg-emerald-50 text-[#00A877] border-emerald-500/20" 
+                              : "bg-white text-slate-500 border-slate-200 hover:text-[#005B41] hover:bg-slate-50"
+                          }`}
+                        >
+                          <ShoppingCart className="w-4 h-4" />
+                        </button>
+                        <button
+                          onClick={() => openInquiryModal(product)}
+                          className="px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all shadow-sm bg-[#005B41] text-white hover:bg-[#004833] hover:scale-[1.02] cursor-pointer"
+                        >
+                          Buy Now
+                        </button>
+                      </div>
                     </div>
                   </div>
                 );
