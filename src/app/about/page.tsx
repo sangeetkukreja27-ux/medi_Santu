@@ -273,7 +273,7 @@ export default function AboutUs() {
             
             <div className="sm:col-span-5 relative h-48 w-full rounded-2xl overflow-hidden shadow-inner bg-slate-100">
               <img 
-                src="https://images.unsplash.com/photo-1532187643603-ba119ca4109e?w=400&auto=format&fit=crop&q=60" 
+                src={settings.imageScientist || "https://images.unsplash.com/photo-1532187643603-ba119ca4109e?w=400&auto=format&fit=crop&q=60"} 
                 alt="Scientist inside chemical testing laboratory"
                 className="w-full h-full object-cover"
               />

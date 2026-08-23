@@ -171,34 +171,6 @@ export const Header: React.FC = () => {
             </button>
           </form>
 
-          {/* User & Cart Info */}
-          <div className="flex items-center gap-6">
-            <Link href="/account" className="flex items-center gap-2.5 text-slate-700 hover:text-[#005B41] transition-colors group">
-              <div className="bg-slate-50 p-2.5 rounded-full group-hover:bg-[#F4F7F6] transition-colors">
-                <User className="w-5 h-5 text-slate-600 group-hover:text-[#005B41] transition-colors" />
-              </div>
-              <div className="hidden lg:block text-left text-xs font-medium">
-                <span className="block text-slate-500 -mb-0.5">My Account</span>
-                <span className="block text-slate-800 font-bold group-hover:text-[#005B41]">Sign In / Register</span>
-              </div>
-            </Link>
-            
-            <Link href="/cart" className="flex items-center gap-2.5 text-slate-700 hover:text-[#005B41] transition-colors group relative">
-              <div className="bg-slate-50 p-2.5 rounded-full group-hover:bg-[#F4F7F6] transition-colors relative">
-                <ShoppingCart className="w-5 h-5 text-slate-600 group-hover:text-[#005B41] transition-colors" />
-                {cartCount > 0 && (
-                  <span className="absolute -top-1.5 -right-1.5 bg-[#00A877] text-white font-bold text-[10px] w-5 h-5 rounded-full flex items-center justify-center border-2 border-white ring-1 ring-[#00A877]/10 animate-bounce">
-                    {cartCount}
-                  </span>
-                )}
-              </div>
-              <div className="hidden lg:block text-left text-xs font-medium">
-                <span className="block text-slate-500 -mb-0.5">Your Cart</span>
-                <span className="block text-slate-800 font-bold group-hover:text-[#005B41]">View Basket</span>
-              </div>
-            </Link>
-          </div>
-
         </div>
       </div>
 

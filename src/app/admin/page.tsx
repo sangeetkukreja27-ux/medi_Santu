@@ -111,6 +111,16 @@ export default function AdminDashboard() {
   const [homepageFeedback, setHomepageFeedback] = useState("");
   const [isUploadingHero, setIsUploadingHero] = useState(false);
 
+  // About Us CMS states
+  const [aboutCorporateImg, setAboutCorporateImg] = useState("");
+  const [aboutScientistImg, setAboutScientistImg] = useState("");
+  const [aboutTitle, setAboutTitle] = useState("");
+  const [aboutDescription, setAboutDescription] = useState("");
+  const [isSavingAbout, setIsSavingAbout] = useState(false);
+  const [aboutFeedback, setAboutFeedback] = useState("");
+  const [isUploadingCorporate, setIsUploadingCorporate] = useState(false);
+  const [isUploadingScientist, setIsUploadingScientist] = useState(false);
+
   // Default credentials
   const ADMIN_USERNAME = "admin";
   const ADMIN_PASSWORD = "admin123";
@@ -373,6 +383,76 @@ export default function AdminDashboard() {
       setHomepageFeedback("Error connecting to upload server.");
     } finally {
       setIsUploadingHero(false);
+    }
+  };
+
+  const handleCorporateUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    if (!files || files.length === 0) return;
+    setIsUploadingCorporate(true);
+    const formData = new FormData();
+    formData.append("file", files[0]);
+    try {
+      const res = await fetch("/api/admin/upload", { method: "POST", body: formData });
+      const data = await res.json();
+      if (res.ok && data.success) {
+        setAboutCorporateImg(data.url);
+        setAboutFeedback("Corporate image uploaded successfully!");
+        setTimeout(() => setAboutFeedback(""), 3000);
+      }
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setIsUploadingCorporate(false);
+    }
+  };
+
+  const handleScientistUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    if (!files || files.length === 0) return;
+    setIsUploadingScientist(true);
+    const formData = new FormData();
+    formData.append("file", files[0]);
+    try {
+      const res = await fetch("/api/admin/upload", { method: "POST", body: formData });
+      const data = await res.json();
+      if (res.ok && data.success) {
+        setAboutScientistImg(data.url);
+        setAboutFeedback("Scientist image uploaded successfully!");
+        setTimeout(() => setAboutFeedback(""), 3000);
+      }
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setIsUploadingScientist(false);
+    }
+  };
+
+  const handleAboutSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSavingAbout(true);
+    try {
+      const res = await fetch("/api/admin/cms", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          section: "about",
+          data: {
+            title: aboutTitle,
+            description: aboutDescription,
+            imageCorporate: aboutCorporateImg,
+            imageScientist: aboutScientistImg
+          }
+        })
+      });
+      if (res.ok) {
+        setAboutFeedback("About Us CMS settings and images updated!");
+        setTimeout(() => setAboutFeedback(""), 3000);
+      }
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setIsSavingAbout(false);
     }
   };
 
@@ -1473,6 +1553,98 @@ export default function AdminDashboard() {
                       </>
                     ) : (
                       <span>Save Homepage Settings</span>
+                    )}
+                  </button>
+
+                </form>
+              </div>
+            </section>
+          </div>
+        ) : activeMenu === "cms" ? (
+          
+          /* About Us & Page Images CMS Sub-dashboard panel */
+          <div className="flex flex-col flex-1 pb-10">
+            <section className="px-6 py-6 border-b border-slate-100 bg-white">
+              <h2 className="text-lg font-extrabold text-slate-800">Page Images & Content CMS</h2>
+              <p className="text-xs text-slate-400 mt-1">Upload and replace images for About Us corporate building, scientist lab, and page headers dynamically.</p>
+            </section>
+
+            <section className="px-6 py-6 max-w-4xl w-full">
+              <div className="bg-white rounded-3xl border border-slate-100 shadow-sm p-6 sm:p-8 flex flex-col gap-6">
+                <h4 className="text-xs font-black text-slate-400 uppercase tracking-wider border-b border-slate-50 pb-2.5">
+                  About Us Page Images & Copy Editor
+                </h4>
+
+                {aboutFeedback && (
+                  <div className={`p-3.5 rounded-xl text-xs font-bold text-center border ${
+                    aboutFeedback.startsWith("Error")
+                      ? "text-rose-600 bg-rose-50 border-rose-500/10"
+                      : "text-emerald-600 bg-emerald-50 border-emerald-500/10"
+                  }`}>
+                    {aboutFeedback}
+                  </div>
+                )}
+
+                <form onSubmit={handleAboutSubmit} className="flex flex-col gap-5 text-xs font-semibold text-left">
+                  
+                  {/* Corporate Image Upload */}
+                  <div className="flex flex-col gap-1.5 border-b border-slate-50 pb-5">
+                    <label className="text-slate-500 font-bold">1. Corporate HQ Building Image (About Us Page) *</label>
+                    <div className="flex items-center gap-3.5 border border-slate-200 rounded-xl p-3 bg-slate-50 focus-within:border-[#005B41] focus-within:bg-white transition-all">
+                      <input 
+                        type="file" 
+                        accept="image/*"
+                        onChange={handleCorporateUpload}
+                        className="text-xs text-slate-500 file:mr-3.5 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-[10px] file:font-bold file:bg-[#005B41]/10 file:text-[#005B41] hover:file:bg-[#005B41]/20 cursor-pointer flex-1"
+                      />
+                      {isUploadingCorporate && <Loader2 className="w-4.5 h-4.5 animate-spin text-[#005B41]" />}
+                    </div>
+                    {aboutCorporateImg && (
+                      <div className="flex items-center gap-3 bg-slate-50 p-2.5 rounded-xl border border-slate-100 mt-1">
+                        <img src={aboutCorporateImg} alt="Corporate Upload" className="w-16 h-10 object-cover rounded-lg border" />
+                        <div className="text-[10px] truncate max-w-lg text-left">
+                          <span className="block font-bold text-slate-700">Active Corporate Image</span>
+                          <span className="block text-slate-400 font-mono truncate">{aboutCorporateImg}</span>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Scientist Image Upload */}
+                  <div className="flex flex-col gap-1.5 border-b border-slate-50 pb-5">
+                    <label className="text-slate-500 font-bold">2. Scientist Lab Testing Image (About Us Quote Card) *</label>
+                    <div className="flex items-center gap-3.5 border border-slate-200 rounded-xl p-3 bg-slate-50 focus-within:border-[#005B41] focus-within:bg-white transition-all">
+                      <input 
+                        type="file" 
+                        accept="image/*"
+                        onChange={handleScientistUpload}
+                        className="text-xs text-slate-500 file:mr-3.5 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-[10px] file:font-bold file:bg-[#005B41]/10 file:text-[#005B41] hover:file:bg-[#005B41]/20 cursor-pointer flex-1"
+                      />
+                      {isUploadingScientist && <Loader2 className="w-4.5 h-4.5 animate-spin text-[#005B41]" />}
+                    </div>
+                    {aboutScientistImg && (
+                      <div className="flex items-center gap-3 bg-slate-50 p-2.5 rounded-xl border border-slate-100 mt-1">
+                        <img src={aboutScientistImg} alt="Scientist Upload" className="w-16 h-10 object-cover rounded-lg border" />
+                        <div className="text-[10px] truncate max-w-lg text-left">
+                          <span className="block font-bold text-slate-700">Active Scientist Image</span>
+                          <span className="block text-slate-400 font-mono truncate">{aboutScientistImg}</span>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+
+                  <button 
+                    type="submit"
+                    disabled={isSavingAbout}
+                    className="bg-[#005B41] hover:bg-[#004833] text-white py-3.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all shadow-md shadow-[#005b41]/10 flex items-center justify-center gap-2 hover:scale-[1.02] cursor-pointer mt-2 disabled:opacity-50"
+                  >
+                    {isSavingAbout ? (
+                      <>
+                        <Loader2 className="w-4 h-4 animate-spin text-white" />
+                        <span>Saving Page Images...</span>
+                      </>
+                    ) : (
+                      <span>Save About Us Images & Settings</span>
                     )}
                   </button>
 
