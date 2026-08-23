@@ -455,13 +455,15 @@ const ProductsContent: React.FC = () => {
                     className="bg-white rounded-2xl border border-slate-100 hover:border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col group relative text-left"
                   >
                     <div className="relative h-44 min-h-[176px] w-full bg-slate-50 flex items-center justify-center p-4 flex-shrink-0">
-                      <img 
-                        src={product.image} 
-                        alt={product.name} 
-                        className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300 rounded-xl"
-                      />
+                      <Link href={`/products/${product.id}`} className="block h-full w-full">
+                        <img 
+                          src={product.image} 
+                          alt={product.name} 
+                          className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300 rounded-xl cursor-pointer"
+                        />
+                      </Link>
                       {product.badges && product.badges.length > 0 && (
-                        <div className="absolute top-4 left-4 flex flex-col gap-1.5 z-10">
+                        <div className="absolute top-4 left-4 flex flex-col gap-1.5 z-10 pointer-events-none">
                           {product.badges.map((badge, idx) => (
                             <span key={idx} className="bg-[#005B41] text-white text-[9px] font-extrabold py-0.5 px-2 rounded-full uppercase tracking-wider">
                               {badge}
@@ -519,13 +521,15 @@ const ProductsContent: React.FC = () => {
                     className="bg-white rounded-2xl border border-slate-100 hover:border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 p-4 flex flex-col sm:flex-row gap-5 items-center text-left relative"
                   >
                     <div className="relative w-full sm:w-44 h-36 bg-slate-50 flex items-center justify-center p-2 rounded-xl flex-shrink-0">
-                      <img 
-                        src={product.image} 
-                        alt={product.name} 
-                        className="h-full w-full object-cover rounded-lg"
-                      />
+                      <Link href={`/products/${product.id}`} className="block h-full w-full">
+                        <img 
+                          src={product.image} 
+                          alt={product.name} 
+                          className="h-full w-full object-cover rounded-lg cursor-pointer"
+                        />
+                      </Link>
                       {product.badges && product.badges.length > 0 && (
-                        <div className="absolute top-3 left-3 flex flex-col gap-1 z-10">
+                        <div className="absolute top-3 left-3 flex flex-col gap-1 z-10 pointer-events-none">
                           {product.badges.map((badge, idx) => (
                             <span key={idx} className="bg-[#005B41] text-white text-[8px] font-extrabold py-0.5 px-2 rounded-full uppercase tracking-wider">
                               {badge}

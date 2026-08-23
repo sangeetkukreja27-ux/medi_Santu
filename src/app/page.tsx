@@ -434,13 +434,15 @@ const router = useRouter();
               >
                 {/* Image panel */}
                 <div className="relative h-40 min-h-[160px] w-full bg-slate-50 flex items-center justify-center p-3 flex-shrink-0">
-                  <img 
-                    src={product.image} 
-                    alt={product.name} 
-                    className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300 rounded-xl"
-                  />
+                  <Link href={`/products/${product.id}`} className="block h-full w-full">
+                    <img 
+                      src={product.image} 
+                      alt={product.name} 
+                      className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300 rounded-xl cursor-pointer"
+                    />
+                  </Link>
                   {product.badges && product.badges.length > 0 && (
-                    <div className="absolute top-3 left-3 flex flex-col gap-1 z-10">
+                    <div className="absolute top-3 left-3 flex flex-col gap-1 z-10 pointer-events-none">
                       {product.badges.map((badge, idx) => (
                         <span key={idx} className={`text-[8px] font-black py-0.5 px-2 rounded-full uppercase tracking-wider ${getBadgeClass(badge)}`}>
                           {badge}
