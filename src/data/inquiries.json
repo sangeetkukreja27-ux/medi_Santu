@@ -1,0 +1,56 @@
+[
+  {
+    "id": "TMS-INQ-536122-6373",
+    "date": "2026-08-23T07:52:16.122Z",
+    "status": "Pending",
+    "customer": {
+      "fullName": "Sangeet Kukreja",
+      "mobile": "08446617717",
+      "email": "sangeetkukreja27@gmail.com",
+      "company": "SK digital Solutions",
+      "message": "yih"
+    },
+    "items": [
+      {
+        "id": "vitamin-d3-60k",
+        "name": "Vitamin D3 60K",
+        "substance": "Cholecalciferol 60000 IU",
+        "price": 12,
+        "quantity": 1,
+        "total": 12
+      }
+    ],
+    "totalValue": 12
+  },
+  {
+    "id": "TMS-INQ-948102-1203",
+    "date": "2026-08-22T17:15:30.000Z",
+    "status": "Pending",
+    "customer": {
+      "fullName": "Amit Sharma",
+      "mobile": "+91 98234 56789",
+      "email": "amit.sharma@healthclinic.org",
+      "company": "Apex Wellness Clinic",
+      "message": "We need immediate supply of Ivermectin 12mg boxes. Please advise on shipping duration to Delhi."
+    },
+    "items": [
+      {
+        "id": "iverheal-12",
+        "name": "Iverheal 12 Tablet",
+        "substance": "Ivermectin 12mg",
+        "price": 40,
+        "quantity": 5,
+        "total": 200
+      },
+      {
+        "id": "doxycycline-100",
+        "name": "Doxycycline 100mg",
+        "substance": "Doxycycline",
+        "price": 25,
+        "quantity": 10,
+        "total": 250
+      }
+    ],
+    "totalValue": 450
+  }
+]

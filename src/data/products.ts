@@ -1,0 +1,365 @@
+export interface Product {
+  id: string;
+  name: string;
+  substance: string;
+  category: string;
+  categoryKey: string;
+  price: number;
+  unit: string;
+  rating: number;
+  reviewsCount: number;
+  manufacturer: string;
+  composition: string;
+  packaging: string;
+  shelfLife: string;
+  description: string;
+  benefits: string;
+  sideEffects: string;
+  howToUse: string;
+  shippingReturns: string;
+  image: string;
+  thumbnails: string[];
+  badges?: string[];
+  inStock: boolean;
+  brand: string;
+  form: string;
+}
+
+export const products: Product[] = [
+  {
+    id: "iverheal-12",
+    name: "Iverheal 12 Tablet",
+    substance: "Ivermectin 12mg",
+    category: "Anti Parasite",
+    categoryKey: "anti-parasite",
+    price: 40.0,
+    unit: "100 Tablet Box",
+    rating: 4.8,
+    reviewsCount: 1245,
+    manufacturer: "Healing Pharma",
+    composition: "Ivermectin 12mg",
+    packaging: "100 Tablet Box",
+    shelfLife: "24 Months",
+    description: "Iverheal 12 Tablet contains Ivermectin 12mg, an antiparasitic medication used to treat various parasitic infections such as roundworm infections, river blindness, strongyloidiasis, scabies, and more. It works by binding to parts inside the parasite, eventually paralyzing and killing them, which helps clear the infection from your body.",
+    benefits: "Effective treatment against intestinal strongyloidiasis, onchocerciasis (river blindness), and various external parasitic infestations like scabies and head lice. Provides rapid relief and clears parasites efficiently when taken as directed by a healthcare professional.",
+    sideEffects: "Common side effects include dizziness, nausea, headache, muscle pain, skin rash, or temporary itching. Consult your doctor if these symptoms persist or worsen.",
+    howToUse: "Take this medicine in the dose and duration as advised by your doctor. Swallow it as a whole with a glass of water. Do not chew, crush, or break it. Iverheal 12 is typically taken on an empty stomach, at least 1 hour before or 2 hours after a meal.",
+    shippingReturns: "We offer secure worldwide shipping to over 107 countries. Products are carefully packed in discreet packaging to ensure privacy and safety. Standard shipping takes 7-14 business days. Returns are accepted within 30 days if the product is undamaged and in its original sealed packaging.",
+    image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
+    thumbnails: [
+      "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=100&auto=format&fit=crop&q=60",
+      "https://images.unsplash.com/photo-1631549916768-4119b2e55c26?w=100&auto=format&fit=crop&q=60",
+      "https://images.unsplash.com/photo-1607619056574-7b8d304f3c6f?w=100&auto=format&fit=crop&q=60",
+      "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=100&auto=format&fit=crop&q=60"
+    ],
+    badges: ["Best Seller"],
+    inStock: true,
+    brand: "Healing Pharma",
+    form: "Tablet"
+  },
+  {
+    id: "ivylink-12",
+    name: "Ivylink 12 Tablet",
+    substance: "Ivermectin 12mg",
+    category: "Anti Parasite",
+    categoryKey: "anti-parasite",
+    price: 40.0,
+    unit: "100 Tablet Box",
+    rating: 4.6,
+    reviewsCount: 382,
+    manufacturer: "Ivylink Labs",
+    composition: "Ivermectin 12mg",
+    packaging: "100 Tablet Box",
+    shelfLife: "24 Months",
+    description: "Ivylink 12 Tablet is an antiparasitic prescription medicine containing Ivermectin 12mg. It is formulated to eradicate intestinal and cutaneous parasitic worms. It is highly recommended by medical experts worldwide for treating persistent parasitic symptoms.",
+    benefits: "Clears parasitic microfilariae and adult worms in the gastrointestinal system and tissues. Promotes skin and organ recovery from parasitic damage.",
+    sideEffects: "Fatigue, stomach discomfort, mild fever, or temporary skin rashes. Please notify your doctor if symptoms are severe.",
+    howToUse: "Take this medicine on an empty stomach with water. Avoid eating any food for at least 1 hour after taking the tablet.",
+    shippingReturns: "Ships internationally in neutral cardboard envelopes. Average delivery is 8-12 business days depending on customs clearance. 100% reshipment guarantee in case of damage.",
+    image: "https://images.unsplash.com/photo-1550572017-edd951b55104?w=500&auto=format&fit=crop&q=60",
+    thumbnails: [
+      "https://images.unsplash.com/photo-1550572017-edd951b55104?w=100&auto=format&fit=crop&q=60"
+    ],
+    badges: ["Popular"],
+    inStock: true,
+    brand: "ivylink",
+    form: "Tablet"
+  },
+  {
+    id: "covilife-24",
+    name: "Covilife 24 mg Tablet",
+    substance: "Ivermectin 24mg",
+    category: "Anti Parasite",
+    categoryKey: "anti-parasite",
+    price: 60.0,
+    unit: "100 Tablet Box",
+    rating: 4.9,
+    reviewsCount: 815,
+    manufacturer: "Healing Pharma",
+    composition: "Ivermectin 24mg",
+    packaging: "100 Tablet Box",
+    shelfLife: "36 Months",
+    description: "Covilife 24mg Tablet provides a double strength dose of Ivermectin. Used under medical supervision, it helps manage severe, resistant parasite infections and infestations in a single-dose or multiple-dose therapy.",
+    benefits: "High strength formulation, requiring fewer doses for complex parasitic eradications. Sourced directly from WHO-GMP certified facilities.",
+    sideEffects: "Drowsiness, low blood pressure, nausea, or loss of appetite. Exercise caution when driving or operating heavy machinery.",
+    howToUse: "Take as directed by your physician. Do not exceed the prescribed dosage. Consume with water on an empty stomach.",
+    shippingReturns: "Global temperature-controlled dispatch. Vacuum sealed packs. Shipping is free on orders exceeding $149.",
+    image: "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?w=500&auto=format&fit=crop&q=60",
+    thumbnails: [
+      "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?w=100&auto=format&fit=crop&q=60"
+    ],
+    badges: ["Best Seller"],
+    inStock: true,
+    brand: "Healing Pharma",
+    form: "Tablet"
+  },
+  {
+    id: "iverheal-6",
+    name: "Iverheal 6 mg Tablet",
+    substance: "Ivermectin 6mg",
+    category: "Anti Parasite",
+    categoryKey: "anti-parasite",
+    price: 30.0,
+    unit: "100 Tablet Box",
+    rating: 4.7,
+    reviewsCount: 652,
+    manufacturer: "Healing Pharma",
+    composition: "Ivermectin 6mg",
+    packaging: "100 Tablet Box",
+    shelfLife: "24 Months",
+    description: "Iverheal 6 mg is a medium-strength antiparasitic medication. It is highly suitable for pediatric or lower-weight patients as prescribed, or for mild scrofulous and scabies cases.",
+    benefits: "Fine-tuned dosing precision for patients requiring less than 12mg. High absorption rate and quick relief from itching and external scabies symptoms.",
+    sideEffects: "Headache, joint pain, mild swelling, or itchy skin. Inform your healthcare practitioner of any pre-existing liver issues.",
+    howToUse: "Take the tablet with water on an empty stomach. Follow instructions provided on your prescription slip closely.",
+    shippingReturns: "Ships in discrete, bubble-wrapped envelopes. Tracks door-to-door with leading express logistics services.",
+    image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
+    thumbnails: [
+      "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=100&auto=format&fit=crop&q=60"
+    ],
+    inStock: true,
+    brand: "Healing Pharma",
+    form: "Tablet"
+  },
+  {
+    id: "ivrea-cream-1",
+    name: "Ivrea Cream 1%",
+    substance: "Ivermectin Cream 1%",
+    category: "Anti Parasite",
+    categoryKey: "anti-parasite",
+    price: 20.0,
+    unit: "1 Cream Pack",
+    rating: 4.5,
+    reviewsCount: 184,
+    manufacturer: "Healing Pharma",
+    composition: "Ivermectin 1% w/w",
+    packaging: "30g Tube",
+    shelfLife: "24 Months",
+    description: "Ivrea Cream 1% is a topical preparation of Ivermectin, specifically formulated to treat inflammatory lesions of rosacea and external skin infestations like scabies or demodicosis.",
+    benefits: "Targeted skin application that reduces inflammation, redness, and eradicates mites on the face or body directly without systemic side effects.",
+    sideEffects: "Mild burning sensation, skin irritation, or dryness at the application site. Avoid contact with eyes and mouth.",
+    howToUse: "Apply a thin layer of the cream to the affected areas of clean, dry skin once daily. Wash hands thoroughly after application.",
+    shippingReturns: "Shipped in protective temperature-stable packaging. Easy refunds on defective tubes.",
+    image: "https://images.unsplash.com/photo-1608248597481-496100c80836?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
+    thumbnails: [
+      "https://images.unsplash.com/photo-1608248597481-496100c80836?w=100&auto=format&fit=crop&q=60"
+    ],
+    inStock: true,
+    brand: "Healing Pharma",
+    form: "Cream"
+  },
+  {
+    id: "iver-1-lotion",
+    name: "Iver 1% Lotion",
+    substance: "Ivermectin 1%",
+    category: "Anti Parasite",
+    categoryKey: "anti-parasite",
+    price: 15.0,
+    unit: "1 Bottle",
+    rating: 4.4,
+    reviewsCount: 94,
+    manufacturer: "Healing Pharma",
+    composition: "Ivermectin 1% w/v",
+    packaging: "60ml Bottle",
+    shelfLife: "24 Months",
+    description: "Iver 1% Lotion is an FDA-approved topical treatment for head lice infestations in patients 6 months of age and older. Easy to apply, it kills lice and their eggs efficiently.",
+    benefits: "Single-application formula for hair and scalp. Non-greasy texture, easy to wash off. Extremely effective against adult lice and nits.",
+    sideEffects: "Dry skin, skin burning feeling, or redness on the scalp. Rinse immediately if it enters the eyes.",
+    howToUse: "Apply directly to dry hair and scalp, coating the entire hair. Leave it on for 10 minutes, then rinse completely with warm water.",
+    shippingReturns: "Packed securely in leaks-proof plastic seal. Flat rate delivery options.",
+    image: "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
+    thumbnails: [
+      "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=100&auto=format&fit=crop&q=60"
+    ],
+    inStock: true,
+    brand: "Healing Pharma",
+    form: "Lotion"
+  },
+  {
+    id: "doxycycline-100",
+    name: "Doxycycline 100mg",
+    substance: "Doxycycline",
+    category: "Antibiotics",
+    categoryKey: "antibiotics",
+    price: 25.0,
+    unit: "10x10 Tablet Box",
+    rating: 4.7,
+    reviewsCount: 934,
+    manufacturer: "Sun Pharma",
+    composition: "Doxycycline 100mg",
+    packaging: "100 Tablets (10 Strips)",
+    shelfLife: "36 Months",
+    description: "Doxycycline is a broad-spectrum tetracycline antibiotic used to treat a wide variety of bacterial infections, such as urinary tract infections, acne, gonorrhea, chlamydia, periodontitis, and malaria prophylaxis.",
+    benefits: "Stops the growth of bacteria, providing quick healing for respiratory and dermal bacterial infections. High bioavailability and low resistance rates.",
+    sideEffects: "Nausea, vomiting, diarrhea, stomach upset, or increased sensitivity of the skin to sunlight (photosensitivity). Use sunscreen outdoors.",
+    howToUse: "Take with a full glass of water. It is best taken on an empty stomach, but can be taken with food if stomach upset occurs. Do not lie down for 30 minutes after taking.",
+    shippingReturns: "Secure medical carton packaging. Certified authentic batches from Sun Pharma.",
+    image: "https://images.unsplash.com/photo-1584017911766-d451b3d0e843?w=500&auto=format&fit=crop&q=60",
+    thumbnails: [
+      "https://images.unsplash.com/photo-1584017911766-d451b3d0e843?w=100&auto=format&fit=crop&q=60"
+    ],
+    badges: ["Antibiotics"],
+    inStock: true,
+    brand: "Sun Pharma",
+    form: "Tablet"
+  },
+  {
+    id: "tramadol-100",
+    name: "Tramadol 100mg",
+    substance: "Tramadol",
+    category: "Pain Relief",
+    categoryKey: "pain-relief",
+    price: 18.0,
+    unit: "10x10 Tablet Box",
+    rating: 4.8,
+    reviewsCount: 1542,
+    manufacturer: "Cipla",
+    composition: "Tramadol Hydrochloride 100mg",
+    packaging: "100 Tablets (10 Strips)",
+    shelfLife: "36 Months",
+    description: "Tramadol 100mg is an opioid pain medication used to treat moderate to moderately severe pain. It acts on the central nervous system to relieve pain by altering the way the brain perceives discomfort.",
+    benefits: "Effective management of post-operative or chronic severe pain. Rapid onset of analgesic effects.",
+    sideEffects: "Constipation, nausea, dizziness, drowsiness, sweating, or dry mouth. May be habit-forming; use strictly as prescribed.",
+    howToUse: "Take the tablet as directed by your physician. Do not crush or break extended-release formulations. Avoid alcohol consumption.",
+    shippingReturns: "Double-layered discreet packaging. Subject to local regulatory documentation checks upon ordering.",
+    image: "https://images.unsplash.com/photo-1471864190281-a93a3070b6de?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
+    thumbnails: [
+      "https://images.unsplash.com/photo-1471864190281-a93a3070b6de?w=100&auto=format&fit=crop&q=60"
+    ],
+    badges: ["Pain Relief"],
+    inStock: true,
+    brand: "Cipla",
+    form: "Tablet"
+  },
+  {
+    id: "mifegest-kit",
+    name: "Mifegest Kit",
+    substance: "Mifepristone + Misoprostol",
+    category: "Contraceptives",
+    categoryKey: "contraceptives",
+    price: 45.0,
+    unit: "1 Kit",
+    rating: 4.9,
+    reviewsCount: 2410,
+    manufacturer: "Zydus Cadila",
+    composition: "Mifepristone 200mg (1 Tab) + Misoprostol 200mcg (4 Tabs)",
+    packaging: "5 Tablets Kit",
+    shelfLife: "24 Months",
+    description: "Mifegest Kit is a combination medicine used for medical termination of pregnancy. It blocks progesterone action and causes uterine contractions to expel the pregnancy contents.",
+    benefits: "Safe and effective non-surgical option for early pregnancy termination (up to 9 weeks). Globally recognized formulation.",
+    sideEffects: "Heavy bleeding, severe abdominal pain, nausea, diarrhea, or fever. Immediate medical supervision is highly advised.",
+    howToUse: "Use strictly under the guidance of a gynecologist. Follow the specific scheduling instructions for Mifepristone first, followed by Misoprostol.",
+    shippingReturns: "Express shipping in highly discreet, unmarked envelope. Fast checkout and support.",
+    image: "https://images.unsplash.com/photo-1584017911766-d451b3d0e843?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
+    thumbnails: [
+      "https://images.unsplash.com/photo-1584017911766-d451b3d0e843?w=100&auto=format&fit=crop&q=60"
+    ],
+    badges: ["Contraceptives"],
+    inStock: true,
+    brand: "Swiss",
+    form: "Tablet"
+  },
+  {
+    id: "testosterone-250",
+    name: "Testosterone Injection",
+    substance: "Testosterone 250mg",
+    category: "Hormone Therapy",
+    categoryKey: "hormone-therapy",
+    price: 32.0,
+    unit: "1 Vial",
+    rating: 4.7,
+    reviewsCount: 310,
+    manufacturer: "Healing Pharma",
+    composition: "Testosterone Enanthate 250mg/ml",
+    packaging: "1 Vial (10ml)",
+    shelfLife: "36 Months",
+    description: "Testosterone Enanthate Injection is used to treat testosterone deficiency in men, including hypogonadism and related symptoms. It helps restore normal hormone levels to support bone, muscle, and vitality health.",
+    benefits: "Promotes muscle growth, energy restoration, and secondary male sexual characteristics. Slow-release ester formulation.",
+    sideEffects: "Acne, hair loss, voice deepening, mood swings, or injection site soreness. Regularly monitor blood pressure.",
+    howToUse: "Must be administered as an intramuscular injection into the gluteal muscle by a healthcare professional.",
+    shippingReturns: "Shipped in bubble-wrap shockproof packaging. Cold-chain storage maintained up to dispatch.",
+    image: "https://images.unsplash.com/photo-1611078489935-0cb964de46d6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
+    thumbnails: [
+      "https://images.unsplash.com/photo-1611078489935-0cb964de46d6?w=100&auto=format&fit=crop&q=60"
+    ],
+    badges: ["Hormone Therapy"],
+    inStock: true,
+    brand: "Healing Pharma",
+    form: "Injection"
+  },
+  {
+    id: "vitamin-d3-60k",
+    name: "Vitamin D3 60K",
+    substance: "Cholecalciferol 60000 IU",
+    category: "Vitamins & Supplements",
+    categoryKey: "vitamins-supplements",
+    price: 12.0,
+    unit: "4 Capsules",
+    rating: 4.8,
+    reviewsCount: 2280,
+    manufacturer: "Sun Pharma",
+    composition: "Cholecalciferol 60,000 IU",
+    packaging: "4 Softgel Capsules",
+    shelfLife: "24 Months",
+    description: "Vitamin D3 60K softgels contain high-dose Cholecalciferol (Vitamin D3). It is indicated for the treatment and prevention of Vitamin D deficiency, supporting calcium absorption, bone strength, and immunity.",
+    benefits: "Treats bone weakness, osteoporosis, and enhances general immune response. Convenient weekly dosing schedule.",
+    sideEffects: "Constipation, increased thirst, weakness, or metallic taste (only in case of extreme overdose).",
+    howToUse: "Take 1 capsule weekly with a meal or as recommended by your physician. Swallow the capsule whole.",
+    shippingReturns: "Standard delivery packing. High resistance to humidity.",
+    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=500&auto=format&fit=crop&q=60",
+    thumbnails: [
+      "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=100&auto=format&fit=crop&q=60"
+    ],
+    badges: ["Vitamins"],
+    inStock: true,
+    brand: "Sun Pharma",
+    form: "Capsule"
+  },
+  {
+    id: "alprazolam-05",
+    name: "Alprazolam 0.5mg",
+    substance: "Alprazolam",
+    category: "Sleeping Disorder",
+    categoryKey: "sleeping-disorder",
+    price: 10.0,
+    unit: "10x10 Tablet Box",
+    rating: 4.8,
+    reviewsCount: 1812,
+    manufacturer: "Cipla",
+    composition: "Alprazolam 0.5mg",
+    packaging: "100 Tablets (10 Strips)",
+    shelfLife: "36 Months",
+    description: "Alprazolam is a benzodiazepine used to treat anxiety disorders, panic disorders, and anxiety caused by depression. It acts on the brain and nerves to produce a calming effect.",
+    benefits: "Induces calming effects within 30-60 minutes. Aids in treating insomnia related to panic or anxiety state.",
+    sideEffects: "Drowsiness, lightheadedness, dry mouth, changes in sex drive, or increased saliva production. Highly addictive; use only as instructed.",
+    howToUse: "Take strictly at bedtime or as scheduled by your psychiatrist. Avoid driving or alcohol intake while using.",
+    shippingReturns: "Highly controlled substance. Shipped in tamper-proof security package. Verification of medical license or prescription copy required.",
+    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
+    thumbnails: [
+      "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=100&auto=format&fit=crop&q=60"
+    ],
+    badges: ["Sleeping Disorder"],
+    inStock: true,
+    brand: "Cipla",
+    form: "Tablet"
+  }
+];
