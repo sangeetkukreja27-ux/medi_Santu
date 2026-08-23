@@ -474,25 +474,17 @@ const router = useRouter();
                       <span className="block text-[9px] text-slate-400 font-bold uppercase -mt-0.5">{product.unit}</span>
                     </div>
                     
-                    {/* Action Bar (Mockup Style: Left Cart box, Right Buy Now) */}
-                    <div className="grid grid-cols-12 gap-1.5 w-full items-center mt-1">
-                      <button 
-                        onClick={() => addToCart(product, 1)}
-                        className={`col-span-4 py-2 border rounded-xl flex items-center justify-center transition-all ${
-                          isItemInCart 
-                            ? "bg-emerald-50 text-emerald-600 border-emerald-500/10" 
-                            : "bg-white text-slate-400 border-slate-200 hover:text-[#005B41]"
-                        }`}
-                      >
-                        <ShoppingCart className="w-3.5 h-3.5" />
-                      </button>
-                      <button 
-                        onClick={() => openInquiryModal(product)}
-                        className="col-span-8 bg-[#005B41] hover:bg-[#004833] text-white py-2 rounded-xl text-[10px] font-black uppercase tracking-wider transition-all text-center hover:scale-[1.02] cursor-pointer"
-                      >
-                        Inquire Now
-                      </button>
-                    </div>
+                    <button 
+                      onClick={() => addToCart(product, 1)}
+                      className={`w-full py-2.5 rounded-xl text-[11px] font-extrabold uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 shadow-sm cursor-pointer mt-1 ${
+                        isItemInCart 
+                          ? "bg-[#00A877] text-white" 
+                          : "bg-[#005B41] hover:bg-[#004833] text-white hover:scale-[1.02]"
+                      }`}
+                    >
+                      <ShoppingCart className="w-3.5 h-3.5" />
+                      <span>{isItemInCart ? "Added in Basket" : "Add to Cart"}</span>
+                    </button>
 
                   </div>
                 </div>

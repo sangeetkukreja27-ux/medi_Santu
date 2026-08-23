@@ -262,24 +262,19 @@ export default function ProductDetailPage() {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-1">
-              <button 
-                type="button"
-                onClick={() => product && addToCart(product, quantity)}
-                className="bg-slate-100 hover:bg-slate-200 text-slate-800 py-3.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer border border-slate-200"
-              >
-                <ShoppingCart className="w-4 h-4 text-[#005B41]" />
-                <span>Add to Cart</span>
-              </button>
-
-              <button 
-                type="submit"
-                className="bg-[#005B41] hover:bg-[#004833] text-white py-3.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all shadow-md shadow-[#005b41]/10 flex items-center justify-center gap-2 hover:scale-[1.02] cursor-pointer"
-              >
-                <span>Inquire Now</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
-            </div>
+            <button 
+              type="button"
+              onClick={() => {
+                if (product) {
+                  addToCart(product, quantity);
+                  router.push("/cart");
+                }
+              }}
+              className="bg-[#005B41] hover:bg-[#004833] text-white py-4 rounded-xl text-xs font-extrabold uppercase tracking-wider transition-all shadow-md shadow-[#005b41]/10 flex items-center justify-center gap-2 hover:scale-[1.02] cursor-pointer mt-1"
+            >
+              <ShoppingCart className="w-4 h-4 text-white" />
+              <span>Add to Cart & View Basket</span>
+            </button>
           </form>
 
           {/* Direct channels */}

@@ -494,25 +494,17 @@ const ProductsContent: React.FC = () => {
                           <span className="block text-[9px] text-slate-400 font-semibold uppercase -mt-0.5">{product.unit}</span>
                         </div>
                         
-                        {/* Action Bar (Mockup Style: Left Cart box, Right Buy Now) */}
-                        <div className="flex items-center gap-1.5 w-2/3">
-                          <button 
-                            onClick={() => addToCart(product, 1)}
-                            className={`py-2 px-2.5 border rounded-xl flex items-center justify-center transition-all flex-1 ${
-                              isItemInCart 
-                                ? "bg-emerald-50 text-emerald-600 border-emerald-500/10" 
-                                : "bg-white text-slate-400 border-slate-200 hover:text-[#005B41]"
-                            }`}
-                          >
-                            <ShoppingCart className="w-3.5 h-3.5" />
-                          </button>
-                          <button
-                            onClick={() => openInquiryModal(product)}
-                            className="bg-[#005B41] hover:bg-[#004833] text-white py-2 px-4 rounded-xl text-[10px] font-black uppercase tracking-wider transition-all text-center hover:scale-[1.02] flex-[2] cursor-pointer"
-                          >
-                            Inquire Now
-                          </button>
-                        </div>
+                        <button 
+                          onClick={() => addToCart(product, 1)}
+                          className={`w-full py-2.5 rounded-xl text-[11px] font-extrabold uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 shadow-sm cursor-pointer mt-1 ${
+                            isItemInCart 
+                              ? "bg-[#00A877] text-white" 
+                              : "bg-[#005B41] hover:bg-[#004833] text-white hover:scale-[1.02]"
+                          }`}
+                        >
+                          <ShoppingCart className="w-3.5 h-3.5" />
+                          <span>{isItemInCart ? "Added in Basket" : "Add to Cart"}</span>
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -570,14 +562,15 @@ const ProductsContent: React.FC = () => {
                       </div>
                       
                       <button
-                        onClick={() => openInquiryModal(product)}
-                        className={`w-full sm:w-auto px-4 py-2.5 rounded-xl text-xs font-bold tracking-wide transition-all shadow-sm cursor-pointer ${
+                        onClick={() => addToCart(product, 1)}
+                        className={`w-full sm:w-auto px-5 py-2.5 rounded-xl text-xs font-extrabold uppercase tracking-wider transition-all shadow-sm flex items-center justify-center gap-2 cursor-pointer ${
                           isItemInCart 
-                            ? "bg-[#00A877] text-white hover:bg-[#008f64]" 
+                            ? "bg-[#00A877] text-white" 
                             : "bg-[#005B41] text-white hover:bg-[#004833]"
                         }`}
                       >
-                        Inquire Now
+                        <ShoppingCart className="w-3.5 h-3.5" />
+                        <span>{isItemInCart ? "Added in Basket" : "Add to Cart"}</span>
                       </button>
                     </div>
                   </div>
