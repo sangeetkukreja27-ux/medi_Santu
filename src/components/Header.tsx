@@ -141,7 +141,7 @@ export const Header: React.FC = () => {
                 <img 
                   src={siteLogo} 
                   alt="trustedmedshop" 
-                  style={{ height: `${Math.min(siteLogoHeight, 48)}px` }} 
+                  style={{ height: `${siteLogoHeight}px` }} 
                   className="w-auto object-contain max-w-[190px] sm:max-w-[260px] transition-all" 
                 />
               ) : (
@@ -306,7 +306,7 @@ export const Header: React.FC = () => {
               <div className="flex justify-between items-center border-b border-slate-100 pb-3.5">
                 <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-2">
                   {siteLogo ? (
-                    <img src={siteLogo} alt="Logo" style={{ height: `${Math.min(siteLogoHeight, 40)}px` }} className="w-auto object-contain max-w-[160px]" />
+                    <img src={siteLogo} alt="Logo" style={{ height: `${siteLogoHeight}px` }} className="w-auto object-contain max-w-[160px]" />
                   ) : (
                     <span className="text-base font-bold text-[#0A3981]">
                       trusted<span className="text-[#00A86B]">medshop</span>
