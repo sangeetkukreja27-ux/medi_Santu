@@ -172,8 +172,8 @@ const router = useRouter();
   return (
     <div className="w-full flex flex-col bg-[#F8FAF9] font-sans pb-10">
       
-      {/* 1. HERO SECTION (ULTRA COMPACT FIT-TO-SCREEN) */}
-      <section className="relative w-full bg-gradient-to-br from-[#EBF3FA] via-[#F4F8FC] to-[#FFFFFF] overflow-hidden py-3 sm:py-4 lg:py-5 border-b border-slate-100">
+      {/* 1. HERO SECTION (IDEAL BALANCED FIT-TO-SCREEN) */}
+      <section className="relative w-full bg-gradient-to-br from-[#EBF3FA] via-[#F4F8FC] to-[#FFFFFF] overflow-hidden py-4 sm:py-5 lg:py-7 border-b border-slate-100">
         
         {/* World Map Outline SVG Vector Background */}
         <div className="absolute inset-0 opacity-15 pointer-events-none z-0">
@@ -193,7 +193,7 @@ const router = useRouter();
         </div>
 
         {/* Floating Passenger Plane Image Graphics */}
-        <div className="absolute right-6 top-4 sm:right-16 sm:top-6 w-24 sm:w-40 opacity-80 pointer-events-none select-none z-10 animate-pulse">
+        <div className="absolute right-8 top-5 sm:right-20 sm:top-6 w-28 sm:w-44 opacity-85 pointer-events-none select-none z-10 animate-pulse">
           <img 
             src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=300&auto=format&fit=crop" 
             alt="Aircraft" 
@@ -201,33 +201,33 @@ const router = useRouter();
           />
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6 items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-7 items-center">
           
           {/* Left Text Block */}
-          <div className="lg:col-span-6 flex flex-col items-start text-left gap-2.5 sm:gap-3">
+          <div className="lg:col-span-6 flex flex-col items-start text-left gap-3 sm:gap-3.5">
             
             {/* Badge pill */}
-            <div className="inline-flex items-center gap-1.5 bg-[#0A3981]/10 text-[#0A3981] py-0.5 px-3 rounded-full text-[10px] sm:text-[11px] font-bold border border-[#0A3981]/20">
-              <Globe className="w-3 h-3 text-[#00A86B]" />
+            <div className="inline-flex items-center gap-1.5 bg-[#0A3981]/10 text-[#0A3981] py-1 px-3.5 rounded-full text-[11px] font-bold border border-[#0A3981]/20">
+              <Globe className="w-3.5 h-3.5 text-[#00A86B]" />
               <span>{settings.heroSubTitle}</span>
             </div>
 
             {/* Main Title */}
-            <h1 className="text-xl sm:text-3xl lg:text-3xl font-black text-[#0A3981] tracking-tight leading-tight whitespace-pre-line">
+            <h1 className="text-2xl sm:text-4xl lg:text-4xl font-black text-[#0A3981] tracking-tight leading-tight whitespace-pre-line">
               {renderTitle()}
             </h1>
 
             {/* Paragraph Description */}
-            <p className="text-slate-600 text-xs leading-normal max-w-md">
+            <p className="text-slate-600 text-xs sm:text-sm leading-relaxed max-w-lg">
               {settings.heroDescription}
             </p>
 
             {/* Check points benefits list */}
-            <div className="grid grid-cols-2 gap-1.5 text-[11px] font-bold text-slate-700 w-full max-w-md">
+            <div className="grid grid-cols-2 gap-2 text-xs font-bold text-slate-700 w-full max-w-lg">
               {settings.heroBenefits.map((benefit, bidx) => (
-                <div key={bidx} className="flex items-center gap-1.5">
+                <div key={bidx} className="flex items-center gap-2">
                   <div className="bg-[#00A86B] text-white p-0.5 rounded-full flex-shrink-0">
-                    <Check className="w-2.5 h-2.5" />
+                    <Check className="w-3 h-3" />
                   </div>
                   <span className="truncate">{benefit}</span>
                 </div>
@@ -235,70 +235,64 @@ const router = useRouter();
             </div>
 
             {/* WhatsApp / Telegram / Email cards grid layout row */}
-            <div className="grid grid-cols-3 gap-2.5 w-full max-w-md mt-0.5 text-xs font-semibold">
+            <div className="grid grid-cols-3 gap-3 w-full max-w-lg mt-1 text-xs font-semibold">
               <a 
                 href={settings.whatsappLink} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="bg-white hover:bg-slate-50 border border-slate-150 p-2 rounded-xl flex items-center gap-2 shadow-sm hover:shadow transition-all group"
+                className="bg-white hover:bg-slate-50 border border-slate-150 p-2.5 sm:p-3 rounded-2xl flex flex-col gap-0.5 items-start shadow-sm hover:shadow transition-all group"
               >
-                <div className="text-[#25D366] bg-[#25D366]/15 p-1.5 rounded-lg group-hover:scale-105 transition-transform flex-shrink-0">
-                  <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                <div className="text-[#25D366] bg-[#25D366]/15 p-1.5 rounded-xl group-hover:scale-105 transition-transform">
+                  <svg className="w-4.5 h-4.5 fill-current" viewBox="0 0 24 24">
                     <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.42 9.864-9.852.002-2.631-1.019-5.105-2.876-6.964a9.813 9.813 0 0 0-6.99-2.883c-5.441 0-9.867 4.422-9.87 9.854-.002 1.761.472 3.479 1.374 5.01l-1.025 3.74 3.864-1.013c1.513.826 3.185 1.258 4.717 1.258zm5.409-12.78c-.27-.604-.554-.616-.81-.627-.21-.008-.45-.008-.69-.008-.24 0-.63.09-1.01.5-.38.41-1.44 1.41-1.44 3.43s1.47 3.98 1.67 4.26c.2.28 2.9 4.43 7.03 6.21 1 .43 1.78.69 2.39.88.94.3 1.8.26 2.48.16.76-.11 2.33-.95 2.66-1.87.33-.92.33-1.71.23-1.87-.1-.16-.38-.26-.81-.47-.43-.21-2.54-1.25-2.93-1.39-.39-.14-.68-.21-.97.21-.29.42-1.12 1.39-1.37 1.67-.25.28-.5.31-.93.1-.43-.21-1.8-1.02-3.43-2.47-1.27-1.13-2.13-2.53-2.38-2.96-.25-.43-.03-.66.19-.87.2-.19.43-.51.65-.76.22-.25.3-.43.45-.72.15-.29.07-.55-.04-.76-.11-.21-.81-1.95-1.11-2.68z" />
                   </svg>
                 </div>
-                <div className="flex flex-col text-left min-w-0">
-                  <span className="font-bold text-slate-800 text-[11px] leading-tight truncate">WhatsApp</span>
-                  <span className="text-[8px] text-[#00A877] uppercase tracking-wider font-extrabold truncate">Chat Now</span>
-                </div>
+                <span className="block font-bold text-slate-700 text-xs leading-none mt-1">WhatsApp</span>
+                <span className="block text-[9px] text-[#00A877] uppercase tracking-wider font-extrabold">Chat Now</span>
               </a>
 
               <a 
                 href={settings.telegramLink} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="bg-white hover:bg-slate-50 border border-slate-150 p-2 rounded-xl flex items-center gap-2 shadow-sm hover:shadow transition-all group"
+                className="bg-white hover:bg-slate-50 border border-slate-150 p-2.5 sm:p-3 rounded-2xl flex flex-col gap-0.5 items-start shadow-sm hover:shadow transition-all group"
               >
-                <div className="text-[#0088cc] bg-[#0088cc]/15 p-1.5 rounded-lg group-hover:scale-105 transition-transform flex-shrink-0">
-                  <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                <div className="text-[#0088cc] bg-[#0088cc]/15 p-1.5 rounded-xl group-hover:scale-105 transition-transform">
+                  <svg className="w-4.5 h-4.5 fill-current" viewBox="0 0 24 24">
                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-1-.65-.35-1 .22-1.62.15-.15 2.72-2.5 2.77-2.7.01-.03.01-.13-.05-.19-.06-.05-.14-.04-.2-.02-.08.02-1.35.86-3.82 2.53-.36.25-.69.37-.98.36-.32-.01-.94-.18-1.4-.33-.56-.18-1-.28-.96-.59.02-.16.24-.33.67-.5 2.62-1.14 4.37-1.89 5.25-2.25 2.5-1.02 3.02-1.2 3.36-1.2.07 0 .24.02.35.12.09.08.12.18.13.26.01.07.01.14 0 .22z" />
                   </svg>
                 </div>
-                <div className="flex flex-col text-left min-w-0">
-                  <span className="font-bold text-slate-800 text-[11px] leading-tight truncate">Telegram</span>
-                  <span className="text-[8px] text-[#00A877] uppercase tracking-wider font-extrabold truncate">Message Us</span>
-                </div>
+                <span className="block font-bold text-slate-700 text-xs leading-none mt-1">Telegram</span>
+                <span className="block text-[9px] text-[#00A877] uppercase tracking-wider font-extrabold">Message Us</span>
               </a>
 
               <Link 
                 href="/contact" 
-                className="bg-white hover:bg-slate-50 border border-slate-150 p-2 rounded-xl flex items-center gap-2 shadow-sm hover:shadow transition-all group"
+                className="bg-white hover:bg-slate-50 border border-slate-150 p-2.5 sm:p-3 rounded-2xl flex flex-col gap-0.5 items-start shadow-sm hover:shadow transition-all group"
               >
-                <div className="text-[#005B41] bg-[#005B41]/15 p-1.5 rounded-lg group-hover:scale-105 transition-transform flex-shrink-0">
-                  <Mail className="w-4 h-4 text-[#005B41]" />
+                <div className="text-[#005B41] bg-[#005B41]/15 p-1.5 rounded-xl group-hover:scale-105 transition-transform">
+                  <Mail className="w-4.5 h-4.5 text-[#005B41]" />
                 </div>
-                <div className="flex flex-col text-left min-w-0">
-                  <span className="font-bold text-slate-800 text-[11px] leading-tight truncate">Email Us</span>
-                  <span className="text-[8px] text-[#00A877] uppercase tracking-wider font-extrabold truncate">Send Inquiry</span>
-                </div>
+                <span className="block font-bold text-slate-700 text-xs leading-none mt-1">Email Us</span>
+                <span className="block text-[9px] text-[#00A877] uppercase tracking-wider font-extrabold">Send Inquiry</span>
               </Link>
             </div>
 
           </div>
 
           {/* Right Product Collage Block */}
-          <div className="lg:col-span-6 relative flex items-center justify-center py-2 sm:py-0">
-            <div className="relative max-w-xs sm:max-w-sm w-full flex items-center justify-center p-3 sm:p-4 border-2 border-dashed border-[#005b41]/10 rounded-[28px] bg-white/20 backdrop-blur-sm">
+          <div className="lg:col-span-6 relative flex items-center justify-center py-3 sm:py-0">
+            <div className="relative max-w-sm sm:max-w-md w-full flex items-center justify-center p-3.5 sm:p-4.5 border-2 border-dashed border-[#005b41]/10 rounded-[32px] bg-white/20 backdrop-blur-sm">
               <img 
                 src={settings.heroImage} 
                 alt="Medicine sourcing collection" 
-                className="rounded-xl shadow-lg border border-white/60 w-full h-auto object-cover max-h-[210px] sm:max-h-[240px] animate-float-slow"
+                className="rounded-2xl shadow-xl border border-white/60 w-full h-auto object-cover max-h-[240px] sm:max-h-[275px] animate-float-slow"
               />
 
               {/* Quality Stamps Badge */}
-              <div className="absolute -bottom-3 -right-2 sm:-right-3 bg-[#00A86B] text-white p-2.5 w-16 h-16 sm:w-20 sm:h-20 rounded-full flex flex-col items-center justify-center border-[3px] border-white shadow-lg text-center leading-none select-none z-10 animate-pulse-glow hover:scale-105 transition-transform duration-300">
-                <span className="block text-[7px] uppercase font-black tracking-widest text-[#0b241e]/70">Quality</span>
-                <span className="block text-[9px] sm:text-[10px] font-black tracking-tight uppercase leading-snug my-0.5">Approved</span>
+              <div className="absolute -bottom-3.5 -right-2 sm:-right-3 bg-[#00A86B] text-white p-2.5 w-18 h-18 sm:w-22 sm:h-22 rounded-full flex flex-col items-center justify-center border-[3.5px] border-white shadow-xl text-center leading-none select-none z-10 animate-pulse-glow hover:scale-105 transition-transform duration-300">
+                <span className="block text-[7.5px] uppercase font-black tracking-widest text-[#0b241e]/70">Quality</span>
+                <span className="block text-[10px] sm:text-[11px] font-black tracking-tight uppercase leading-snug my-0.5">Approved</span>
                 <span className="block text-[6px] uppercase font-black text-[#0b241e]/50">Guaranteed</span>
               </div>
             </div>
