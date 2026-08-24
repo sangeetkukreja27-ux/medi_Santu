@@ -11,6 +11,19 @@ import {
 } from "lucide-react";
 
 export const Footer: React.FC = () => {
+  const [siteLogo, setSiteLogo] = React.useState<string>("");
+
+  React.useEffect(() => {
+    fetch("/api/cms")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success && data.settings?.homepage?.siteLogoImage) {
+          setSiteLogo(data.settings.homepage.siteLogoImage);
+        }
+      })
+      .catch((err) => console.error("CMS Logo load error in Footer:", err));
+  }, []);
+
   return (
     <footer className="bg-[#0b241e] text-slate-300 font-sans border-t border-[#005B41]/30">
       
@@ -20,17 +33,23 @@ export const Footer: React.FC = () => {
         {/* Column 1: Brand & Info */}
         <div className="flex flex-col gap-5 md:col-span-1 sm:col-span-2 md:col-span-1">
           <Link href="/" className="flex items-center gap-3">
-            <div className="bg-[#00A877] p-2 rounded-xl flex items-center justify-center text-white shadow-lg shadow-[#00A877]/10">
-              <svg className="w-5.5 h-5.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-              </svg>
-            </div>
-            <div>
-              <span className="text-xl font-bold tracking-tight text-white flex items-center gap-1">
-                trusted<span className="text-[#00A877]">medshop</span>
-              </span>
-              <span className="block text-[9px] text-slate-400 font-semibold uppercase tracking-wider -mt-0.5">Verified medicine delivery</span>
-            </div>
+            {siteLogo ? (
+              <img src={siteLogo} alt="trustedmedshop" className="h-10 sm:h-12 w-auto object-contain max-w-[200px]" />
+            ) : (
+              <>
+                <div className="bg-[#00A877] p-2 rounded-xl flex items-center justify-center text-white shadow-lg shadow-[#00A877]/10">
+                  <svg className="w-5.5 h-5.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                  </svg>
+                </div>
+                <div>
+                  <span className="text-xl font-bold tracking-tight text-white flex items-center gap-1">
+                    trusted<span className="text-[#00A877]">medshop</span>
+                  </span>
+                  <span className="block text-[9px] text-slate-400 font-semibold uppercase tracking-wider -mt-0.5">Verified medicine delivery</span>
+                </div>
+              </>
+            )}
           </Link>
           <p className="text-xs sm:text-sm text-slate-400 leading-6">
             Global pharmaceutical importer & exporter of quality medicines. Trusted by healthcare providers worldwide. Delivering life-saving medicines to 107+ countries.

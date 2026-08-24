@@ -93,6 +93,7 @@ export default function AdminDashboard() {
   const [isUploadingImage, setIsUploadingImage] = useState(false);
 
   // Homepage CMS states
+  const [siteLogoImage, setSiteLogoImage] = useState("");
   const [heroSubTitle, setHeroSubTitle] = useState("");
   const [heroTitle, setHeroTitle] = useState("");
   const [heroTitleHighlight, setHeroTitleHighlight] = useState("");
@@ -110,6 +111,7 @@ export default function AdminDashboard() {
   const [isSavingHomepage, setIsSavingHomepage] = useState(false);
   const [homepageFeedback, setHomepageFeedback] = useState("");
   const [isUploadingHero, setIsUploadingHero] = useState(false);
+  const [isUploadingLogo, setIsUploadingLogo] = useState(false);
 
   // About Us CMS states
   const [aboutCorporateImg, setAboutCorporateImg] = useState("");
@@ -287,6 +289,7 @@ export default function AdminDashboard() {
       const data = await res.json();
       if (res.ok && data.success && data.settings) {
         const s = data.settings;
+        setSiteLogoImage(s.siteLogoImage || "");
         setHeroSubTitle(s.heroSubTitle || "");
         setHeroTitle(s.heroTitle || "");
         setHeroTitleHighlight(s.heroTitleHighlight || "");
@@ -307,6 +310,27 @@ export default function AdminDashboard() {
     }
   };
 
+  const handleLogoUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    if (!files || files.length === 0) return;
+    setIsUploadingLogo(true);
+    const formData = new FormData();
+    formData.append("file", files[0]);
+    try {
+      const res = await fetch("/api/admin/upload", { method: "POST", body: formData });
+      const data = await res.json();
+      if (res.ok && data.success) {
+        setSiteLogoImage(data.url);
+        setHomepageFeedback("Logo uploaded successfully!");
+        setTimeout(() => setHomepageFeedback(""), 3000);
+      }
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setIsUploadingLogo(false);
+    }
+  };
+
   const handleHomepageSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSavingHomepage(true);
@@ -315,6 +339,7 @@ export default function AdminDashboard() {
     const benefitsArray = heroBenefits.split(",").map(b => b.trim()).filter(b => b.length > 0);
     
     const payload = {
+      siteLogoImage,
       heroSubTitle,
       heroTitle,
       heroTitleHighlight,
@@ -1356,6 +1381,29 @@ export default function AdminDashboard() {
 
                 <form onSubmit={handleHomepageSubmit} className="flex flex-col gap-5 text-xs font-semibold text-left">
                   
+                  {/* Store Brand Logo Uploader */}
+                  <div className="flex flex-col gap-2 border-b border-slate-100 pb-5 bg-emerald-50/50 p-4 rounded-2xl border border-emerald-500/10">
+                    <span className="text-[10px] uppercase font-black tracking-wider text-[#005B41]">1. Store Brand Logo (Header & Footer)</span>
+                    <div className="flex items-center gap-3.5 border border-slate-200 rounded-xl p-3 bg-white focus-within:border-[#005B41] transition-all">
+                      <input 
+                        type="file" 
+                        accept="image/*"
+                        onChange={handleLogoUpload}
+                        className="text-xs text-slate-500 file:mr-3.5 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-[10px] file:font-bold file:bg-[#005B41]/10 file:text-[#005B41] hover:file:bg-[#005B41]/20 cursor-pointer flex-1"
+                      />
+                      {isUploadingLogo && <Loader2 className="w-4.5 h-4.5 animate-spin text-[#005B41]" />}
+                    </div>
+                    {siteLogoImage && (
+                      <div className="flex items-center gap-3 bg-white p-2.5 rounded-xl border border-slate-200 mt-1">
+                        <img src={siteLogoImage} alt="Active Logo" className="h-10 w-auto object-contain rounded border p-1" />
+                        <div className="text-[10px] truncate max-w-lg text-left">
+                          <span className="block font-bold text-slate-700">Active Logo Image URL</span>
+                          <span className="block text-slate-400 font-mono truncate">{siteLogoImage}</span>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+
                   {/* Hero banner credentials */}
                   <div className="flex flex-col gap-4 border-b border-slate-50 pb-5">
                     <span className="text-[10px] uppercase font-black tracking-wider text-[#005B41]">Hero Main Banner</span>
