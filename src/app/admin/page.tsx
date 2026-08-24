@@ -94,6 +94,7 @@ export default function AdminDashboard() {
 
   // Homepage CMS states
   const [siteLogoImage, setSiteLogoImage] = useState("");
+  const [siteLogoHeight, setSiteLogoHeight] = useState<number>(55);
   const [heroSubTitle, setHeroSubTitle] = useState("");
   const [heroTitle, setHeroTitle] = useState("");
   const [heroTitleHighlight, setHeroTitleHighlight] = useState("");
@@ -290,6 +291,7 @@ export default function AdminDashboard() {
       if (res.ok && data.success && data.settings) {
         const s = data.settings;
         setSiteLogoImage(s.siteLogoImage || "");
+        if (s.siteLogoHeight) setSiteLogoHeight(Number(s.siteLogoHeight));
         setHeroSubTitle(s.heroSubTitle || "");
         setHeroTitle(s.heroTitle || "");
         setHeroTitleHighlight(s.heroTitleHighlight || "");
@@ -340,6 +342,7 @@ export default function AdminDashboard() {
     
     const payload = {
       siteLogoImage,
+      siteLogoHeight,
       heroSubTitle,
       heroTitle,
       heroTitleHighlight,
@@ -1381,9 +1384,15 @@ export default function AdminDashboard() {
 
                 <form onSubmit={handleHomepageSubmit} className="flex flex-col gap-5 text-xs font-semibold text-left">
                   
-                  {/* Store Brand Logo Uploader */}
-                  <div className="flex flex-col gap-2 border-b border-slate-100 pb-5 bg-emerald-50/50 p-4 rounded-2xl border border-emerald-500/10">
-                    <span className="text-[10px] uppercase font-black tracking-wider text-[#005B41]">1. Store Brand Logo (Header & Footer)</span>
+                  {/* Store Brand Logo Uploader & Size Adjuster */}
+                  <div className="flex flex-col gap-3.5 border-b border-slate-100 pb-5 bg-emerald-50/50 p-4 rounded-2xl border border-emerald-500/10">
+                    <div className="flex justify-between items-center">
+                      <span className="text-[10px] uppercase font-black tracking-wider text-[#005B41]">1. Store Brand Logo & Size Adjuster</span>
+                      <span className="bg-[#005B41] text-white text-[10px] font-extrabold px-2.5 py-0.5 rounded-full">
+                        Current Height: {siteLogoHeight}px
+                      </span>
+                    </div>
+
                     <div className="flex items-center gap-3.5 border border-slate-200 rounded-xl p-3 bg-white focus-within:border-[#005B41] transition-all">
                       <input 
                         type="file" 
@@ -1393,12 +1402,62 @@ export default function AdminDashboard() {
                       />
                       {isUploadingLogo && <Loader2 className="w-4.5 h-4.5 animate-spin text-[#005B41]" />}
                     </div>
+
+                    {/* Logo Size Adjuster Controls */}
+                    <div className="flex flex-col gap-2 bg-white p-3.5 rounded-xl border border-slate-200">
+                      <div className="flex justify-between items-center text-xs font-bold text-slate-700">
+                        <label className="text-slate-600">Logo Size Adjuster (Height in Pixels):</label>
+                        <span className="text-[#00A877] font-extrabold">{siteLogoHeight} px</span>
+                      </div>
+                      
+                      <div className="flex items-center gap-3">
+                        <span className="text-[10px] text-slate-400 font-bold">30px</span>
+                        <input 
+                          type="range" 
+                          min="30" 
+                          max="120" 
+                          value={siteLogoHeight} 
+                          onChange={(e) => setSiteLogoHeight(Number(e.target.value))}
+                          className="flex-1 accent-[#005B41] cursor-pointer" 
+                        />
+                        <span className="text-[10px] text-slate-400 font-bold">120px</span>
+                      </div>
+
+                      {/* Quick Presets */}
+                      <div className="flex items-center gap-2 mt-1">
+                        <span className="text-[10px] text-slate-400 font-bold mr-1">Presets:</span>
+                        {[
+                          { label: "Small (40px)", size: 40 },
+                          { label: "Medium (55px)", size: 55 },
+                          { label: "Large (75px)", size: 75 },
+                          { label: "Extra Large (95px)", size: 95 }
+                        ].map((preset) => (
+                          <button
+                            key={preset.size}
+                            type="button"
+                            onClick={() => setSiteLogoHeight(preset.size)}
+                            className={`py-1 px-2.5 rounded-lg text-[10px] font-bold border transition-all cursor-pointer ${siteLogoHeight === preset.size ? "bg-[#005B41] text-white border-[#005B41]" : "bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100"}`}
+                          >
+                            {preset.label}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
                     {siteLogoImage && (
-                      <div className="flex items-center gap-3 bg-white p-2.5 rounded-xl border border-slate-200 mt-1">
-                        <img src={siteLogoImage} alt="Active Logo" className="h-10 w-auto object-contain rounded border p-1" />
-                        <div className="text-[10px] truncate max-w-lg text-left">
-                          <span className="block font-bold text-slate-700">Active Logo Image URL</span>
-                          <span className="block text-slate-400 font-mono truncate">{siteLogoImage}</span>
+                      <div className="flex items-center gap-4 bg-white p-3 rounded-xl border border-slate-200">
+                        <div className="bg-slate-50 p-2 rounded-lg border border-slate-100 flex items-center justify-center min-w-[100px]">
+                          <img 
+                            src={siteLogoImage} 
+                            alt="Active Logo" 
+                            style={{ height: `${siteLogoHeight}px` }} 
+                            className="w-auto object-contain max-w-[220px]" 
+                          />
+                        </div>
+                        <div className="text-[10px] truncate max-w-lg text-left flex flex-col gap-0.5">
+                          <span className="font-extrabold text-slate-800">Live Admin Logo Preview</span>
+                          <span className="text-[#00A877] font-bold">Height set to {siteLogoHeight}px</span>
+                          <span className="text-slate-400 font-mono truncate">{siteLogoImage}</span>
                         </div>
                       </div>
                     )}

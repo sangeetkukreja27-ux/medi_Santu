@@ -12,15 +12,16 @@ import {
 
 export const Footer: React.FC = () => {
   const [siteLogo, setSiteLogo] = React.useState<string>("");
+  const [siteLogoHeight, setSiteLogoHeight] = React.useState<number>(55);
 
   React.useEffect(() => {
     fetch(`/api/cms?t=${Date.now()}`)
       .then((res) => res.json())
       .then((data) => {
         const logo = data.cms?.homepage?.siteLogoImage || data.settings?.siteLogoImage || data.settings?.homepage?.siteLogoImage;
-        if (logo) {
-          setSiteLogo(logo);
-        }
+        const height = data.cms?.homepage?.siteLogoHeight || data.settings?.siteLogoHeight || data.settings?.homepage?.siteLogoHeight;
+        if (logo) setSiteLogo(logo);
+        if (height) setSiteLogoHeight(Number(height));
       })
       .catch((err) => console.error("CMS Logo load error in Footer:", err));
   }, []);
@@ -35,7 +36,12 @@ export const Footer: React.FC = () => {
         <div className="flex flex-col gap-5 md:col-span-1 sm:col-span-2 md:col-span-1">
           <Link href="/" className="flex items-center gap-3">
             {siteLogo ? (
-              <img src={siteLogo} alt="trustedmedshop" className="h-10 sm:h-12 w-auto object-contain max-w-[200px]" />
+              <img 
+                src={siteLogo} 
+                alt="trustedmedshop" 
+                style={{ height: `${siteLogoHeight}px` }} 
+                className="w-auto object-contain max-w-[280px] transition-all" 
+              />
             ) : (
               <>
                 <div className="bg-[#00A877] p-2 rounded-xl flex items-center justify-center text-white shadow-lg shadow-[#00A877]/10">
