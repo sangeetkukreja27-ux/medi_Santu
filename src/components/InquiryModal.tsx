@@ -122,10 +122,10 @@ export const InquiryModal: React.FC = () => {
       >
         
         {/* Modal Header */}
-        <div className="bg-[#005B41] text-white p-5 sm:p-6 flex justify-between items-center flex-shrink-0">
+        <div className="bg-gradient-to-r from-[#0A3981] to-[#072B63] text-white p-5 sm:p-6 flex justify-between items-center flex-shrink-0">
           <div className="flex items-center gap-3">
             <div className="bg-white/10 p-2 rounded-xl border border-white/10">
-              <ShieldCheck className="w-5 h-5 text-[#00A877]" />
+              <ShieldCheck className="w-5 h-5 text-[#00A86B]" />
             </div>
             <div>
               <h3 className="text-base sm:text-lg font-black tracking-tight leading-tight">Product Sourcing Inquiry</h3>
@@ -333,7 +333,7 @@ export const InquiryModal: React.FC = () => {
                   <button 
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full sm:w-auto bg-[#005B41] hover:bg-[#004833] text-white py-3.5 px-7 rounded-xl text-xs font-bold uppercase tracking-wider transition-all shadow-md shadow-[#005b41]/10 flex items-center justify-center gap-2 hover:scale-[1.02] cursor-pointer disabled:opacity-50"
+                    className="w-full sm:w-auto bg-gradient-to-r from-[#0A3981] to-[#00A86B] hover:opacity-95 text-white py-3.5 px-7 rounded-xl text-xs font-bold uppercase tracking-wider transition-all shadow-md shadow-[#0A3981]/20 flex items-center justify-center gap-2 hover:scale-[1.02] cursor-pointer disabled:opacity-50"
                   >
                     {isSubmitting ? (
                       <>

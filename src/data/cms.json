@@ -1,7 +1,7 @@
 {
   "homepage": {
     "siteLogoImage": "/uploads/trustedmedshop_official_logo.png",
-    "siteLogoHeight": 55,
+    "siteLogoHeight": 76,
     "heroSubTitle": "Trusted by Healthcare. Chosen Worldwide.",
     "heroTitle": "Global Importer & Exporter of Quality Medicines",
     "heroTitleHighlight": "Quality Medicines",
@@ -9,7 +9,8 @@
     "heroBenefits": [
       "WHO-GMP Certified Products",
       "Wide Range of Trusted Brands",
-      "Safe, Secure & Timely Delivery"
+      "Safe",
+      "Secure & Timely Delivery"
     ],
     "heroImage": "https://images.unsplash.com/photo-1584017911766-d451b3d0e843?w=600&auto=format&fit=crop",
     "whatsappLink": "https://wa.me/919876543210",

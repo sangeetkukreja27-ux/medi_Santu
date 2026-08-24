@@ -87,10 +87,10 @@ export const Header: React.FC = () => {
   return (
     <header className="w-full flex flex-col z-50 bg-white">
       {/* Top Banner */}
-      <div className="w-full bg-[#005B41] text-white py-2 px-4 sm:px-6 lg:px-8 text-xs sm:text-sm">
+      <div className="w-full bg-[#0A3981] text-white py-2 px-4 sm:px-6 lg:px-8 text-xs sm:text-sm">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
           <div className="flex items-center gap-2">
-            <Globe className="w-4 h-4 text-[#00A877]" />
+            <Globe className="w-4 h-4 text-[#00A86B]" />
             <span>Global shipping to 107+ countries | Free shipping on orders over ₹1499</span>
           </div>
           <div className="flex items-center gap-6">
@@ -152,7 +152,7 @@ export const Header: React.FC = () => {
           </Link>
 
           {/* Search Bar */}
-          <form onSubmit={handleSearchSubmit} className="flex flex-1 w-full max-w-xl border border-slate-200 rounded-full bg-slate-50 hover:border-slate-300 focus-within:border-[#005B41] focus-within:ring-2 focus-within:ring-[#005B41]/10 transition-all overflow-hidden items-center">
+          <form onSubmit={handleSearchSubmit} className="flex flex-1 w-full max-w-xl border border-slate-200 rounded-full bg-slate-50 hover:border-slate-300 focus-within:border-[#0A3981] focus-within:ring-2 focus-within:ring-[#0A3981]/10 transition-all overflow-hidden items-center">
             <input 
               type="text" 
               placeholder="Search medicines or categories..." 
@@ -182,7 +182,7 @@ export const Header: React.FC = () => {
                         setSelectedCategory(cat);
                         setIsCategoryMenuOpen(false);
                       }}
-                      className={`w-full text-left px-4 py-2 text-xs font-medium text-slate-700 hover:bg-[#F4F7F6] hover:text-[#005B41] transition-colors ${selectedCategory === cat ? "bg-[#F4F7F6]/50 text-[#005B41] font-semibold" : ""}`}
+                      className={`w-full text-left px-4 py-2 text-xs font-medium text-slate-700 hover:bg-[#F0F5FA] hover:text-[#0A3981] transition-colors ${selectedCategory === cat ? "bg-[#F0F5FA] text-[#0A3981] font-semibold" : ""}`}
                     >
                       {cat}
                     </button>
@@ -191,35 +191,35 @@ export const Header: React.FC = () => {
               )}
             </div>
             
-            <button type="submit" className="bg-[#005B41] hover:bg-[#004833] text-white p-3 rounded-full mr-1 transition-colors flex items-center justify-center">
+            <button type="submit" className="bg-[#0A3981] hover:bg-[#072B63] text-white p-3 rounded-full mr-1 transition-colors flex items-center justify-center cursor-pointer">
               <Search className="w-4 h-4" />
             </button>
           </form>
 
           {/* User Account & Cart Info */}
           <div className="flex items-center gap-4 lg:gap-6 ml-2">
-            <Link href="/login" className="flex items-center gap-2 text-slate-700 hover:text-[#005B41] transition-colors group">
+            <Link href="/login" className="flex items-center gap-2 text-slate-700 hover:text-[#0A3981] transition-colors group">
               <div className="bg-slate-50 p-2 rounded-full group-hover:bg-slate-100 transition-colors border border-slate-200 shadow-sm">
-                <User className="w-4.5 h-4.5 text-slate-700 group-hover:text-[#005B41] transition-colors" />
+                <User className="w-4.5 h-4.5 text-slate-700 group-hover:text-[#0A3981] transition-colors" />
               </div>
               <div className="hidden xl:block text-left text-xs font-medium">
                 <span className="block text-slate-400 text-[10px] leading-tight font-semibold">My Account</span>
-                <span className="block text-slate-800 font-bold group-hover:text-[#005B41] text-xs">Sign In / Register</span>
+                <span className="block text-slate-800 font-bold group-hover:text-[#0A3981] text-xs">Sign In / Register</span>
               </div>
             </Link>
             
-            <Link href="/cart" className="flex items-center gap-2 text-slate-700 hover:text-[#005B41] transition-colors group relative">
+            <Link href="/cart" className="flex items-center gap-2 text-slate-700 hover:text-[#0A3981] transition-colors group relative">
               <div className="bg-slate-50 p-2 rounded-full group-hover:bg-slate-100 transition-colors relative border border-slate-200 shadow-sm">
-                <ShoppingCart className="w-4.5 h-4.5 text-slate-700 group-hover:text-[#005B41] transition-colors" />
+                <ShoppingCart className="w-4.5 h-4.5 text-slate-700 group-hover:text-[#0A3981] transition-colors" />
                 {cartCount > 0 && (
-                  <span className="absolute -top-1.5 -right-1.5 bg-[#00A877] text-white font-bold text-[10px] w-4.5 h-4.5 rounded-full flex items-center justify-center border-2 border-white">
+                  <span className="absolute -top-1.5 -right-1.5 bg-[#00A86B] text-white font-bold text-[10px] w-4.5 h-4.5 rounded-full flex items-center justify-center border-2 border-white">
                     {cartCount}
                   </span>
                 )}
               </div>
               <div className="hidden xl:block text-left text-xs font-medium">
                 <span className="block text-slate-400 text-[10px] leading-tight font-semibold">Your Cart</span>
-                <span className="block text-slate-800 font-bold group-hover:text-[#005B41] text-xs">{cartCount} Items</span>
+                <span className="block text-slate-800 font-bold group-hover:text-[#0A3981] text-xs">{cartCount} Items</span>
               </div>
             </Link>
           </div>
@@ -228,7 +228,7 @@ export const Header: React.FC = () => {
       </div>
 
       {/* Navigation & CTAs Bar */}
-      <div className="w-full border-b border-slate-100 bg-[#F8FAF9]/80 backdrop-blur-sm px-4 sm:px-6 lg:px-8">
+      <div className="w-full border-b border-slate-100 bg-[#F4F7FB]/80 backdrop-blur-sm px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto flex justify-between items-center py-2.5">
           
           {/* Desktop Nav Links */}
@@ -239,13 +239,13 @@ export const Header: React.FC = () => {
                 href={link.href}
                 className={`text-sm font-semibold tracking-wide transition-colors relative py-1.5 ${
                   isActive(link.href) 
-                    ? "text-[#005B41] font-bold" 
-                    : "text-slate-600 hover:text-[#005B41]"
+                    ? "text-[#0A3981] font-bold" 
+                    : "text-slate-600 hover:text-[#0A3981]"
                 }`}
               >
                 <span>{link.name}</span>
                 {isActive(link.href) && (
-                  <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#00A877] rounded-full" />
+                  <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#00A86B] rounded-full" />
                 )}
               </Link>
             ))}
@@ -255,7 +255,7 @@ export const Header: React.FC = () => {
           <button 
             type="button"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 text-slate-600 hover:text-[#005B41]"
+            className="md:hidden p-2 text-slate-600 hover:text-[#0A3981]"
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -264,7 +264,7 @@ export const Header: React.FC = () => {
           <div className="flex items-center gap-3.5">
             <button 
               onClick={() => openInquiryModal()}
-              className="bg-[#005B41] hover:bg-[#004833] text-white px-5 py-2 rounded-full text-xs sm:text-sm font-bold tracking-wide transition-all shadow-md shadow-[#005b41]/10 flex items-center gap-2 hover:scale-[1.02] cursor-pointer"
+              className="bg-gradient-to-r from-[#0A3981] to-[#00A86B] hover:opacity-95 text-white px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold tracking-wide transition-all shadow-md shadow-[#0A3981]/20 flex items-center gap-2 hover:scale-[1.02] cursor-pointer"
             >
               <span>Inquiry Now</span>
               <MessageSquare className="w-4 h-4" />

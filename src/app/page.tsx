@@ -108,7 +108,7 @@ const router = useRouter();
     return (
       <>
         {parts[0]}
-        <span className="text-[#00A877]">{highlight}</span>
+        <span className="text-[#00A86B]">{highlight}</span>
         {parts[1]}
       </>
     );
@@ -173,22 +173,22 @@ const router = useRouter();
     <div className="w-full flex flex-col bg-[#F8FAF9] font-sans pb-10">
       
       {/* 1. HERO SECTION */}
-      <section className="relative w-full bg-gradient-to-br from-[#E6F3EE] via-[#F1F7F4] to-[#FFFFFF] overflow-hidden py-14 sm:py-20 border-b border-slate-100">
+      <section className="relative w-full bg-gradient-to-br from-[#EBF3FA] via-[#F4F8FC] to-[#FFFFFF] overflow-hidden py-14 sm:py-20 border-b border-slate-100">
         
         {/* World Map Outline SVG Vector Background */}
         <div className="absolute inset-0 opacity-15 pointer-events-none z-0">
-          <svg className="w-full h-full" viewBox="0 0 1000 500" fill="none" stroke="#005B41" strokeWidth="0.8">
+          <svg className="w-full h-full" viewBox="0 0 1000 500" fill="none" stroke="#0A3981" strokeWidth="0.8">
             {/* World continents contour simplified */}
             <path d="M150 150 Q180 100 230 110 T300 130 T320 200 T280 250 T200 240 Z" />
             <path d="M400 120 Q480 80 550 100 T650 110 T720 150 T680 250 T550 300 T480 250 Z" />
             <path d="M180 280 Q220 320 250 380 T200 450 T150 420 Z" />
             <path d="M750 250 Q800 280 850 300 T900 350 T880 440 T780 400 Z" />
             {/* Coordinates grids */}
-            <circle cx="220" cy="180" r="3" fill="#00A877" />
-            <circle cx="580" cy="190" r="3" fill="#00A877" />
-            <circle cx="820" cy="310" r="3" fill="#00A877" />
-            <circle cx="490" cy="220" r="3" fill="#00A877" />
-            <path d="M220 180 L490 220 M490 220 L580 190 M580 190 L820 310" strokeDasharray="3,3" stroke="#00A877" strokeWidth="1" />
+            <circle cx="220" cy="180" r="3" fill="#00A86B" />
+            <circle cx="580" cy="190" r="3" fill="#00A86B" />
+            <circle cx="820" cy="310" r="3" fill="#00A86B" />
+            <circle cx="490" cy="220" r="3" fill="#00A86B" />
+            <path d="M220 180 L490 220 M490 220 L580 190 M580 190 L820 310" strokeDasharray="3,3" stroke="#00A86B" strokeWidth="1" />
           </svg>
         </div>
 
@@ -207,8 +207,8 @@ const router = useRouter();
           <div className="lg:col-span-6 flex flex-col items-start text-left gap-6">
             
             {/* Badge pill */}
-            <div className="inline-flex items-center gap-1.5 bg-[#005b41]/5 text-[#005B41] py-1.5 px-4 rounded-full text-xs font-bold border border-[#005b41]/10">
-              <Globe className="w-3.5 h-3.5 text-[#00A877]" />
+            <div className="inline-flex items-center gap-1.5 bg-[#0A3981]/10 text-[#0A3981] py-1.5 px-4 rounded-full text-xs font-bold border border-[#0A3981]/20">
+              <Globe className="w-3.5 h-3.5 text-[#00A86B]" />
               <span>{settings.heroSubTitle}</span>
             </div>
 
@@ -226,7 +226,7 @@ const router = useRouter();
             <div className="flex flex-col gap-2.5 text-xs sm:text-sm font-bold text-slate-700">
               {settings.heroBenefits.map((benefit, bidx) => (
                 <div key={bidx} className="flex items-center gap-2.5">
-                  <div className="bg-[#00A877] text-white p-0.5 rounded-full">
+                  <div className="bg-[#00A86B] text-white p-0.5 rounded-full">
                     <Check className="w-3.5 h-3.5" />
                   </div>
                   <span>{benefit}</span>
@@ -302,12 +302,13 @@ const router = useRouter();
       </section>
 
       {/* 2. SUB-HERO INFO STRIP (DARK FOREST GREEN) */}
-      <section className="w-full bg-[#0b241e] text-white border-y border-[#005B41]/20 py-5">
+      {/* 2. SUB-HERO INFO STRIP (DARK NAVY BLUE) */}
+      <section className="w-full bg-[#07152B] text-white border-y border-[#0A3981]/30 py-5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-xs text-left">
           
           <div className="flex items-center gap-3.5">
-            <div className="bg-[#00A877]/10 p-2 rounded-xl text-[#00A877]">
-              <UserCheck className="w-5 h-5 text-[#00A877]" />
+            <div className="bg-[#00A86B]/15 p-2 rounded-xl text-[#00A86B]">
+              <UserCheck className="w-5 h-5 text-[#00A86B]" />
             </div>
             <div>
               <span className="block font-black tracking-wide text-white uppercase text-[10px]">Trusted by Thousands</span>
@@ -316,8 +317,8 @@ const router = useRouter();
           </div>
 
           <div className="flex items-center gap-3.5">
-            <div className="bg-[#00A877]/10 p-2 rounded-xl text-[#00A877]">
-              <Activity className="w-5 h-5 text-[#00A877]" />
+            <div className="bg-[#00A86B]/15 p-2 rounded-xl text-[#00A86B]">
+              <Activity className="w-5 h-5 text-[#00A86B]" />
             </div>
             <div>
               <span className="block font-black tracking-wide text-white uppercase text-[10px]">Quality Assured</span>
@@ -326,8 +327,8 @@ const router = useRouter();
           </div>
 
           <div className="flex items-center gap-3.5">
-            <div className="bg-[#00A877]/10 p-2 rounded-xl text-[#00A877]">
-              <Globe className="w-5 h-5 text-[#00A877]" />
+            <div className="bg-[#00A86B]/15 p-2 rounded-xl text-[#00A86B]">
+              <Globe className="w-5 h-5 text-[#00A86B]" />
             </div>
             <div>
               <span className="block font-black tracking-wide text-white uppercase text-[10px]">Delivering Health</span>
@@ -336,8 +337,8 @@ const router = useRouter();
           </div>
 
           <div className="flex items-center gap-3.5">
-            <div className="bg-[#00A877]/10 p-2 rounded-xl text-[#00A877]">
-              <ShieldCheck className="w-5 h-5 text-[#00A877]" />
+            <div className="bg-[#00A86B]/15 p-2 rounded-xl text-[#00A86B]">
+              <ShieldCheck className="w-5 h-5 text-[#00A86B]" />
             </div>
             <div>
               <span className="block font-black tracking-wide text-white uppercase text-[10px]">Your Health, Our Priority</span>
@@ -355,9 +356,9 @@ const router = useRouter();
             <h2 className="text-xl sm:text-2xl font-black text-slate-800">
               Shop by Therapeutic Category
             </h2>
-            <div className="h-1 w-12 bg-[#00A877] rounded-full mt-1.5"></div>
+            <div className="h-1 w-12 bg-[#00A86B] rounded-full mt-1.5"></div>
           </div>
-          <Link href="/products" className="text-xs font-bold text-[#005B41] hover:text-[#00A877] transition-all flex items-center gap-1">
+          <Link href="/products" className="text-xs font-bold text-[#0A3981] hover:text-[#00A86B] transition-all flex items-center gap-1">
             <span>View all categories</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </Link>
@@ -457,8 +458,8 @@ const router = useRouter();
 
                 {/* Info panel */}
                 <div className="p-4 flex flex-col flex-1 gap-2 border-t border-slate-50">
-                  <span className="text-[9px] text-[#00A877] font-extrabold uppercase tracking-widest leading-none">{product.category}</span>
-                  <Link href={`/products/${product.id}`} className="text-xs sm:text-sm font-bold text-slate-800 hover:text-[#005B41] transition-colors leading-tight min-h-[36px] block">
+                  <span className="text-[9px] text-[#00A86B] font-extrabold uppercase tracking-widest leading-none">{product.category}</span>
+                  <Link href={`/products/${product.id}`} className="text-xs sm:text-sm font-bold text-slate-800 hover:text-[#0A3981] transition-colors leading-tight min-h-[36px] block">
                     {product.name}
                   </Link>
                   <span className="text-[10px] text-slate-400 font-semibold leading-none">{product.substance}</span>
@@ -472,7 +473,7 @@ const router = useRouter();
 
                   <div className="border-t border-slate-50 pt-3 mt-1 flex flex-col gap-2.5">
                     <div className="text-left">
-                      <span className="block text-base font-black text-[#005B41]">₹{product.price.toFixed(2)}</span>
+                      <span className="block text-base font-black text-[#0A3981]">₹{product.price.toFixed(2)}</span>
                       <span className="block text-[9px] text-slate-400 font-bold uppercase -mt-0.5">{product.unit}</span>
                     </div>
                     
@@ -483,15 +484,15 @@ const router = useRouter();
                         title="Add to Cart"
                         className={`py-2 px-3 border rounded-xl flex items-center justify-center transition-all ${
                           isItemInCart 
-                            ? "bg-emerald-50 text-[#00A877] border-emerald-500/20" 
-                            : "bg-white text-slate-500 border-slate-200 hover:text-[#005B41] hover:bg-slate-50"
+                            ? "bg-emerald-50 text-[#00A86B] border-emerald-500/20" 
+                            : "bg-white text-slate-500 border-slate-200 hover:text-[#0A3981] hover:bg-slate-50"
                         }`}
                       >
                         <ShoppingCart className="w-3.5 h-3.5" />
                       </button>
                       <button
                         onClick={() => openInquiryModal(product)}
-                        className="flex-1 bg-[#005B41] hover:bg-[#004833] text-white py-2 rounded-xl text-[10px] font-black uppercase tracking-wider transition-all text-center hover:scale-[1.02] cursor-pointer"
+                        className="flex-1 bg-[#0A3981] hover:bg-[#072B63] text-white py-2 rounded-xl text-[10px] font-black uppercase tracking-wider transition-all text-center hover:scale-[1.02] cursor-pointer"
                       >
                         Buy Now
                       </button>
@@ -509,14 +510,14 @@ const router = useRouter();
       {/* 5. WHY CHOOSE US & STATS SECTION */}
       <section id="why-us" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
         
-        {/* Left Green Block */}
-        <div className="lg:col-span-5 bg-gradient-to-br from-[#0c2e25] to-[#005B41] text-white rounded-[32px] p-8 sm:p-10 text-left shadow-xl relative overflow-hidden flex flex-col gap-5 justify-between self-stretch">
+        {/* Left Dark Block */}
+        <div className="lg:col-span-5 bg-gradient-to-br from-[#050C1A] to-[#0A3981] text-white rounded-[32px] p-8 sm:p-10 text-left shadow-xl relative overflow-hidden flex flex-col gap-5 justify-between self-stretch">
           <div className="flex flex-col gap-4">
-            <span className="text-[#00A877] text-xs font-black uppercase tracking-wider">Quality First</span>
+            <span className="text-[#00A86B] text-xs font-black uppercase tracking-wider">Quality First</span>
             <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight leading-tight">
-              Why Choose <br />trusted<span className="text-[#00A877]">medshop?</span>
+              Why Choose <br />trusted<span className="text-[#00A86B]">medshop?</span>
             </h2>
-            <div className="h-1 w-12 bg-[#00A877] rounded-full mt-0.5"></div>
+            <div className="h-1 w-12 bg-[#00A86B] rounded-full mt-0.5"></div>
             
             <div className="flex flex-col gap-3.5 text-xs text-slate-200 mt-3 font-semibold">
               <div className="flex items-start gap-2.5">
@@ -826,12 +827,12 @@ const router = useRouter();
       </section>
 
       {/* NEW SECTION 3: CLIENT TESTIMONIALS & TRUST SHOWCASE */}
-      <section className="w-full bg-[#03221a] text-white py-14 px-4 sm:px-6 lg:px-8 my-6 text-left relative overflow-hidden">
+      <section className="w-full bg-[#050C1A] text-white py-14 px-4 sm:px-6 lg:px-8 my-6 text-left relative overflow-hidden">
         <div className="max-w-7xl mx-auto flex flex-col gap-10">
           
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 border-b border-white/10 pb-6">
             <div>
-              <span className="text-xs font-black text-[#00A877] uppercase tracking-widest">
+              <span className="text-xs font-black text-[#00A86B] uppercase tracking-widest">
                 Global B2B & Clinical Feedback
               </span>
               <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-white mt-1">
@@ -840,7 +841,7 @@ const router = useRouter();
             </div>
             <button 
               onClick={() => openInquiryModal()}
-              className="bg-[#00A877] hover:bg-[#008f64] text-white py-3 px-6 rounded-xl text-xs font-bold transition-all shadow-lg cursor-pointer"
+              className="bg-[#00A86B] hover:bg-[#008F5B] text-white py-3 px-6 rounded-xl text-xs font-bold transition-all shadow-lg cursor-pointer"
             >
               Start Custom Bulk Inquiry
             </button>

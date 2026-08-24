@@ -1,8 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f8faf9;
-  --foreground: #1e293b;
+  --background: #f4f7fb;
+  --foreground: #0f172a;
+  --color-navy: #0A3981;
+  --color-green: #00A86B;
+  --color-dark-navy: #050C1A;
 }
 
 body {
@@ -11,20 +14,20 @@ body {
   overflow-x: hidden;
 }
 
-/* Custom scrollbar styling for seamless feel */
+/* Custom scrollbar styling */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #f8faf9;
+  background: #f4f7fb;
 }
 ::-webkit-scrollbar-thumb {
   background: #cbd5e1;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #005B41;
+  background: #0A3981;
 }
 
 /* Floating animation */
@@ -43,10 +46,10 @@ body {
 /* Pulse glow effect */
 @keyframes pulseGlow {
   0%, 100% {
-    box-shadow: 0 0 15px rgba(0, 168, 119, 0.2);
+    box-shadow: 0 0 15px rgba(0, 168, 107, 0.25);
   }
   50% {
-    box-shadow: 0 0 30px rgba(0, 168, 119, 0.45);
+    box-shadow: 0 0 30px rgba(10, 57, 129, 0.45);
   }
 }
 .animate-pulse-glow {
@@ -63,7 +66,7 @@ body {
   }
 }
 .animate-shimmer {
-  background: linear-[#005B41] gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%);
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%);
   background-size: 200% 100%;
   animation: shimmer 3s infinite;
 }
@@ -74,5 +77,5 @@ body {
 }
 .hover-lift:hover {
   transform: translateY(-6px) scale(1.01);
-  box-shadow: 0 20px 30px -10px rgba(0, 91, 65, 0.12);
+  box-shadow: 0 20px 30px -10px rgba(10, 57, 129, 0.15);
 }

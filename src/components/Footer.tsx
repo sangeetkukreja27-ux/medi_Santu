@@ -27,7 +27,7 @@ export const Footer: React.FC = () => {
   }, []);
 
   return (
-    <footer className="bg-[#0b241e] text-slate-300 font-sans border-t border-[#005B41]/30">
+    <footer className="bg-[#050C1A] text-slate-300 font-sans border-t border-[#0A3981]/30">
       
       {/* Upper Footer section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10 md:gap-8 border-b border-slate-800">
