@@ -27,7 +27,7 @@ import {
 const ProductsContent: React.FC = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
-  const { addToCart, cartItems, openInquiryModal } = useCart();
+  const { addToCart, cartItems, openInquiryModal, formatPrice } = useCart();
 
   // Parse query params
   const categoryParam = searchParams.get("category");
@@ -492,7 +492,7 @@ const ProductsContent: React.FC = () => {
 
                       <div className="border-t border-slate-50 pt-3.5 mt-2 flex items-center justify-between">
                         <div>
-                          <span className="block text-base sm:text-lg font-black text-[#005B41]">₹{product.price.toFixed(2)}</span>
+                          <span className="block text-base sm:text-lg font-black text-[#0A3981]">{formatPrice(product.price)}</span>
                           <span className="block text-[9px] text-slate-400 font-semibold uppercase -mt-0.5">{product.unit}</span>
                         </div>
                         
@@ -570,7 +570,7 @@ const ProductsContent: React.FC = () => {
 
                     <div className="flex sm:flex-col items-end justify-between sm:justify-center border-t sm:border-t-0 sm:border-l border-slate-100 pt-4 sm:pt-0 sm:pl-6 w-full sm:w-auto gap-4 self-stretch flex-shrink-0">
                       <div className="text-left sm:text-right">
-                        <span className="block text-xl font-black text-[#005B41]">₹{product.price.toFixed(2)}</span>
+                        <span className="block text-xl font-black text-[#0A3981]">{formatPrice(product.price)}</span>
                         <span className="block text-[10px] text-slate-400 font-semibold uppercase">{product.unit}</span>
                       </div>
                       

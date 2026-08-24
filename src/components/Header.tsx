@@ -14,13 +14,14 @@ import {
   Menu, 
   X,
   MessageSquare,
-  Globe
+  Globe,
+  Coins
 } from "lucide-react";
 
 export const Header: React.FC = () => {
   const pathname = usePathname();
   const router = useRouter();
-  const { cartCount, openInquiryModal } = useCart();
+  const { cartCount, openInquiryModal, currency, setCurrency, formattedCartTotal } = useCart();
   
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All Categories");
@@ -116,6 +117,19 @@ export const Header: React.FC = () => {
               <a href="mailto:info@trustedmedshop.com" className="bg-[#dd4b39] p-1 rounded-full text-white hover:opacity-90 transition-opacity">
                 <Mail className="w-3.5 h-3.5 text-white" />
               </a>
+            </div>
+
+            {/* Currency Selector (INR ↔ USD) */}
+            <div className="flex items-center gap-1.5 border-l border-white/20 pl-3.5 ml-1">
+              <Coins className="w-3.5 h-3.5 text-[#00A86B]" />
+              <select
+                value={currency}
+                onChange={(e) => setCurrency(e.target.value as "INR" | "USD")}
+                className="bg-white/10 hover:bg-white/20 text-white font-bold text-xs py-0.5 px-2 rounded-lg outline-none border border-white/20 cursor-pointer transition-all"
+              >
+                <option value="INR" className="bg-[#0A3981] text-white font-bold">🇮🇳 INR (₹)</option>
+                <option value="USD" className="bg-[#0A3981] text-white font-bold">🇺🇸 USD ($)</option>
+              </select>
             </div>
           </div>
         </div>

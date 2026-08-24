@@ -19,7 +19,7 @@ import {
 } from "lucide-react";
 
 export const InquiryModal: React.FC = () => {
-  const { isInquiryModalOpen, closeInquiryModal, inquiryProduct, cartItems } = useCart();
+  const { isInquiryModalOpen, closeInquiryModal, inquiryProduct, cartItems, formatPrice } = useCart();
 
   const [fullName, setFullName] = useState("");
   const [mobile, setMobile] = useState("");
@@ -227,8 +227,8 @@ export const InquiryModal: React.FC = () => {
                     </div>
 
                     <div className="text-right">
-                      <span className="block text-base font-black text-[#005B41]">
-                        ₹{totalPrice.toFixed(2)}
+                      <span className="block text-base font-black text-[#0A3981]">
+                        {formatPrice(totalPrice)}
                       </span>
                       <span className="block text-[8px] text-slate-400 font-bold uppercase -mt-0.5">
                         Total Value

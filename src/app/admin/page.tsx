@@ -95,6 +95,7 @@ export default function AdminDashboard() {
   // Homepage CMS states
   const [siteLogoImage, setSiteLogoImage] = useState("");
   const [siteLogoHeight, setSiteLogoHeight] = useState<number>(55);
+  const [usdExchangeRate, setUsdExchangeRate] = useState<number>(83.5);
   const [heroSubTitle, setHeroSubTitle] = useState("");
   const [heroTitle, setHeroTitle] = useState("");
   const [heroTitleHighlight, setHeroTitleHighlight] = useState("");
@@ -292,6 +293,7 @@ export default function AdminDashboard() {
         const s = data.settings;
         setSiteLogoImage(s.siteLogoImage || "");
         if (s.siteLogoHeight) setSiteLogoHeight(Number(s.siteLogoHeight));
+        if (s.usdExchangeRate) setUsdExchangeRate(Number(s.usdExchangeRate));
         setHeroSubTitle(s.heroSubTitle || "");
         setHeroTitle(s.heroTitle || "");
         setHeroTitleHighlight(s.heroTitleHighlight || "");
@@ -343,6 +345,7 @@ export default function AdminDashboard() {
     const payload = {
       siteLogoImage,
       siteLogoHeight,
+      usdExchangeRate: Number(usdExchangeRate) || 83.5,
       heroSubTitle,
       heroTitle,
       heroTitleHighlight,
@@ -1461,6 +1464,39 @@ export default function AdminDashboard() {
                         </div>
                       </div>
                     )}
+                  </div>
+
+                  {/* Currency Exchange Rate Configuration (INR to USD) */}
+                  <div className="flex flex-col gap-3.5 border-b border-slate-100 pb-5 bg-blue-50/50 p-4 rounded-2xl border border-blue-500/10">
+                    <div className="flex justify-between items-center">
+                      <span className="text-[10px] uppercase font-black tracking-wider text-[#0A3981]">2. Multi-Currency Converter Rate (INR ↔ USD)</span>
+                      <span className="bg-[#0A3981] text-white text-[10px] font-extrabold px-2.5 py-0.5 rounded-full">
+                        1 USD = ₹{usdExchangeRate} INR
+                      </span>
+                    </div>
+
+                    <div className="flex flex-col sm:flex-row items-center gap-4 bg-white p-3.5 rounded-xl border border-slate-200">
+                      <div className="flex-1 text-left">
+                        <label className="block text-xs font-bold text-slate-700 mb-0.5">
+                          USD Exchange Rate (1 USD in INR ₹):
+                        </label>
+                        <span className="text-[10px] text-slate-400 font-semibold block">
+                          Set the conversion rate used when users select USD ($) on the storefront.
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-2 w-full sm:w-auto">
+                        <span className="text-sm font-black text-[#0A3981]">$ 1.00 USD = ₹</span>
+                        <input 
+                          type="number" 
+                          step="0.01" 
+                          min="1" 
+                          value={usdExchangeRate} 
+                          onChange={(e) => setUsdExchangeRate(Number(e.target.value))}
+                          className="w-28 border border-slate-300 rounded-xl p-2 bg-slate-50 text-slate-900 font-black text-sm outline-none focus:border-[#0A3981] text-center shadow-inner"
+                        />
+                        <span className="text-xs font-bold text-slate-600">INR</span>
+                      </div>
+                    </div>
                   </div>
 
                   {/* Hero banner credentials */}

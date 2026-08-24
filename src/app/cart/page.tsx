@@ -23,7 +23,7 @@ import {
 } from "lucide-react";
 
 export default function CartPage() {
-  const { cartItems, updateQuantity, removeFromCart, cartTotal, clearCart } = useCart();
+  const { cartItems, updateQuantity, removeFromCart, cartTotal, clearCart, formatPrice } = useCart();
   
   // Sourcing Inquiry Form States
   const [fullName, setFullName] = useState("");
@@ -229,7 +229,7 @@ export default function CartPage() {
 
                       {/* Total */}
                       <div className="text-right min-w-[70px]">
-                        <span className="block text-base font-black text-[#005B41]">₹{(item.product.price * item.quantity).toFixed(2)}</span>
+                        <span className="block text-base font-black text-[#0A3981]">{formatPrice(item.product.price * item.quantity)}</span>
                         <span className="block text-[9px] text-slate-400 font-semibold uppercase -mt-0.5">Sourcing value</span>
                       </div>
 
@@ -268,7 +268,7 @@ export default function CartPage() {
                     <Link href={`/products/${p.id}`} className="font-bold text-slate-800 hover:text-[#005B41] line-clamp-2 leading-snug min-h-[32px]">
                       {p.name}
                     </Link>
-                    <span className="text-[10px] text-slate-400 font-bold">₹{p.price.toFixed(2)}</span>
+                    <span className="text-[10px] text-slate-400 font-bold">{formatPrice(p.price)}</span>
                   </div>
                 ))}
               </div>
@@ -326,7 +326,7 @@ export default function CartPage() {
                   <input 
                     type="email" 
                     required 
-                    placeholder="Enter email address" 
+                    placeholder="Enter your email" 
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     className="border border-slate-200 rounded-xl p-3 bg-slate-50 text-slate-800 font-semibold outline-none focus:border-[#005B41] focus:bg-white transition-all text-sm"
@@ -336,11 +336,11 @@ export default function CartPage() {
                 <div className="flex flex-col gap-1.5">
                   <label className="text-slate-500 flex items-center gap-1">
                     <Building className="w-3.5 h-3.5 text-[#00A877]" />
-                    <span>Company Name / Pharmacy Clinic (Optional)</span>
+                    <span>Company / Clinic / Hospital Name</span>
                   </label>
                   <input 
                     type="text" 
-                    placeholder="Enter company or pharmacy name" 
+                    placeholder="Enter organization (optional)" 
                     value={company}
                     onChange={(e) => setCompany(e.target.value)}
                     className="border border-slate-200 rounded-xl p-3 bg-slate-50 text-slate-800 font-semibold outline-none focus:border-[#005B41] focus:bg-white transition-all text-sm"
@@ -350,11 +350,11 @@ export default function CartPage() {
                 <div className="flex flex-col gap-1.5">
                   <label className="text-slate-500 flex items-center gap-1">
                     <FileText className="w-3.5 h-3.5 text-[#00A877]" />
-                    <span>Sourcing Requirements / Message (Optional)</span>
+                    <span>Custom Message / Delivery Notes</span>
                   </label>
                   <textarea 
                     rows={3} 
-                    placeholder="Enter specific instructions, batch preferences, or documentation requirements..." 
+                    placeholder="Mention any custom quantity, destination country, or delivery urgency..." 
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     className="border border-slate-200 rounded-xl p-3 bg-slate-50 text-slate-800 font-semibold outline-none focus:border-[#005B41] focus:bg-white transition-all text-sm resize-none"
@@ -365,15 +365,15 @@ export default function CartPage() {
                 <div className="bg-[#F4F7F6]/50 border border-[#005b41]/5 rounded-2xl p-4 mt-2 flex flex-col gap-3">
                   <div className="flex justify-between items-center text-xs text-slate-500 font-bold">
                     <span>Sourced Subtotal ({cartItems.length} items)</span>
-                    <span className="font-extrabold text-slate-700">₹{cartTotal.toFixed(2)}</span>
+                    <span className="font-extrabold text-slate-700">{formatPrice(cartTotal)}</span>
                   </div>
                   <div className="flex justify-between items-center text-xs text-slate-500 font-bold">
                     <span>Custom Clearance & Shipping</span>
                     <span className="text-[#00A877] font-extrabold text-[10px] bg-[#00A877]/10 py-0.5 px-2.5 rounded-full uppercase tracking-wider">Quote on Inquiry</span>
                   </div>
-                  <div className="border-t border-slate-200 pt-3 flex justify-between items-baseline font-black text-[#005B41]">
+                  <div className="border-t border-slate-200 pt-3 flex justify-between items-baseline font-black text-[#0A3981]">
                     <span className="text-sm">Total Sourcing Value</span>
-                    <span className="text-xl">₹{cartTotal.toFixed(2)}</span>
+                    <span className="text-xl">{formatPrice(cartTotal)}</span>
                   </div>
                 </div>
 

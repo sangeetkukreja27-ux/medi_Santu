@@ -26,7 +26,7 @@ import {
 export default function ProductDetailPage() {
   const params = useParams();
   const router = useRouter();
-  const { addToCart, cartItems, openInquiryModal } = useCart();
+  const { addToCart, cartItems, openInquiryModal, formatPrice } = useCart();
   const id = params.id as string;
 
   const [product, setProduct] = useState<Product | null>(null);
@@ -220,7 +220,7 @@ export default function ProductDetailPage() {
         <aside className="lg:col-span-3 w-full bg-white rounded-3xl border border-slate-100 p-6 flex flex-col gap-5 text-left shadow-md relative">
           <div>
             <div className="flex justify-between items-baseline mb-1">
-              <span className="text-2xl font-black text-[#005B41]">₹{product.price.toFixed(2)}</span>
+              <span className="text-2xl font-black text-[#0A3981]">{formatPrice(product.price)}</span>
               <span className="text-xs font-bold text-slate-400">/ {product.unit.split(" ")[1] || "Box"}</span>
             </div>
             <span className="block text-[10px] text-slate-400 font-bold uppercase tracking-wider">{product.unit}</span>

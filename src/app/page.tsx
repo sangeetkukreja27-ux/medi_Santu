@@ -54,7 +54,7 @@ import {
 } from "lucide-react";
 
 export default function Home() {
-  const { addToCart, cartItems, openInquiryModal } = useCart();
+  const { addToCart, cartItems, openInquiryModal, formatPrice } = useCart();
 const router = useRouter();
   const [productsList, setProductsList] = useState<Product[]>([]);
   const [settings, setSettings] = useState({
@@ -473,7 +473,7 @@ const router = useRouter();
 
                   <div className="border-t border-slate-50 pt-3 mt-1 flex flex-col gap-2.5">
                     <div className="text-left">
-                      <span className="block text-base font-black text-[#0A3981]">₹{product.price.toFixed(2)}</span>
+                      <span className="block text-base font-black text-[#0A3981]">{formatPrice(product.price)}</span>
                       <span className="block text-[9px] text-slate-400 font-bold uppercase -mt-0.5">{product.unit}</span>
                     </div>
                     
