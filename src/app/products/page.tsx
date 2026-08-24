@@ -214,7 +214,7 @@ const ProductsContent: React.FC = () => {
             <span>&gt;</span>
             <span className="text-slate-600">Products</span>
           </div>
-          <h1 className="text-3xl font-black text-slate-800 tracking-tight">All Sourced Products</h1>
+          <h1 className="text-3xl font-black text-[#0A3981] tracking-tight">All Sourced Products</h1>
           <p className="text-xs sm:text-sm text-slate-500 font-semibold uppercase tracking-wider -mt-1.5">
             High-quality medicines, trusted by healthcare professionals worldwide.
           </p>

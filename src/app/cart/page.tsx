@@ -156,7 +156,7 @@ export default function CartPage() {
             <span>&gt;</span>
             <span className="text-slate-600">Inquiry List</span>
           </div>
-          <h1 className="text-3xl font-black text-slate-800 tracking-tight">Your Inquiry List</h1>
+          <h1 className="text-3xl font-black text-[#0A3981] tracking-tight">Your Inquiry List</h1>
           <p className="text-xs sm:text-sm text-slate-500 font-semibold uppercase tracking-wider -mt-1.5">
             Review selected medicines and fill details to request custom wholesale export quotes.
           </p>
@@ -282,7 +282,7 @@ export default function CartPage() {
             <div className="bg-white rounded-3xl border border-slate-100 p-6 sm:p-8 shadow-md flex flex-col gap-5">
               <div className="flex flex-col gap-1 border-b border-slate-50 pb-3">
                 <span className="text-xs font-black text-[#00A877] uppercase tracking-widest leading-none">Export-Import</span>
-                <h3 className="text-lg font-extrabold text-slate-800 tracking-tight leading-tight mt-1">Sourcing Inquiry Form</h3>
+                <h3 className="text-lg font-extrabold text-[#0A3981] tracking-tight leading-tight mt-1">Sourcing Inquiry Form</h3>
                 <p className="text-xs text-slate-400 mt-1">Provide your credentials and requirements for price quote validation.</p>
               </div>
 

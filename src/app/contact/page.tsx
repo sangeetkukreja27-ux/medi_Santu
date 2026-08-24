@@ -179,7 +179,7 @@ export default function ContactUs() {
         
         {/* Left Side: Message Form */}
         <main className="lg:col-span-7 bg-white rounded-3xl border border-slate-100 p-6 sm:p-8 shadow-sm text-left">
-          <h2 className="text-lg sm:text-xl font-extrabold text-[#005B41] flex items-center gap-2 border-b border-slate-50 pb-2.5 mb-6">
+          <h2 className="text-lg sm:text-xl font-extrabold text-[#0A3981] flex items-center gap-2 border-b border-slate-50 pb-2.5 mb-6">
             <MessageSquare className="w-5 h-5 text-[#00A877]" />
             <span>Send Us a Message</span>
           </h2>
@@ -288,7 +288,7 @@ export default function ContactUs() {
         <aside className="lg:col-span-5 flex flex-col gap-6 w-full text-left">
           
           <div className="bg-white rounded-3xl border border-slate-100 p-6 sm:p-8 shadow-sm flex flex-col gap-6">
-            <h2 className="text-lg font-extrabold text-[#005B41] border-b border-slate-50 pb-2.5">
+            <h2 className="text-lg font-extrabold text-[#0A3981] border-b border-slate-50 pb-2.5">
               Contact Information
             </h2>
             
@@ -321,7 +321,7 @@ export default function ContactUs() {
           
           <div className="flex flex-col items-center gap-2">
             <span className="text-[#00A877] text-xs font-bold uppercase tracking-wider">Logistics Network</span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#005B41]">Our Global Presence</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0A3981]">Our Global Presence</h2>
             <p className="text-slate-500 text-xs sm:text-sm max-w-md mt-1">Delivering clinical-grade medicine shipments securely to patients in 107+ countries worldwide.</p>
           </div>
 

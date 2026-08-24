@@ -118,7 +118,7 @@ export default function AboutUs() {
         
         {/* Left Info Column */}
         <div className="lg:col-span-6 flex flex-col items-start gap-5 text-left">
-          <h1 className="text-4xl sm:text-5xl font-black text-slate-800 tracking-tight leading-tight">
+          <h1 className="text-4xl sm:text-5xl font-black text-[#0A3981] tracking-tight leading-tight">
             About <span className="text-[#005B41]">trusted</span><span className="text-[#00A877]">medshop</span>
           </h1>
           
@@ -174,7 +174,7 @@ export default function AboutUs() {
             <div className="bg-[#F4F7F6] p-4 rounded-full group-hover:bg-[#005B41]/10 transition-colors">
               <Target className="w-8 h-8 text-[#00A877]" />
             </div>
-            <h3 className="text-lg font-bold text-slate-800">Our Mission</h3>
+            <h3 className="text-lg font-bold text-[#0A3981]">Our Mission</h3>
             <p className="text-slate-500 text-xs sm:text-sm leading-relaxed">
               {settings.mission}
             </p>
@@ -185,7 +185,7 @@ export default function AboutUs() {
             <div className="bg-[#F4F7F6] p-4 rounded-full group-hover:bg-[#005B41]/10 transition-colors">
               <Eye className="w-8 h-8 text-[#00A877]" />
             </div>
-            <h3 className="text-lg font-bold text-slate-800">Our Vision</h3>
+            <h3 className="text-lg font-bold text-[#0A3981]">Our Vision</h3>
             <p className="text-slate-500 text-xs sm:text-sm leading-relaxed">
               {settings.vision}
             </p>
@@ -196,7 +196,7 @@ export default function AboutUs() {
             <div className="bg-[#F4F7F6] p-4 rounded-full group-hover:bg-[#005B41]/10 transition-colors">
               <Heart className="w-8 h-8 text-[#00A877]" />
             </div>
-            <h3 className="text-lg font-bold text-slate-800">Our Values</h3>
+            <h3 className="text-lg font-bold text-[#0A3981]">Our Values</h3>
             <div className="flex flex-col gap-2.5 text-left w-full max-w-[200px] mx-auto mt-1">
               {settings.values.map((val, vi) => (
                 <div key={vi} className="flex items-center gap-2 text-slate-600 text-xs sm:text-sm font-semibold">
@@ -226,7 +226,7 @@ export default function AboutUs() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
         <div className="flex flex-col items-center gap-3 mb-12">
           <span className="text-[#00A877] text-xs font-bold uppercase tracking-wider">Quality Assurance</span>
-          <h2 className="text-3xl font-extrabold text-slate-800">Our Certifications</h2>
+          <h2 className="text-3xl font-extrabold text-[#0A3981]">Our Certifications</h2>
           <div className="h-1 w-16 bg-[#00A877] rounded-full mt-1"></div>
         </div>
 
@@ -248,7 +248,7 @@ export default function AboutUs() {
           
           {/* Left Checkmarks */}
           <div className="lg:col-span-6 flex flex-col items-start text-left gap-5">
-            <h2 className="text-3xl font-extrabold text-slate-800 leading-tight">
+            <h2 className="text-3xl font-extrabold text-[#0A3981] leading-tight">
               Why Choose <span className="text-[#005B41]">trusted</span><span className="text-[#00A877]">medshop</span>?
             </h2>
             
@@ -303,7 +303,7 @@ export default function AboutUs() {
               <Smile className="w-7 h-7 text-[#00A877]" />
             </div>
             <div>
-              <h3 className="text-xl font-bold text-slate-800">Have questions or need bulk supply?</h3>
+              <h3 className="text-xl font-bold text-[#0A3981]">Have questions or need bulk supply?</h3>
               <p className="text-slate-500 text-xs sm:text-sm mt-1">Our dedicated team is ready to help you coordinate pricing and custom orders 24/7.</p>
             </div>
           </div>

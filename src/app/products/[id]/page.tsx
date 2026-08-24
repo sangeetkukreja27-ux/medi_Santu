@@ -159,7 +159,7 @@ export default function ProductDetailPage() {
         <div className="lg:col-span-4 flex flex-col text-left gap-5">
           <div className="flex flex-col gap-2">
             <span className="text-xs font-black text-[#00A877] uppercase tracking-widest leading-none">{product.category}</span>
-            <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-800 tracking-tight leading-tight mt-1">
+            <h1 className="text-2xl sm:text-3xl font-extrabold text-[#0A3981] tracking-tight leading-tight mt-1">
               {product.name}
             </h1>
             <span className="text-sm font-semibold text-slate-500">{product.substance}</span>

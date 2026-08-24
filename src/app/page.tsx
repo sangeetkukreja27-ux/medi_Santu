@@ -353,7 +353,7 @@ const router = useRouter();
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-16 text-center w-full">
         <div className="flex justify-between items-end border-b border-slate-100 pb-4 mb-8">
           <div className="text-left flex flex-col gap-1">
-            <h2 className="text-xl sm:text-2xl font-black text-slate-800">
+            <h2 className="text-xl sm:text-2xl font-black text-[#0A3981]">
               Shop by Therapeutic Category
             </h2>
             <div className="h-1 w-12 bg-[#00A86B] rounded-full mt-1.5"></div>
@@ -369,18 +369,13 @@ const router = useRouter();
             <Link 
               key={idx} 
               href={cat.link}
-              className="bg-white border border-slate-150 rounded-2xl p-4 flex flex-col items-center justify-between gap-3 text-center hover:border-[#005B41] hover:shadow-lg transition-all duration-300 group"
+              className="bg-white border border-slate-100 rounded-2xl p-4 sm:p-5 flex flex-col items-center gap-3 hover:border-[#005B41]/40 shadow-sm hover-lift transition-all group cursor-pointer"
             >
-              <div className={`p-3 rounded-xl group-hover:scale-105 transition-transform flex items-center justify-center ${cat.colorClass}`}>
+              <div className="bg-[#E6F3EE] p-3 sm:p-3.5 rounded-full text-[#005B41] group-hover:bg-[#005B41] group-hover:text-white transition-colors">
                 {cat.icon}
               </div>
-              <div>
-                <span className="block text-xs font-black text-slate-800 leading-tight group-hover:text-[#005B41] transition-colors">{cat.title}</span>
-                <span className="block text-[9px] text-slate-400 leading-tight mt-1 font-semibold">{cat.desc}</span>
-              </div>
-              <span className="text-[9px] font-bold text-[#005B41] group-hover:text-[#00A877] transition-all flex items-center gap-0.5 mt-1 leading-none uppercase tracking-wider">
-                <span>Shop Now</span>
-                <ArrowRight className="w-2.5 h-2.5" />
+              <span className="text-xs font-bold text-slate-700 group-hover:text-[#005B41] transition-colors leading-snug">
+                {cat.title}
               </span>
             </Link>
           ))}
@@ -393,7 +388,7 @@ const router = useRouter();
         <div className="flex justify-between items-end border-b border-slate-100 pb-4 mb-8">
           <div className="text-left flex flex-col gap-1">
             <span className="text-[#00A877] text-[10px] font-extrabold uppercase tracking-widest leading-none">Primary Inventory</span>
-            <h2 className="text-xl sm:text-2xl font-black text-slate-800 leading-tight mt-1">
+            <h2 className="text-xl sm:text-2xl font-black text-[#0A3981] leading-tight mt-1">
               Most Requested This Month
             </h2>
             <div className="h-1 w-12 bg-[#00A877] rounded-full mt-1.5"></div>
@@ -606,7 +601,7 @@ const router = useRouter();
               <span className="text-xs font-black text-[#00A877] uppercase tracking-widest leading-none">
                 100% Quality & Regulatory Assurance
               </span>
-              <h2 className="text-xl sm:text-2xl font-black text-slate-800 tracking-tight">
+              <h2 className="text-xl sm:text-2xl font-black text-[#0A3981] tracking-tight">
                 Global Pharmaceutical Standards & Cold-Chain Shipping
               </h2>
             </div>
@@ -620,7 +615,7 @@ const router = useRouter();
               <div className="bg-emerald-50 text-[#005B41] p-3 rounded-xl w-fit group-hover:scale-110 transition-transform">
                 <BadgeCheck className="w-6 h-6 text-[#00A877]" />
               </div>
-              <h3 className="text-sm font-extrabold text-slate-800">WHO-GMP Procurement</h3>
+              <h3 className="text-sm font-extrabold text-[#0A3981]">WHO-GMP Procurement</h3>
               <p className="text-xs text-slate-500 font-semibold leading-relaxed">
                 Directly sourced from WHO-GMP certified facilities with verified Certificates of Analysis (COA).
               </p>
@@ -630,7 +625,7 @@ const router = useRouter();
               <div className="bg-cyan-50 text-cyan-600 p-3 rounded-xl w-fit group-hover:scale-110 transition-transform">
                 <Thermometer className="w-6 h-6 text-cyan-600" />
               </div>
-              <h3 className="text-sm font-extrabold text-slate-800">Cold-Chain Packaging</h3>
+              <h3 className="text-sm font-extrabold text-[#0A3981]">Cold-Chain Packaging</h3>
               <p className="text-xs text-slate-500 font-semibold leading-relaxed">
                 Strict 2°C–8°C thermal insulation for sensitive bio-therapeutics, oncology, and specialty medicines.
               </p>
@@ -640,7 +635,7 @@ const router = useRouter();
               <div className="bg-amber-50 text-amber-600 p-3 rounded-xl w-fit group-hover:scale-110 transition-transform">
                 <ShieldCheck className="w-6 h-6 text-amber-600" />
               </div>
-              <h3 className="text-sm font-extrabold text-slate-800">Batch Verification</h3>
+              <h3 className="text-sm font-extrabold text-[#0A3981]">Batch Verification</h3>
               <p className="text-xs text-slate-500 font-semibold leading-relaxed">
                 QR and serial barcode authentication on every carton ensuring 100% genuine pharma supply.
               </p>
@@ -650,7 +645,7 @@ const router = useRouter();
               <div className="bg-indigo-50 text-indigo-600 p-3 rounded-xl w-fit group-hover:scale-110 transition-transform">
                 <Plane className="w-6 h-6 text-indigo-600" />
               </div>
-              <h3 className="text-sm font-extrabold text-slate-800">Express Customs Air Clearance</h3>
+              <h3 className="text-sm font-extrabold text-[#0A3981]">Express Customs Air Clearance</h3>
               <p className="text-xs text-slate-500 font-semibold leading-relaxed">
                 Fast-track customs clearance documentation for delivery into 107+ countries without delays.
               </p>
@@ -664,7 +659,7 @@ const router = useRouter();
         <div className="bg-gradient-to-br from-[#005B41]/5 via-[#00A877]/5 to-white border border-[#005b41]/10 rounded-3xl p-8 sm:p-12 relative overflow-hidden">
           <div className="text-center max-w-xl mx-auto mb-10">
             <span className="text-xs font-black text-[#00A877] uppercase tracking-widest">Simple & Secure Workflow</span>
-            <h2 className="text-2xl sm:text-3xl font-black text-slate-800 tracking-tight mt-1">
+            <h2 className="text-2xl sm:text-3xl font-black text-[#0A3981] tracking-tight mt-1">
               How Medicine Sourcing Works
             </h2>
             <p className="text-xs sm:text-sm text-slate-500 font-semibold mt-2">
@@ -675,7 +670,7 @@ const router = useRouter();
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
             <div className="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm flex flex-col gap-3 relative z-10 hover:shadow-lg transition-all">
               <span className="text-xs font-black text-[#00A877] bg-emerald-50 w-8 h-8 rounded-full flex items-center justify-center border border-emerald-500/20">01</span>
-              <h3 className="text-sm font-extrabold text-slate-800">Submit Product Inquiry</h3>
+              <h3 className="text-sm font-extrabold text-[#0A3981]">Submit Product Inquiry</h3>
               <p className="text-xs text-slate-500 font-semibold leading-relaxed">
                 Browse catalog or click "Inquire Now" on any medicine card to submit your custom requirement.
               </p>
@@ -683,7 +678,7 @@ const router = useRouter();
 
             <div className="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm flex flex-col gap-3 relative z-10 hover:shadow-lg transition-all">
               <span className="text-xs font-black text-[#00A877] bg-emerald-50 w-8 h-8 rounded-full flex items-center justify-center border border-emerald-500/20">02</span>
-              <h3 className="text-sm font-extrabold text-slate-800">Price Quote & Batch Check</h3>
+              <h3 className="text-sm font-extrabold text-[#0A3981]">Price Quote & Batch Check</h3>
               <p className="text-xs text-slate-500 font-semibold leading-relaxed">
                 Our clinical team verifies COA batch, stock availability, and issues quote in ₹ INR.
               </p>
@@ -691,7 +686,7 @@ const router = useRouter();
 
             <div className="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm flex flex-col gap-3 relative z-10 hover:shadow-lg transition-all">
               <span className="text-xs font-black text-[#00A877] bg-emerald-50 w-8 h-8 rounded-full flex items-center justify-center border border-emerald-500/20">03</span>
-              <h3 className="text-sm font-extrabold text-slate-800">Insulated Packaging</h3>
+              <h3 className="text-sm font-extrabold text-[#0A3981]">Insulated Packaging</h3>
               <p className="text-xs text-slate-500 font-semibold leading-relaxed">
                 Order is packed in temperature-monitored, tamper-evident thermal boxes with complete docs.
               </p>
@@ -699,7 +694,7 @@ const router = useRouter();
 
             <div className="bg-white border border-slate-100 rounded-2xl p-6 shadow-sm flex flex-col gap-3 relative z-10 hover:shadow-lg transition-all">
               <span className="text-xs font-black text-[#00A877] bg-emerald-50 w-8 h-8 rounded-full flex items-center justify-center border border-emerald-500/20">04</span>
-              <h3 className="text-sm font-extrabold text-slate-800">Express Global Delivery</h3>
+              <h3 className="text-sm font-extrabold text-[#0A3981]">Express Global Delivery</h3>
               <p className="text-xs text-slate-500 font-semibold leading-relaxed">
                 Tracked air cargo shipping delivered safely to your hospital, clinic, or destination country.
               </p>
@@ -713,7 +708,7 @@ const router = useRouter();
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 mb-8">
           <div>
             <span className="text-xs font-black text-[#00A877] uppercase tracking-widest">State-of-the-Art Facilities</span>
-            <h2 className="text-2xl sm:text-3xl font-black text-slate-800 tracking-tight mt-1">
+            <h2 className="text-2xl sm:text-3xl font-black text-[#0A3981] tracking-tight mt-1">
               Global Infrastructure & Quality Assurance
             </h2>
             <p className="text-xs sm:text-sm text-slate-500 font-semibold mt-1">
@@ -923,7 +918,7 @@ const router = useRouter();
         
         <div className="flex justify-between items-end border-b border-slate-100 pb-4 mb-8">
           <div className="text-left flex flex-col gap-1">
-            <h2 className="text-xl sm:text-2xl font-black text-slate-800">
+            <h2 className="text-xl sm:text-2xl font-black text-[#0A3981]">
               Explore Our Resources
             </h2>
             <div className="h-1 w-12 bg-[#00A877] rounded-full mt-1.5"></div>
@@ -1009,7 +1004,7 @@ const router = useRouter();
           </div>
 
           <div className="flex flex-col gap-2 relative z-10 max-w-lg text-left">
-            <h3 className="text-xl sm:text-2xl font-black text-[#005B41] tracking-tight leading-none">{settings.newsletterTitle}</h3>
+            <h3 className="text-xl sm:text-2xl font-black text-[#0A3981] tracking-tight leading-none">{settings.newsletterTitle}</h3>
             <span className="block text-slate-600 text-xs sm:text-sm font-semibold leading-relaxed mt-2.5">
               {settings.newsletterSub}
             </span>
