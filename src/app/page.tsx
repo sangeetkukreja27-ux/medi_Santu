@@ -79,7 +79,7 @@ const router = useRouter();
   });
 
   useEffect(() => {
-    fetch("/api/products")
+    fetch(`/api/products?t=${Date.now()}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
@@ -88,7 +88,7 @@ const router = useRouter();
       })
       .catch((err) => console.error(err));
 
-    fetch("/api/homepage")
+    fetch(`/api/homepage?t=${Date.now()}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.success && data.settings) {

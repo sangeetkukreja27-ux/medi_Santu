@@ -14,11 +14,12 @@ export const Footer: React.FC = () => {
   const [siteLogo, setSiteLogo] = React.useState<string>("");
 
   React.useEffect(() => {
-    fetch("/api/cms")
+    fetch(`/api/cms?t=${Date.now()}`)
       .then((res) => res.json())
       .then((data) => {
-        if (data.success && data.settings?.homepage?.siteLogoImage) {
-          setSiteLogo(data.settings.homepage.siteLogoImage);
+        const logo = data.cms?.homepage?.siteLogoImage || data.settings?.siteLogoImage || data.settings?.homepage?.siteLogoImage;
+        if (logo) {
+          setSiteLogo(logo);
         }
       })
       .catch((err) => console.error("CMS Logo load error in Footer:", err));

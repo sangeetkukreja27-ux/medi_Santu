@@ -2,6 +2,9 @@ import { NextResponse } from "next/server";
 import fs from "fs/promises";
 import path from "path";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 const dbPath = path.join(process.cwd(), "src/data/products.json");
 
 export async function GET() {
@@ -17,6 +20,10 @@ export async function GET() {
     return NextResponse.json({
       success: true,
       products: productsList
+    }, {
+      headers: {
+        "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0"
+      }
     });
   } catch (error) {
     console.error("Backend error reading products catalog:", error);
