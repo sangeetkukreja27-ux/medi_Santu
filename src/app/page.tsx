@@ -172,8 +172,8 @@ const router = useRouter();
   return (
     <div className="w-full flex flex-col bg-[#F8FAF9] font-sans pb-10">
       
-      {/* 1. HERO SECTION */}
-      <section className="relative w-full bg-gradient-to-br from-[#EBF3FA] via-[#F4F8FC] to-[#FFFFFF] overflow-hidden py-14 sm:py-20 border-b border-slate-100">
+      {/* 1. HERO SECTION (FIT TO SCREEN VIEWPORT) */}
+      <section className="relative w-full bg-gradient-to-br from-[#EBF3FA] via-[#F4F8FC] to-[#FFFFFF] overflow-hidden py-6 sm:py-8 lg:py-10 border-b border-slate-100">
         
         {/* World Map Outline SVG Vector Background */}
         <div className="absolute inset-0 opacity-15 pointer-events-none z-0">
@@ -193,7 +193,7 @@ const router = useRouter();
         </div>
 
         {/* Floating Passenger Plane Image Graphics */}
-        <div className="absolute right-10 top-10 sm:right-24 sm:top-14 w-32 sm:w-60 opacity-90 pointer-events-none select-none z-10 animate-pulse">
+        <div className="absolute right-8 top-6 sm:right-20 sm:top-8 w-28 sm:w-48 opacity-85 pointer-events-none select-none z-10 animate-pulse">
           <img 
             src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=300&auto=format&fit=crop" 
             alt="Aircraft" 
@@ -201,49 +201,49 @@ const router = useRouter();
           />
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
           
           {/* Left Text Block */}
-          <div className="lg:col-span-6 flex flex-col items-start text-left gap-6">
+          <div className="lg:col-span-6 flex flex-col items-start text-left gap-3.5 sm:gap-4">
             
             {/* Badge pill */}
-            <div className="inline-flex items-center gap-1.5 bg-[#0A3981]/10 text-[#0A3981] py-1.5 px-4 rounded-full text-xs font-bold border border-[#0A3981]/20">
+            <div className="inline-flex items-center gap-1.5 bg-[#0A3981]/10 text-[#0A3981] py-1 px-3.5 rounded-full text-[11px] font-bold border border-[#0A3981]/20">
               <Globe className="w-3.5 h-3.5 text-[#00A86B]" />
               <span>{settings.heroSubTitle}</span>
             </div>
 
             {/* Main Title */}
-            <h1 className="text-3xl sm:text-5xl font-black text-[#0A3981] tracking-tight leading-tight whitespace-pre-line">
+            <h1 className="text-2xl sm:text-4xl lg:text-4xl font-black text-[#0A3981] tracking-tight leading-tight whitespace-pre-line">
               {renderTitle()}
             </h1>
 
             {/* Paragraph Description */}
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-lg">
+            <p className="text-slate-600 text-xs sm:text-sm leading-relaxed max-w-lg">
               {settings.heroDescription}
             </p>
 
             {/* Check points benefits list */}
-            <div className="flex flex-col gap-2.5 text-xs sm:text-sm font-bold text-slate-700">
+            <div className="grid grid-cols-2 gap-2 text-xs font-bold text-slate-700 w-full max-w-lg">
               {settings.heroBenefits.map((benefit, bidx) => (
-                <div key={bidx} className="flex items-center gap-2.5">
-                  <div className="bg-[#00A86B] text-white p-0.5 rounded-full">
-                    <Check className="w-3.5 h-3.5" />
+                <div key={bidx} className="flex items-center gap-2">
+                  <div className="bg-[#00A86B] text-white p-0.5 rounded-full flex-shrink-0">
+                    <Check className="w-3 h-3" />
                   </div>
-                  <span>{benefit}</span>
+                  <span className="truncate">{benefit}</span>
                 </div>
               ))}
             </div>
 
             {/* WhatsApp / Telegram / Email cards grid layout row */}
-            <div className="grid grid-cols-3 gap-3.5 w-full max-w-lg mt-2 text-xs font-semibold">
+            <div className="grid grid-cols-3 gap-3 w-full max-w-lg mt-1 text-xs font-semibold">
               <a 
                 href={settings.whatsappLink} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="bg-white hover:bg-slate-50 border border-slate-100 p-3 sm:p-4 rounded-2xl flex flex-col gap-1 items-start shadow-sm hover:shadow transition-all group"
+                className="bg-white hover:bg-slate-50 border border-slate-150 p-2.5 sm:p-3 rounded-2xl flex flex-col gap-0.5 items-start shadow-sm hover:shadow transition-all group"
               >
-                <div className="text-[#25D366] bg-[#25D366]/15 p-2 rounded-xl group-hover:scale-105 transition-transform">
-                  <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                <div className="text-[#25D366] bg-[#25D366]/15 p-1.5 rounded-xl group-hover:scale-105 transition-transform">
+                  <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
                     <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.42 9.864-9.852.002-2.631-1.019-5.105-2.876-6.964a9.813 9.813 0 0 0-6.99-2.883c-5.441 0-9.867 4.422-9.87 9.854-.002 1.761.472 3.479 1.374 5.01l-1.025 3.74 3.864-1.013c1.513.826 3.185 1.258 4.717 1.258zm5.409-12.78c-.27-.604-.554-.616-.81-.627-.21-.008-.45-.008-.69-.008-.24 0-.63.09-1.01.5-.38.41-1.44 1.41-1.44 3.43s1.47 3.98 1.67 4.26c.2.28 2.9 4.43 7.03 6.21 1 .43 1.78.69 2.39.88.94.3 1.8.26 2.48.16.76-.11 2.33-.95 2.66-1.87.33-.92.33-1.71.23-1.87-.1-.16-.38-.26-.81-.47-.43-.21-2.54-1.25-2.93-1.39-.39-.14-.68-.21-.97.21-.29.42-1.12 1.39-1.37 1.67-.25.28-.5.31-.93.1-.43-.21-1.8-1.02-3.43-2.47-1.27-1.13-2.13-2.53-2.38-2.96-.25-.43-.03-.66.19-.87.2-.19.43-.51.65-.76.22-.25.3-.43.45-.72.15-.29.07-.55-.04-.76-.11-.21-.81-1.95-1.11-2.68z" />
                   </svg>
                 </div>
@@ -255,10 +255,10 @@ const router = useRouter();
                 href={settings.telegramLink} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="bg-white hover:bg-slate-50 border border-slate-100 p-3 sm:p-4 rounded-2xl flex flex-col gap-1 items-start shadow-sm hover:shadow transition-all group"
+                className="bg-white hover:bg-slate-50 border border-slate-150 p-2.5 sm:p-3 rounded-2xl flex flex-col gap-0.5 items-start shadow-sm hover:shadow transition-all group"
               >
-                <div className="text-[#0088cc] bg-[#0088cc]/15 p-2 rounded-xl group-hover:scale-105 transition-transform">
-                  <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                <div className="text-[#0088cc] bg-[#0088cc]/15 p-1.5 rounded-xl group-hover:scale-105 transition-transform">
+                  <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-1-.65-.35-1 .22-1.62.15-.15 2.72-2.5 2.77-2.7.01-.03.01-.13-.05-.19-.06-.05-.14-.04-.2-.02-.08.02-1.35.86-3.82 2.53-.36.25-.69.37-.98.36-.32-.01-.94-.18-1.4-.33-.56-.18-1-.28-.96-.59.02-.16.24-.33.67-.5 2.62-1.14 4.37-1.89 5.25-2.25 2.5-1.02 3.02-1.2 3.36-1.2.07 0 .24.02.35.12.09.08.12.18.13.26.01.07.01.14 0 .22z" />
                   </svg>
                 </div>
@@ -268,10 +268,10 @@ const router = useRouter();
 
               <Link 
                 href="/contact" 
-                className="bg-white hover:bg-slate-50 border border-slate-100 p-3 sm:p-4 rounded-2xl flex flex-col gap-1 items-start shadow-sm hover:shadow transition-all group"
+                className="bg-white hover:bg-slate-50 border border-slate-150 p-2.5 sm:p-3 rounded-2xl flex flex-col gap-0.5 items-start shadow-sm hover:shadow transition-all group"
               >
-                <div className="text-[#005B41] bg-[#005B41]/15 p-2 rounded-xl group-hover:scale-105 transition-transform">
-                  <Mail className="w-5 h-5 text-[#005B41]" />
+                <div className="text-[#005B41] bg-[#005B41]/15 p-1.5 rounded-xl group-hover:scale-105 transition-transform">
+                  <Mail className="w-4 h-4 text-[#005B41]" />
                 </div>
                 <span className="block font-bold text-slate-700 leading-none mt-1">Email Us</span>
                 <span className="block text-[9px] text-[#00A877] uppercase tracking-wider font-extrabold">Send Inquiry</span>
@@ -281,19 +281,19 @@ const router = useRouter();
           </div>
 
           {/* Right Product Collage Block */}
-          <div className="lg:col-span-6 relative flex items-center justify-center py-6 sm:py-0">
-            <div className="relative max-w-md sm:max-w-lg w-full flex items-center justify-center p-6 border-2 border-dashed border-[#005b41]/10 rounded-[40px] bg-white/20 backdrop-blur-sm">
+          <div className="lg:col-span-6 relative flex items-center justify-center py-4 sm:py-0">
+            <div className="relative max-w-sm sm:max-w-md w-full flex items-center justify-center p-4 sm:p-5 border-2 border-dashed border-[#005b41]/10 rounded-[32px] bg-white/20 backdrop-blur-sm">
               <img 
                 src={settings.heroImage} 
                 alt="Medicine sourcing collection" 
-                className="rounded-3xl shadow-2xl border border-white/60 w-full h-auto object-cover max-h-[360px] animate-float-slow"
+                className="rounded-2xl shadow-xl border border-white/60 w-full h-auto object-cover max-h-[270px] sm:max-h-[300px] animate-float-slow"
               />
 
               {/* Quality Stamps Badge */}
-              <div className="absolute -bottom-5 -right-3 sm:-right-5 bg-[#00A877] text-white p-3.5 w-24 h-24 sm:w-28 sm:h-28 rounded-full flex flex-col items-center justify-center border-[6px] border-white shadow-2xl text-center leading-none select-none z-10 animate-pulse-glow hover:scale-110 transition-transform duration-300">
-                <span className="block text-[9px] uppercase font-black tracking-widest text-[#0b241e]/70">Quality</span>
-                <span className="block text-[11px] sm:text-xs font-black tracking-tight uppercase leading-snug my-0.5">Approved</span>
-                <span className="block text-[7px] uppercase font-black text-[#0b241e]/50">Guaranteed</span>
+              <div className="absolute -bottom-4 -right-2 sm:-right-4 bg-[#00A86B] text-white p-3 w-20 h-20 sm:w-24 sm:h-24 rounded-full flex flex-col items-center justify-center border-[4px] border-white shadow-xl text-center leading-none select-none z-10 animate-pulse-glow hover:scale-105 transition-transform duration-300">
+                <span className="block text-[8px] uppercase font-black tracking-widest text-[#0b241e]/70">Quality</span>
+                <span className="block text-[10px] sm:text-[11px] font-black tracking-tight uppercase leading-snug my-0.5">Approved</span>
+                <span className="block text-[6.5px] uppercase font-black text-[#0b241e]/50">Guaranteed</span>
               </div>
             </div>
           </div>
