@@ -107,9 +107,9 @@ const router = useRouter();
     const parts = fullTitle.split(highlight);
     return (
       <>
-        {parts[0]}
+        <span className="text-[#0A3981]">{parts[0]}</span>
         <span className="text-[#00A86B]">{highlight}</span>
-        {parts[1]}
+        <span className="text-[#0A3981]">{parts[1]}</span>
       </>
     );
   };
@@ -213,7 +213,7 @@ const router = useRouter();
             </div>
 
             {/* Main Title */}
-            <h1 className="text-3xl sm:text-5xl font-black text-slate-800 tracking-tight leading-tight whitespace-pre-line">
+            <h1 className="text-3xl sm:text-5xl font-black text-[#0A3981] tracking-tight leading-tight whitespace-pre-line">
               {renderTitle()}
             </h1>
 
