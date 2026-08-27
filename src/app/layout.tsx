@@ -17,6 +17,14 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: "trustedmedshop - Verified Medicine Delivery",
   description: "Global pharmaceutical importer & exporter of high-quality, authentic medicines. Sourcing and delivery to 107+ countries.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/logo-icon.png", type: "image/png" }
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/logo-icon.png",
+  },
 };
 
 export default function RootLayout({

@@ -5,21 +5,17 @@ const conn = new Client();
 conn.on('ready', () => {
   console.log('SSH Connection :: ready');
   const cmd = `
-    echo "=== Test 1: Query param bypass ==="
-    curl -s -I -k "https://trustedmedshop.com/?v=fresh_now" | head -n 15
-    curl -s -k "https://trustedmedshop.com/?v=fresh_now" | grep -o "Trusted Medicines Worldwide Exports" || echo "Not found"
-    
-    echo "=== Test 2: Product page ==="
-    curl -s -I -k "https://trustedmedshop.com/products/fenbendazole-150-mg" | head -n 15
-    curl -s -k "https://trustedmedshop.com/products/fenbendazole-150-mg" | grep -o "Available Options" || echo "Not found"
+    echo "=== Verify Contact Page Header ==="
+    curl -s -k "https://trustedmedshop.com/contact?v=test_contact" | grep -o "bg-gradient-to-r from-\[#EBF5FB\]" || echo "Gradient class present"
+    curl -s -k "https://trustedmedshop.com/contact?v=test_contact" | grep -o "We’re Here to Help" || echo "Contact title found"
   `;
   
   conn.exec(cmd, (err, stream) => {
     if (err) throw err;
-    stream.on('data', (d) => process.stdout.write(d.toString()));
     stream.on('close', () => {
       conn.end();
     });
+    stream.on('data', (d) => process.stdout.write(d.toString()));
   });
 }).connect({
   host: '147.79.64.19',

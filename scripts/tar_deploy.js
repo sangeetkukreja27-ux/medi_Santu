@@ -3,9 +3,14 @@ const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 
-console.log('1. Creating compact local deploy archive (excluding cache)...');
-execSync('tar --exclude=".next/cache" -czf deploy.tar.gz .next public src next.config.mjs package.json', { cwd: path.resolve(__dirname, '..') });
-const stats = fs.statSync(path.resolve(__dirname, '..', 'deploy.tar.gz'));
+const archivePath = path.resolve(__dirname, '..', 'deploy.tar.gz');
+if (fs.existsSync(archivePath)) {
+  try { fs.unlinkSync(archivePath); } catch (e) {}
+}
+
+console.log('1. Creating compact local deploy archive (excluding cache and trace)...');
+execSync('tar --exclude=".next/cache" --exclude=".next/trace" -czf deploy.tar.gz .next public src next.config.mjs package.json', { cwd: path.resolve(__dirname, '..') });
+const stats = fs.statSync(archivePath);
 console.log(`Deploy archive created: ${(stats.size / 1024 / 1024).toFixed(2)} MB`);
 
 const conn = new Client();
@@ -17,8 +22,7 @@ conn.on('ready', () => {
     if (err) throw err;
     console.log('Uploading deploy.tar.gz...');
     
-    const localArchive = path.resolve(__dirname, '..', 'deploy.tar.gz');
-    sftp.fastPut(localArchive, '/home/u743928828/domains/trustedmedshop.com/deploy.tar.gz', (err) => {
+    sftp.fastPut(archivePath, '/home/u743928828/domains/trustedmedshop.com/deploy.tar.gz', (err) => {
       if (err) throw err;
       console.log('deploy.tar.gz uploaded successfully!');
 
