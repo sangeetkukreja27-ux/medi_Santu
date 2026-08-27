@@ -556,7 +556,117 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 8. STAY UPDATED NEWSLETTER */}
+      {/* 8. DETAILED GENERIC CURES INFORMATION & WHY CHOOSE US */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
+        <div className="bg-[#F8FAFC] border border-slate-200/80 rounded-3xl p-6 sm:p-10 text-left flex flex-col gap-8">
+          
+          {/* Main Intro */}
+          <div className="border-b border-slate-200 pb-6">
+            <span className="text-[#00A86B] text-xs font-black uppercase tracking-widest block mb-1">
+              Genericcures — Your Trusted Medicine Store
+            </span>
+            <h2 className="text-xl sm:text-3xl font-black text-[#0A3981] tracking-tight">
+              Why choose Generic Cures Company for an online pharmacy?
+            </h2>
+            <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mt-3">
+              Welcome to one of the most reputable online pharmacies. Today, we are the world&apos;s best choice for high-quality OTC and generic products. Generic Cures is the most famous pharmacy. You can buy any tested and approved drug there. We provide greater savings than any other retailer, as well as free delivery. Also, we are always adding new deals for our clients. The firm strives to provide FDA-approved medication at a fair price. We promise your complete satisfaction and superior quality. All the medicines available here are quite safe and worthwhile.
+            </p>
+          </div>
+
+          {/* 8 Feature Pillars Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            
+            <div className="bg-white p-5 rounded-2xl border border-slate-200/60 shadow-sm flex flex-col gap-2">
+              <h4 className="text-xs sm:text-sm font-black text-[#0A3981]">💰 Save Money</h4>
+              <p className="text-[11px] text-slate-600 leading-relaxed">
+                Buy generic drugs at a cheaper price. The medicine is vital. With living costs rising, medicine prices have soared. You&apos;ll get the same drugs here at a lower price. You are now a member of our family as a result of this. We make a significant effort to ensure that our customers receive the highest level of care.
+              </p>
+            </div>
+
+            <div className="bg-white p-5 rounded-2xl border border-slate-200/60 shadow-sm flex flex-col gap-2">
+              <h4 className="text-xs sm:text-sm font-black text-[#0A3981]">🛡️ 100% Quality Assurance</h4>
+              <p className="text-[11px] text-slate-600 leading-relaxed">
+                Quality is the last thing you have to worry about. Neither client has complained about quality. We have tested and confirmed all the FDA-approved medications. Also, we have licensed cutting-edge medications on our site in several other countries.
+              </p>
+            </div>
+
+            <div className="bg-white p-5 rounded-2xl border border-slate-200/60 shadow-sm flex flex-col gap-2">
+              <h4 className="text-xs sm:text-sm font-black text-[#0A3981]">✨ Genuine Products</h4>
+              <p className="text-[11px] text-slate-600 leading-relaxed">
+                If we talk about whether the products are genuine or not? You can trust us completely about the product&apos;s authenticity. Our team always checks the required date before the last dispatch. The members verify the authenticity of the manufacturers.
+              </p>
+            </div>
+
+            <div className="bg-white p-5 rounded-2xl border border-slate-200/60 shadow-sm flex flex-col gap-2">
+              <h4 className="text-xs sm:text-sm font-black text-[#0A3981]">🚚 Better Delivery Options</h4>
+              <p className="text-[11px] text-slate-600 leading-relaxed">
+                When you order from Generic Cures, we guarantee delivery in 15-30 days at most. You needn&apos;t worry. We will deliver your order to your door. You will get an order number, shipment number, and live tracking info.
+              </p>
+            </div>
+
+            <div className="bg-white p-5 rounded-2xl border border-slate-200/60 shadow-sm flex flex-col gap-2">
+              <h4 className="text-xs sm:text-sm font-black text-[#0A3981]">🔄 Easy Return & Refund</h4>
+              <p className="text-[11px] text-slate-600 leading-relaxed">
+                We offer the best products, with top-notch, secure packaging. We accept returns if someone changes their mind after ordering. You will get your cashback in the Generic Cures wallet. We accept full responsibility for each product.
+              </p>
+            </div>
+
+            <div className="bg-white p-5 rounded-2xl border border-slate-200/60 shadow-sm flex flex-col gap-2">
+              <h4 className="text-xs sm:text-sm font-black text-[#0A3981]">📦 100% Hassle-Free Delivery</h4>
+              <p className="text-[11px] text-slate-600 leading-relaxed">
+                We drive the order to your doorsteps. People feel embarrassed to ask for certain drugs; our services make it easy, discrete, and comfortable for clients to get it delivered hassle-free.
+              </p>
+            </div>
+
+            <div className="bg-white p-5 rounded-2xl border border-slate-200/60 shadow-sm flex flex-col gap-2">
+              <h4 className="text-xs sm:text-sm font-black text-[#0A3981]">⭐ Customer Satisfaction</h4>
+              <p className="text-[11px] text-slate-600 leading-relaxed">
+                We offer our customers 100% satisfaction with our global healthcare services. We work to prioritise our customers and meet their needs with smooth and safe support.
+              </p>
+            </div>
+
+            <div className="bg-white p-5 rounded-2xl border border-slate-200/60 shadow-sm flex flex-col gap-2">
+              <h4 className="text-xs sm:text-sm font-black text-[#0A3981]">🎁 Free Shipping Over $199</h4>
+              <p className="text-[11px] text-slate-600 leading-relaxed">
+                We offer free shipping on orders over $199. We also provide the best deals on many purchases, coupons, and surprise discounts during the offer period.
+              </p>
+            </div>
+
+          </div>
+
+          {/* ED Health Information Card */}
+          <div className="bg-gradient-to-br from-blue-50 to-emerald-50 rounded-2xl p-6 border border-sky-200/70">
+            <h3 className="text-base sm:text-lg font-black text-[#0A3981] mb-2">
+              Understanding Men&apos;s Health: What is Erectile Dysfunction (ED)?
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
+              Erectile dysfunction is the inability to maintain a firm erection for sex. It is also cited as impotence; yet, the term rarely comes into use now. At times of stress, ED is often uncivil. Yet, it can also be an alert about your body. You need treatment for the same. It might also be a psychological disorder involving anxiety, stress, depression, or post-traumatic stress disorder.
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-2">
+              <div className="bg-white p-3.5 rounded-xl border border-emerald-200 shadow-sm">
+                <span className="font-bold text-xs text-[#0A3981] block">Cenforce 100</span>
+                <span className="text-[11px] text-slate-500">Sildenafil Citrate 100mg for reliable vitality</span>
+              </div>
+              <div className="bg-white p-3.5 rounded-xl border border-emerald-200 shadow-sm">
+                <span className="font-bold text-xs text-[#0A3981] block">Fildena 100</span>
+                <span className="text-[11px] text-slate-500">Fast-acting formulation for enhanced performance</span>
+              </div>
+              <div className="bg-white p-3.5 rounded-xl border border-emerald-200 shadow-sm">
+                <span className="font-bold text-xs text-[#0A3981] block">Vidalista 20</span>
+                <span className="text-[11px] text-slate-500">Tadalafil 20mg long-lasting weekend relief</span>
+              </div>
+            </div>
+
+            <p className="text-xs text-slate-500 italic mt-4">
+              You need not have any worries with Generic Cures Company. If you do not receive the medicines as ordered, you can return them for a full refund. Meeting your needs is our top priority.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      {/* 9. STAY UPDATED NEWSLETTER */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 w-full mb-6">
         <div className="bg-gradient-to-r from-[#00A86B] via-[#009E60] to-[#38A169] rounded-3xl p-6 sm:p-8 relative overflow-hidden flex flex-col md:flex-row justify-between items-center gap-6 shadow-md">
           
