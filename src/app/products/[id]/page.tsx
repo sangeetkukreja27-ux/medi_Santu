@@ -480,20 +480,22 @@ export default function ProductDetailPage() {
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
           {relatedProducts.map((rel) => (
             <div key={rel.id} className="bg-white rounded-2xl border border-slate-200 hover:border-[#00A86B]/50 p-3.5 shadow-sm hover:shadow-md transition-all flex flex-col text-left group">
-              <div className="h-28 w-full bg-slate-50 rounded-xl overflow-hidden flex items-center justify-center p-2 mb-2">
-                <img src={rel.image} alt={rel.name} className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform" />
-              </div>
-              <h4 className="text-xs sm:text-sm font-bold text-[#0A3981] group-hover:text-[#00A86B] transition-colors leading-tight line-clamp-1">
-                {rel.name}
-              </h4>
-              <span className="text-[10px] text-slate-400 mt-0.5">{rel.unit}</span>
+              <Link href={`/products/${rel.id}`} className="block">
+                <div className="h-28 w-full bg-slate-50 rounded-xl overflow-hidden flex items-center justify-center p-2 mb-2">
+                  <img src={rel.image} alt={rel.name} className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform" />
+                </div>
+                <h4 className="text-xs sm:text-sm font-bold text-[#0A3981] group-hover:text-[#00A86B] transition-colors leading-tight line-clamp-1">
+                  {rel.name}
+                </h4>
+                <span className="text-[10px] text-slate-400 mt-0.5">{rel.unit}</span>
+              </Link>
               
               <div className="mt-auto pt-2 flex flex-col gap-2">
                 <span className="text-xs sm:text-sm font-black text-[#00A86B]">
                   {formatUsdPrice(rel.price)}
                 </span>
                 <button
-                  onClick={() => openInquiryModal({ name: rel.name, substance: rel.substance, price: rel.price } as any)}
+                  onClick={() => openInquiryModal({ id: rel.id, name: rel.name, substance: rel.substance, price: rel.price } as any)}
                   className="w-full bg-[#00A86B] hover:bg-[#008f5a] text-white py-1.5 px-3 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 shadow-sm cursor-pointer"
                 >
                   <Send className="w-3 h-3" />
