@@ -13,19 +13,28 @@ import {
   Heart,
   Award,
   TrendingUp,
-  AwardIcon,
   Smile,
   CheckCircle,
   Clock,
   ArrowRight,
-  MessageSquare
+  MessageSquare,
+  DollarSign,
+  ShieldCheck,
+  BadgeCheck,
+  Truck,
+  RotateCcw,
+  Home,
+  Users,
+  Headset,
+  Gift,
+  PackageCheck
 } from "lucide-react";
 
 export default function AboutUs() {
   const [settings, setSettings] = useState({
     title: "About Us",
-    heroSubtitle: "Trusted by healthcare. Chosen worldwide.",
-    description: "trustedmedshop is a global pharmaceutical company specialized in the import and export of high-quality, authentic medicines. We connect healthcare with trust, delivering life-saving medicines to 107+ countries.",
+    heroSubtitle: "Your Trusted Medicine Store — Chosen Worldwide.",
+    description: "Welcome to one of the most reputable online pharmacies. Today, TrustedMedShop is the world's best choice for high-quality OTC and generic products. You can buy any tested and approved drug from us. We provide greater savings than any other retailer, along with reliable delivery services. We are always adding new deals for our clients. The firm strives to provide FDA-approved medication at a fair price. We promise your complete satisfaction and superior quality. All the medicines available here are quite safe and worthwhile.",
     imageCorporate: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&auto=format&fit=crop&q=60",
     imageScientist: "https://images.unsplash.com/photo-1532187643603-ba119ca4109e?w=400&auto=format&fit=crop&q=60",
     mission: "To make quality medicines accessible worldwide by delivering authentic, affordable, and reliable pharmaceutical solutions through ethical business practices and dependable service.",
@@ -44,7 +53,7 @@ export default function AboutUs() {
       "Dedicated 24/7 customer support from clinical specialists."
     ],
     quoteText: "Our commitment is to deliver not just medicines, but trust, care, and better health for all.",
-    quoteAuthor: "— trustedmedshop Team",
+    quoteAuthor: "— TrustedMedShop Team",
     quoteTitle: "Global Sourcing Division",
     statCountries: "107+",
     statProducts: "500+",
@@ -97,6 +106,54 @@ export default function AboutUs() {
     { name: "GDP", desc: "Good Distribution Practice" },
     { name: "HACCP", desc: "Food Safety Certified" },
     { name: "SSL", desc: "Secure & Encrypted Payments" }
+  ];
+
+  const whyChooseFeatures = [
+    {
+      icon: <DollarSign className="w-7 h-7" />,
+      title: "Save Money",
+      desc: "Buy generic drugs at a cheaper price. With living costs rising, medicine prices have soared. You'll get the same quality drugs here at a significantly lower price. We make a significant effort to ensure that our customers receive the highest level of care at the most affordable rates."
+    },
+    {
+      icon: <ShieldCheck className="w-7 h-7" />,
+      title: "100% Quality Assurance",
+      desc: "Quality is the last thing you have to worry about. We have tested and confirmed all the FDA-approved medications. We also carry licensed cutting-edge medications that are approved in several countries worldwide."
+    },
+    {
+      icon: <BadgeCheck className="w-7 h-7" />,
+      title: "Genuine Products",
+      desc: "You can trust us completely about the product's authenticity. Our team always checks the required certifications before the final dispatch. The members verify the authenticity of the manufacturers. We sell 100% genuine products — that is our promise to you."
+    },
+    {
+      icon: <Truck className="w-7 h-7" />,
+      title: "Better Delivery Options",
+      desc: "We guarantee delivery in 15-30 days at most. Once you place your order, you will receive a confirmation email with expected arrival date, tracking info, shipment number, and real-time location updates. Our delivery staff will contact you before arriving at your doorstep."
+    },
+    {
+      icon: <RotateCcw className="w-7 h-7" />,
+      title: "Easy Return & Refund Policy",
+      desc: "We offer the best products with top-notch, secure packaging. We accept returns if someone changes their mind after ordering. You can follow an easy process to return the product and get your cashback. We accept responsibility for each product to maximise customer satisfaction."
+    },
+    {
+      icon: <Home className="w-7 h-7" />,
+      title: "100% Hassle-Free Home Delivery",
+      desc: "We deliver orders right to your doorstep. This service has made lives convenient and super easy. People feel embarrassed to ask for certain drugs — our services make it easy and comfortable for clients to get what they need, delivered hassle-free."
+    },
+    {
+      icon: <Users className="w-7 h-7" />,
+      title: "Customer Satisfaction",
+      desc: "We offer our customers 100% satisfaction with our global healthcare services. We work to prioritise our customers and meet their needs. Our services will make you believe in the fantastic quality of everything we offer."
+    },
+    {
+      icon: <Headset className="w-7 h-7" />,
+      title: "Top-Class Customer Service",
+      desc: "You needn't worry about any hassle during your experience with us. We aim to provide a smooth and safe service for all our products. Our customers and team work together to ensure zero extra issues."
+    },
+    {
+      icon: <Gift className="w-7 h-7" />,
+      title: "Best Free Shipping on Orders Over \$199",
+      desc: "We offer free shipping on orders over \$199. We also provide the best deals on bulk purchases. You will also get exciting discounts during the offer period, along with unexpected coupons and bonus deals."
+    }
   ];
 
   return (
@@ -165,13 +222,43 @@ export default function AboutUs() {
 
       </section>
 
+      {/* WHY CHOOSE US - Feature Cards Grid */}
+      <section className="bg-[#F8FAFB] border-y border-slate-100 py-16 w-full">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col items-center gap-3 mb-12 text-center">
+            <span className="text-[#00A877] text-xs font-bold uppercase tracking-wider">Why Choose Us</span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0A3981]">
+              Why Choose <span className="text-[#005B41]">TrustedMedShop</span> for Your Online Pharmacy?
+            </h2>
+            <p className="text-slate-500 text-sm sm:text-base max-w-2xl leading-relaxed mt-1">
+              People know TrustedMedShop for its reliable medicines. We are a verified pharmacy and are capable of delivering what we promise. All medicines are 100% fit for human consumption, tested and certified as original and genuine.
+            </p>
+            <div className="h-1 w-16 bg-[#00A877] rounded-full mt-1"></div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {whyChooseFeatures.map((feature, idx) => (
+              <div key={idx} className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col gap-4 group">
+                <div className="bg-[#E6F3EE] p-3.5 rounded-xl text-[#005B41] w-fit group-hover:bg-[#005B41] group-hover:text-white transition-colors">
+                  {feature.icon}
+                </div>
+                <h3 className="text-lg font-bold text-[#0A3981]">{feature.title}</h3>
+                <p className="text-slate-500 text-xs sm:text-sm leading-relaxed">
+                  {feature.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Mission, Vision, Values Cards Grid */}
-      <section className="bg-slate-50 border-y border-slate-100 py-16 w-full">
+      <section className="bg-white py-16 w-full">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
           
           {/* Mission Card */}
-          <div className="bg-white rounded-2xl p-7 border border-slate-100 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col items-center text-center gap-4 group">
-            <div className="bg-[#F4F7F6] p-4 rounded-full group-hover:bg-[#005B41]/10 transition-colors">
+          <div className="bg-slate-50 rounded-2xl p-7 border border-slate-100 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col items-center text-center gap-4 group">
+            <div className="bg-white p-4 rounded-full group-hover:bg-[#005B41]/10 transition-colors">
               <Target className="w-8 h-8 text-[#00A877]" />
             </div>
             <h3 className="text-lg font-bold text-[#0A3981]">Our Mission</h3>
@@ -181,8 +268,8 @@ export default function AboutUs() {
           </div>
 
           {/* Vision Card */}
-          <div className="bg-white rounded-2xl p-7 border border-slate-100 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col items-center text-center gap-4 group">
-            <div className="bg-[#F4F7F6] p-4 rounded-full group-hover:bg-[#005B41]/10 transition-colors">
+          <div className="bg-slate-50 rounded-2xl p-7 border border-slate-100 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col items-center text-center gap-4 group">
+            <div className="bg-white p-4 rounded-full group-hover:bg-[#005B41]/10 transition-colors">
               <Eye className="w-8 h-8 text-[#00A877]" />
             </div>
             <h3 className="text-lg font-bold text-[#0A3981]">Our Vision</h3>
@@ -192,8 +279,8 @@ export default function AboutUs() {
           </div>
 
           {/* Values Card */}
-          <div className="bg-white rounded-2xl p-7 border border-slate-100 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col items-center text-center gap-4 group">
-            <div className="bg-[#F4F7F6] p-4 rounded-full group-hover:bg-[#005B41]/10 transition-colors">
+          <div className="bg-slate-50 rounded-2xl p-7 border border-slate-100 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col items-center text-center gap-4 group">
+            <div className="bg-white p-4 rounded-full group-hover:bg-[#005B41]/10 transition-colors">
               <Heart className="w-8 h-8 text-[#00A877]" />
             </div>
             <h3 className="text-lg font-bold text-[#0A3981]">Our Values</h3>
@@ -242,22 +329,25 @@ export default function AboutUs() {
         </div>
       </section>
 
-      {/* Why Choose Us & Researcher Quote Section */}
+      {/* Our Promise Section */}
       <section className="bg-slate-50 border-t border-slate-100 py-16 w-full">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           {/* Left Checkmarks */}
           <div className="lg:col-span-6 flex flex-col items-start text-left gap-5">
             <h2 className="text-3xl font-extrabold text-[#0A3981] leading-tight">
-              Why Choose <span className="text-[#005B41]">trusted</span><span className="text-[#00A877]">medshop</span>?
+              You Need Not Have Any Worries with <span className="text-[#005B41]">TrustedMedShop</span>
             </h2>
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+              The medicines heal the human body and have today become an essentially integral part of life. To make these more affordable, we provide high discounts and free shipping on orders over a certain amount, helping a larger group of people access quality healthcare.
+            </p>
             
             <div className="flex flex-col gap-4 mt-2">
               {[
+                "If you do not receive the medicines as ordered, you can return them for a full refund.",
+                "Meeting your needs is our top priority — we are working towards that every day.",
+                "Getting our services will not disappoint you in any way.",
                 "Genuine medicines sourced directly from approved manufacturers.",
-                "Highly competitive prices with bulk sourcing discounts.",
-                "Safe, discrete, and regulatory-compliant temperature-stable packaging.",
-                "Fast, tracked, and reliable worldwide shipping solutions.",
                 "Dedicated 24/7 customer support from clinical specialists."
               ].map((bullet, idx) => (
                 <div key={idx} className="flex items-start gap-3">
@@ -280,12 +370,12 @@ export default function AboutUs() {
             </div>
             
             <div className="sm:col-span-7 flex flex-col text-left gap-4">
-              <span className="text-[#00A877] text-4xl font-serif leading-none -mb-3 select-none">“</span>
+              <span className="text-[#00A877] text-4xl font-serif leading-none -mb-3 select-none">&ldquo;</span>
               <p className="text-slate-600 text-sm sm:text-base italic leading-relaxed">
                 Our commitment is to deliver not just medicines, but trust, care, and better health for all.
               </p>
               <div>
-                <span className="block text-sm font-bold text-[#005B41]">— trustedmedshop Team</span>
+                <span className="block text-sm font-bold text-[#005B41]">— TrustedMedShop Team</span>
                 <span className="block text-[10px] uppercase font-bold tracking-wider text-slate-400 mt-0.5">Global Sourcing Division</span>
               </div>
             </div>

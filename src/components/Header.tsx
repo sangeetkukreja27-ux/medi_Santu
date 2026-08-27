@@ -70,11 +70,12 @@ export const Header: React.FC = () => {
 
   const navLinks = [
     { name: "Home", href: "/" },
+    { name: "All Medicines", href: "/products" },
+    { name: "By Category", href: "/products" },
+    { name: "By Brand", href: "/products" },
+    { name: "Export", href: "/about" },
     { name: "About Us", href: "/about" },
-    { name: "Products", href: "/products" },
-    { name: "Why Us", href: "/#why-us" },
-    { name: "Resources", href: "/#resources" },
-    { name: "Contact Us", href: "/contact" }
+    { name: "Contact", href: "/contact" }
   ];
 
   const isActive = (href: string) => {
@@ -89,19 +90,24 @@ export const Header: React.FC = () => {
       {/* 1. TOP BANNER STRIP */}
       <div className="w-full bg-[#0A3981] text-white py-1.5 px-3 sm:px-6 lg:px-8 text-[11px] sm:text-xs font-medium">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-2">
-          {/* Shipping Info */}
-          <div className="flex items-center gap-1.5 truncate">
-            <Globe className="w-3.5 h-3.5 text-[#00A86B] flex-shrink-0" />
-            <span className="truncate">Global shipping to 107+ countries | Orders over ₹1499 Free Shipping</span>
+          {/* Trust points */}
+          <div className="flex items-center gap-3 sm:gap-4 overflow-x-auto hide-scrollbar text-[11px]">
+            <span className="flex items-center gap-1 whitespace-nowrap text-slate-200">
+              <Globe className="w-3.5 h-3.5 text-[#00A86B]" /> Global Supplier of Genuine Medicines
+            </span>
+            <span className="hidden md:flex items-center gap-1 whitespace-nowrap text-slate-200">
+              🛡️ TrustSeal Verified
+            </span>
+            <span className="hidden lg:flex items-center gap-1 whitespace-nowrap text-slate-200">
+              🔒 Payment Protected
+            </span>
+            <span className="hidden xl:flex items-center gap-1 whitespace-nowrap text-slate-200">
+              ⭐ IndiaMART Verified Exporter
+            </span>
           </div>
 
           {/* Right items */}
-          <div className="flex items-center gap-3 sm:gap-5 flex-shrink-0">
-            <a href="tel:+919876543210" className="hidden sm:flex items-center gap-1 hover:text-[#00A86B] transition-colors">
-              <Phone className="w-3 h-3 text-[#00A86B]" />
-              <span>+91 98765 43210</span>
-            </a>
-            
+          <div className="flex items-center gap-3 sm:gap-4 flex-shrink-0">
             {/* Currency Selector (INR ↔ USD) */}
             <div className="flex items-center gap-1 bg-white/10 px-2 py-0.5 rounded-lg border border-white/20">
               <Coins className="w-3 h-3 text-[#00A86B]" />
@@ -110,10 +116,11 @@ export const Header: React.FC = () => {
                 onChange={(e) => setCurrency(e.target.value as "INR" | "USD")}
                 className="bg-transparent text-white font-bold text-[10px] sm:text-xs outline-none cursor-pointer"
               >
-                <option value="INR" className="bg-[#0A3981] text-white font-bold">🇮🇳 INR (₹)</option>
-                <option value="USD" className="bg-[#0A3981] text-white font-bold">🇺🇸 USD ($)</option>
+                <option value="USD" className="bg-[#0A3981] text-white font-bold">USD ($)</option>
+                <option value="INR" className="bg-[#0A3981] text-white font-bold">INR (₹)</option>
               </select>
             </div>
+            <span className="text-slate-300 text-xs hidden sm:inline">English</span>
           </div>
         </div>
       </div>
@@ -247,23 +254,34 @@ export const Header: React.FC = () => {
         <div className="max-w-7xl mx-auto flex justify-between items-center py-2">
           
           {/* Desktop Nav Links */}
-          <nav className="hidden md:flex items-center gap-6 lg:gap-8">
-            {navLinks.map((link) => (
-              <Link 
-                key={link.name} 
-                href={link.href}
-                className={`text-xs sm:text-sm font-semibold tracking-wide transition-colors relative py-1.5 ${
-                  isActive(link.href) 
-                    ? "text-[#0A3981] font-bold" 
-                    : "text-slate-600 hover:text-[#0A3981]"
-                }`}
-              >
-                <span>{link.name}</span>
-                {isActive(link.href) && (
-                  <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#00A86B] rounded-full" />
-                )}
-              </Link>
-            ))}
+          <nav className="hidden md:flex items-center gap-2 lg:gap-3">
+            {navLinks.map((link) => {
+              const active = isActive(link.href);
+              if (link.name === "Home" && active) {
+                return (
+                  <Link 
+                    key={link.name} 
+                    href={link.href}
+                    className="bg-[#00A86B] hover:bg-[#008f5a] text-white text-xs sm:text-sm font-bold px-5 py-1.5 rounded-lg shadow-sm transition-all"
+                  >
+                    {link.name}
+                  </Link>
+                );
+              }
+              return (
+                <Link 
+                  key={link.name} 
+                  href={link.href}
+                  className={`text-xs sm:text-sm font-semibold tracking-wide transition-colors px-3 py-1.5 rounded-lg hover:text-[#0A3981] hover:bg-slate-100/60 ${
+                    active 
+                      ? "text-[#0A3981] font-bold" 
+                      : "text-slate-700"
+                  }`}
+                >
+                  <span>{link.name}</span>
+                </Link>
+              );
+            })}
           </nav>
 
           {/* Quick Inquiry & Contact CTAs */}
