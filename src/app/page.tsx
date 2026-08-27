@@ -36,9 +36,6 @@ import {
   HeadphonesIcon
 } from "lucide-react";
 
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
-
 export default function Home() {
   const { addToCart, cartItems, openInquiryModal, formatPrice } = useCart();
   const router = useRouter();
