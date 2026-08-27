@@ -139,14 +139,31 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Right Hero Graphic - EXACT Screenshot Image */}
+          {/* Right Hero Graphic - High-Definition Generated Pharma Global Theme */}
           <div className="lg:col-span-6 relative flex items-center justify-center">
-            <div className="relative w-full max-w-lg aspect-[16/10] flex items-center justify-center">
+            <div className="relative w-full max-w-lg aspect-[16/10] flex items-center justify-center rounded-3xl overflow-hidden shadow-2xl border-4 border-white/80 group">
               <img 
-                src="/images/mockup/hero-graphic.png" 
+                src="/images/hero-generated.jpg" 
                 alt="Trusted Medicines Worldwide Exports" 
-                className="w-full h-full object-contain rounded-2xl drop-shadow-xl"
+                className="w-full h-full object-cover rounded-2xl group-hover:scale-105 transition-transform duration-700"
               />
+              
+              {/* Floating Top-Right Text Banner */}
+              <div className="absolute top-3 right-3 bg-white/95 backdrop-blur-md px-3.5 py-2 rounded-xl shadow-lg border border-sky-100/80 text-right animate-pulse">
+                <span className="block text-[11px] sm:text-xs font-serif italic font-bold text-[#0A3981]">Better Medicines</span>
+                <span className="block text-[11px] sm:text-xs font-serif italic font-bold text-[#00A86B]">Healthier World</span>
+              </div>
+
+              {/* Floating Bottom-Right Card */}
+              <div className="absolute bottom-3 right-3 bg-white/95 backdrop-blur-md px-3.5 py-2 rounded-xl shadow-lg border border-emerald-100 flex items-center gap-2.5">
+                <div className="text-left">
+                  <span className="block text-[10.5px] font-black text-slate-800 leading-tight">Healthier People</span>
+                  <span className="block text-[10.5px] font-black text-[#00A86B] leading-tight">Stronger Tomorrow</span>
+                </div>
+                <div className="w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center text-xs">
+                  🌿
+                </div>
+              </div>
             </div>
           </div>
 
