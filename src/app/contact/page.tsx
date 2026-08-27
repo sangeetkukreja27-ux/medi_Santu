@@ -143,31 +143,26 @@ export default function ContactUs() {
       </section>
 
       {/* Hero Header Section */}
-      <section className="relative bg-[#005B41] text-white py-16 px-4 sm:px-6 lg:px-8 text-center overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-            <rect width="100%" height="100%" fill="none" stroke="currentColor" strokeWidth="2" strokeDasharray="15,15" />
-          </svg>
-        </div>
-        <div className="max-w-4xl mx-auto flex flex-col items-center gap-4 relative z-10">
-          <span className="text-[#00A877] text-xs font-bold uppercase tracking-wider bg-white/10 py-1.5 px-4 rounded-full border border-white/5">
+      <section className="relative bg-gradient-to-r from-[#EBF5FB] via-[#E6F3FA] to-[#CDE9F9] border-b border-sky-100 py-14 sm:py-16 px-4 sm:px-6 lg:px-8 text-center overflow-hidden">
+        <div className="max-w-4xl mx-auto flex flex-col items-center gap-3.5 relative z-10">
+          <span className="text-[#00A86B] text-[11px] font-black uppercase tracking-widest bg-white/80 backdrop-blur-sm py-1 px-4 rounded-full border border-sky-200/60 shadow-sm">
             Get In Touch
           </span>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#0A3981] tracking-tight leading-tight">
             We’re Here to Help. <br />
-            <span className="text-[#00A877]">Your Health, Our Priority.</span>
+            <span className="text-[#00A86B]">Your Health, Our Priority.</span>
           </h1>
-          <p className="text-slate-300 text-xs sm:text-sm max-w-xl leading-relaxed mt-1">
+          <p className="text-slate-600 text-xs sm:text-sm max-w-xl leading-relaxed mt-1 font-medium">
             Have questions, need product information, or looking for bulk orders? Our professional sourcing team is ready to assist you.
           </p>
           
-          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 mt-4">
-            <div className="flex items-center gap-2 text-xs font-semibold text-slate-200">
-              <CheckCircle className="w-4.5 h-4.5 text-[#00A877]" />
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 mt-3">
+            <div className="flex items-center gap-2 text-xs font-bold text-slate-700 bg-white/70 px-3.5 py-1.5 rounded-full border border-sky-200/60 shadow-sm">
+              <CheckCircle className="w-4 h-4 text-[#00A86B]" />
               <span>Fast Response (Within 24 Hours)</span>
             </div>
-            <div className="flex items-center gap-2 text-xs font-semibold text-slate-200">
-              <Globe className="w-4.5 h-4.5 text-[#00A877]" />
+            <div className="flex items-center gap-2 text-xs font-bold text-slate-700 bg-white/70 px-3.5 py-1.5 rounded-full border border-sky-200/60 shadow-sm">
+              <Globe className="w-4 h-4 text-[#00A86B]" />
               <span>Global Support (107+ Countries)</span>
             </div>
           </div>
