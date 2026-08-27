@@ -5,24 +5,28 @@ const conn = new Client();
 conn.on('ready', () => {
   console.log('SSH Connection :: ready');
   const cmd = `
-    export PATH=/opt/alt/alt-nodejs22/root/usr/bin:/home/u743928828/domains/trustedmedshop.com/hbuilds/last-source/node_modules/.bin:$PATH
+    export PATH=/opt/alt/alt-nodejs22/root/usr/bin:$PATH
     export NEXT_CPU_NUM=1
 
-    echo "=== 1. Pulling latest code ==="
+    echo "=== 1. Pulling latest code in last-source ==="
     cd /home/u743928828/domains/trustedmedshop.com/hbuilds/last-source/
     git fetch origin main
     git reset --hard origin/main
+    git log -n 1 --oneline
 
     echo "=== 2. Building Next.js Webpack ==="
-    npx next build --webpack
+    NEXT_CPU_NUM=1 npm run build
 
-    echo "=== 3. Copying to public_html and nodejs ==="
+    echo "=== 3. Syncing build files ==="
     CURRENT_NODEJS=$(readlink -f /home/u743928828/domains/trustedmedshop.com/hbuilds/current)/nodejs
+    echo "Target nodejs folder: $CURRENT_NODEJS"
 
     # Copy to nodejs
     cp -rf .next "$CURRENT_NODEJS/"
     cp -rf public/* "$CURRENT_NODEJS/public/" 2>/dev/null || true
     cp -rf src "$CURRENT_NODEJS/"
+    cp -f next.config.mjs "$CURRENT_NODEJS/"
+    cp -f package.json "$CURRENT_NODEJS/"
 
     # Copy static to public_html
     mkdir -p /home/u743928828/domains/trustedmedshop.com/public_html/_next
@@ -92,7 +96,7 @@ EOF
     curl -s -I -k "https://trustedmedshop.com/_next/static/chunks/app/page-c88b34443ba7aba0.js" | head -n 5
     curl -s -I -k "https://trustedmedshop.com/_next/static/css/755cbcdc15ebed6f.css" | head -n 5
     curl -s -I -k "https://trustedmedshop.com/images/hero-generated.jpg" | head -n 5
-    echo "=== SUCCESS ==="
+    echo "=== SUCCESSFUL FINISH ==="
   `;
   
   conn.exec(cmd, (err, stream) => {
