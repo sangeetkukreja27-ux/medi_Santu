@@ -4,12 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev -p 3001",
-    "build": "next build --webpack",
+    "build": "cross-env NEXT_CPU_NUM=1 next build --webpack",
     "start": "next start",
     "start:local": "next start -p 3001",
     "lint": "eslint"
   },
   "dependencies": {
+    "cross-env": "^10.1.0",
     "lucide-react": "^1.33.0",
     "next": "16.3.2",
     "react": "19.2.8",
