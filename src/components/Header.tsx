@@ -174,28 +174,20 @@ export const Header: React.FC = () => {
           </div>
 
           {/* Search Bar (Responsive full width on mobile) */}
-          <form onSubmit={handleSearchSubmit} className="flex flex-1 w-full max-w-xl border border-slate-200 rounded-full bg-slate-50 hover:border-slate-300 focus-within:border-[#0A3981] focus-within:ring-2 focus-within:ring-[#0A3981]/10 transition-all overflow-hidden items-center">
-            <input 
-              type="text" 
-              placeholder="Search medicines or categories..." 
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="flex-1 px-4 sm:px-5 py-2 text-xs sm:text-sm bg-transparent border-none outline-none text-slate-800 placeholder-slate-400"
-            />
-            
+          <form onSubmit={handleSearchSubmit} className="flex flex-1 w-full max-w-xl border border-slate-200 rounded-full bg-slate-50 hover:border-slate-300 focus-within:border-[#00A86B] focus-within:ring-2 focus-within:ring-[#00A86B]/10 transition-all overflow-hidden items-center">
             {/* Category Dropdown (Desktop/Tablet) */}
-            <div className="relative border-l border-slate-200 hidden sm:block">
+            <div className="relative border-r border-slate-200 hidden sm:block">
               <button 
                 type="button" 
                 onClick={() => setIsCategoryMenuOpen(!isCategoryMenuOpen)}
-                className="flex items-center gap-1 px-3 py-1.5 text-xs font-semibold text-slate-600 hover:text-slate-900 focus:outline-none"
+                className="flex items-center gap-1 px-3.5 py-2 text-xs font-semibold text-slate-700 hover:text-slate-900 focus:outline-none"
               >
                 <span className="truncate max-w-[120px]">{selectedCategory}</span>
                 <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${isCategoryMenuOpen ? "rotate-180" : ""}`} />
               </button>
               
               {isCategoryMenuOpen && (
-                <div className="absolute right-0 mt-2 w-52 rounded-xl border border-slate-100 bg-white shadow-xl z-50 py-1.5 animate-in fade-in slide-in-from-top-2 duration-150">
+                <div className="absolute left-0 mt-2 w-52 rounded-xl border border-slate-100 bg-white shadow-xl z-50 py-1.5 animate-in fade-in slide-in-from-top-2 duration-150">
                   {categories.map((cat) => (
                     <button
                       key={cat}
@@ -212,8 +204,16 @@ export const Header: React.FC = () => {
                 </div>
               )}
             </div>
+
+            <input 
+              type="text" 
+              placeholder="Search for medicines, brands or conditions..." 
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="flex-1 px-4 sm:px-5 py-2 text-xs sm:text-sm bg-transparent border-none outline-none text-slate-800 placeholder-slate-400"
+            />
             
-            <button type="submit" className="bg-[#0A3981] hover:bg-[#072B63] text-white p-2.5 sm:p-3 rounded-full mr-1 transition-colors flex items-center justify-center cursor-pointer">
+            <button type="submit" className="bg-[#00A86B] hover:bg-[#008f5a] text-white p-2.5 sm:p-3 rounded-full mr-1 transition-colors flex items-center justify-center cursor-pointer shadow-sm">
               <Search className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             </button>
           </form>
