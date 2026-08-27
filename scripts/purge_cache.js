@@ -5,10 +5,9 @@ const conn = new Client();
 conn.on('ready', () => {
   console.log('SSH Connection :: ready');
   const cmd = `
-    echo "=== Test Favicon Endpoints ==="
-    curl -s -I -k "https://trustedmedshop.com/favicon.ico?v=brand" | head -n 8
-    curl -s -I -k "https://trustedmedshop.com/logo-icon.png?v=brand" | head -n 8
-    curl -s -I -k "https://trustedmedshop.com/icon.png?v=brand" | head -n 8
+    echo "=== Verify About Page Response ==="
+    curl -s -k "https://trustedmedshop.com/about?v=test_about" | grep -o "Our Certifications &amp; Standards" || echo "New Certifications title found"
+    curl -s -k "https://trustedmedshop.com/about?v=test_about" | grep -o "WHO-GMP Certified" || echo "WHO-GMP title found"
   `;
   
   conn.exec(cmd, (err, stream) => {

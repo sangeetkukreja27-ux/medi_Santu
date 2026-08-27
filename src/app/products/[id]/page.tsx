@@ -41,24 +41,6 @@ export default function ProductDetailPage() {
     0: 1, 1: 1, 2: 1, 3: 1, 4: 1, 5: 1, 6: 1
   });
 
-  // Default Tier Options matching the exact mockup
-  const tierOptions = [
-    { packSize: "30 Tablet/s", price: 115 },
-    { packSize: "50 Tablet/s", price: 128 },
-    { packSize: "100 Tablet/s", price: 230 },
-    { packSize: "200 Tablet/s", price: 425 },
-    { packSize: "300 Tablet/s", price: 561 },
-    { packSize: "500 Tablet/s", price: 850 },
-    { packSize: "1000 Tablet/s", price: 1530 },
-  ];
-
-  const thumbnails = [
-    "/images/products/fenbendazole-thumb-1.jpg",
-    "/images/products/fenbendazole-thumb-2.jpg",
-    "/images/products/fenbendazole-thumb-3.jpg",
-    "/images/products/fenbendazole-thumb-4.jpg"
-  ];
-
   const relatedProducts = [
     { id: "rel-1", name: "Ivermectin 12mg", unit: "10 Tablets", price: 18, image: "/images/products/related-ivermectin.jpg", substance: "Ivermectin" },
     { id: "rel-2", name: "Albendazole 400mg", unit: "10 Tablets", price: 12, image: "/images/products/related-albendazole.jpg", substance: "Albendazole" },
@@ -98,12 +80,29 @@ export default function ProductDetailPage() {
 
   const currentProductName = product?.name || "Fenbendazole for Humans 150 mg (Wormentel)";
   const currentCategory = product?.category || "Antiparasitic";
-  const currentSubstance = product?.substance || "Fenbendazole";
-  const currentBrand = product?.brand || "Kachhela Medex Private Limited";
+  const currentSubstance = product?.substance || product?.composition || "Fenbendazole";
+  const currentBrand = product?.manufacturer || product?.brand || "Kachhela Medex Private Limited";
+  const currentPackaging = product?.packaging || product?.unit || "10 tablets in 1 strip";
+  const currentDescription = product?.description || "High-quality, genuine generic medication manufactured under strict GMP compliance, suitable for global healthcare and distributor markets.";
+
+  const basePrice = product?.price || 28;
+  const tierOptions = [
+    { packSize: "30 Tablet/s", price: Math.round(basePrice * 2.8) },
+    { packSize: "50 Tablet/s", price: Math.round(basePrice * 4.2) },
+    { packSize: "100 Tablet/s", price: Math.round(basePrice * 7.5) },
+    { packSize: "200 Tablet/s", price: Math.round(basePrice * 14.0) },
+    { packSize: "300 Tablet/s", price: Math.round(basePrice * 19.5) },
+    { packSize: "500 Tablet/s", price: Math.round(basePrice * 30.0) },
+    { packSize: "1000 Tablet/s", price: Math.round(basePrice * 54.0) },
+  ];
+
+  const displayThumbnails = (product?.thumbnails && product.thumbnails.length > 0)
+    ? product.thumbnails
+    : [activeImage, "/images/products/fenbendazole-thumb-2.jpg", "/images/products/fenbendazole-thumb-3.jpg", "/images/products/fenbendazole-thumb-4.jpg"];
 
   const handleOptionInquiry = (tier: { packSize: string; price: number }, qty: number) => {
     openInquiryModal({
-      id: product?.id || "fenbendazole-150",
+      id: product?.id || id || "prod-inquiry",
       name: `${currentProductName} (${tier.packSize})`,
       price: tier.price * qty,
       substance: currentSubstance,
@@ -157,7 +156,7 @@ export default function ProductDetailPage() {
 
             {/* 4 Thumbnails */}
             <div className="grid grid-cols-4 gap-2.5">
-              {thumbnails.map((thumb, idx) => (
+              {displayThumbnails.slice(0, 4).map((thumb, idx) => (
                 <button
                   key={idx}
                   onClick={() => setActiveImage(thumb)}
@@ -195,7 +194,7 @@ export default function ProductDetailPage() {
             </div>
 
             <p className="text-xs text-slate-600 leading-relaxed font-medium">
-              Fenbendazole 150 mg (Wormentel) is an antiparasitic medication used to treat various parasitic infections. High-quality generic medicine, suitable for global markets.
+              {currentDescription}
             </p>
 
             {/* Specifications Table */}
@@ -207,7 +206,7 @@ export default function ProductDetailPage() {
                 </div>
                 <div className="grid grid-cols-12 p-2.5 bg-[#F8FAFC]">
                   <span className="col-span-5 font-bold text-[#0A3981]">Strength</span>
-                  <span className="col-span-7 text-slate-600 font-medium">150 mg</span>
+                  <span className="col-span-7 text-slate-600 font-medium">{product?.composition || "Clinical Standard"}</span>
                 </div>
                 <div className="grid grid-cols-12 p-2.5 bg-white">
                   <span className="col-span-5 font-bold text-[#0A3981]">Manufacturer</span>
@@ -215,7 +214,7 @@ export default function ProductDetailPage() {
                 </div>
                 <div className="grid grid-cols-12 p-2.5 bg-[#F8FAFC]">
                   <span className="col-span-5 font-bold text-[#0A3981]">Packaging</span>
-                  <span className="col-span-7 text-slate-600 font-medium">10 tablets in 1 strip</span>
+                  <span className="col-span-7 text-slate-600 font-medium">{currentPackaging}</span>
                 </div>
                 <div className="grid grid-cols-12 p-2.5 bg-white">
                   <span className="col-span-5 font-bold text-[#0A3981]">Usage/Application</span>
@@ -227,7 +226,7 @@ export default function ProductDetailPage() {
                 </div>
                 <div className="grid grid-cols-12 p-2.5 bg-white">
                   <span className="col-span-5 font-bold text-[#0A3981]">SKU</span>
-                  <span className="col-span-7 text-slate-600 font-medium">Fenbendazole-150-mg</span>
+                  <span className="col-span-7 text-slate-600 font-medium">{product?.id || id || "MED-EXPORT"}</span>
                 </div>
                 <div className="grid grid-cols-12 p-2.5 bg-[#F8FAFC]">
                   <span className="col-span-5 font-bold text-[#0A3981]">Category</span>

@@ -224,34 +224,36 @@ export default function Home() {
                 <Heart className="w-3.5 h-3.5" />
               </button>
 
-              <div className="h-28 w-full bg-slate-50 rounded-xl overflow-hidden flex items-center justify-center p-2 mb-2">
-                <img 
-                  src={item.image} 
-                  alt={item.name} 
-                  className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-
-              <div className="flex flex-col flex-1 gap-0.5">
-                <h3 className="text-xs sm:text-sm font-bold text-[#0A3981] group-hover:text-[#00A86B] transition-colors leading-tight line-clamp-1">
-                  {item.name}
-                </h3>
-                <span className="text-[10.5px] text-slate-500 font-medium line-clamp-1">{item.generic}</span>
-                <span className="text-[9.5px] text-slate-400">{item.unit}</span>
-                
-                <div className="mt-auto pt-2 flex flex-col gap-2">
-                  <span className="text-xs sm:text-sm font-black text-[#00A86B]">
-                    {formatUsdPrice(item.price)}
-                  </span>
-                  
-                  <button 
-                    onClick={() => openInquiryModal({ id: item.id, name: item.name, price: item.price, substance: item.generic, category: "Popular", unit: item.unit, rating: 5, reviewsCount: 12, isAvailable: true, badges: [], description: "", precautions: "", dosageAndUsage: "", sideEffects: "" } as any)}
-                    className="w-full bg-[#00A86B] hover:bg-[#008f5a] text-white py-2 px-3 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 shadow-sm cursor-pointer"
-                  >
-                    <Send className="w-3 h-3" />
-                    <span>Inquiry</span>
-                  </button>
+              <Link href={`/products/${item.id}`} className="block">
+                <div className="h-28 w-full bg-slate-50 rounded-xl overflow-hidden flex items-center justify-center p-2 mb-2">
+                  <img 
+                    src={item.image} 
+                    alt={item.name} 
+                    className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
+
+                <div className="flex flex-col gap-0.5">
+                  <h3 className="text-xs sm:text-sm font-bold text-[#0A3981] group-hover:text-[#00A86B] transition-colors leading-tight line-clamp-1">
+                    {item.name}
+                  </h3>
+                  <span className="text-[10.5px] text-slate-500 font-medium line-clamp-1">{item.generic}</span>
+                  <span className="text-[9.5px] text-slate-400">{item.unit}</span>
+                </div>
+              </Link>
+                
+              <div className="mt-auto pt-2 flex flex-col gap-2">
+                <span className="text-xs sm:text-sm font-black text-[#00A86B]">
+                  {formatUsdPrice(item.price)}
+                </span>
+                
+                <button 
+                  onClick={() => openInquiryModal({ id: item.id, name: item.name, price: item.price, substance: item.generic, category: "Popular", unit: item.unit, rating: 5, reviewsCount: 12, isAvailable: true, badges: [], description: "", precautions: "", dosageAndUsage: "", sideEffects: "" } as any)}
+                  className="w-full bg-[#00A86B] hover:bg-[#008f5a] text-white py-2 px-3 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 shadow-sm cursor-pointer"
+                >
+                  <Send className="w-3 h-3" />
+                  <span>Inquiry</span>
+                </button>
               </div>
             </div>
           ))}
@@ -290,34 +292,36 @@ export default function Home() {
                 <Heart className="w-3.5 h-3.5" />
               </button>
 
-              <div className="h-28 w-full bg-slate-50 rounded-xl overflow-hidden flex items-center justify-center p-2 mb-2">
-                <img 
-                  src={item.image} 
-                  alt={item.name} 
-                  className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-
-              <div className="flex flex-col flex-1 gap-0.5">
-                <h3 className="text-xs sm:text-sm font-bold text-[#0A3981] group-hover:text-[#00A86B] transition-colors leading-tight line-clamp-1">
-                  {item.name}
-                </h3>
-                <span className="text-[10.5px] text-slate-500 font-medium line-clamp-1">{item.generic}</span>
-                <span className="text-[9.5px] text-slate-400">{item.unit}</span>
-                
-                <div className="mt-auto pt-2 flex flex-col gap-2">
-                  <span className="text-xs sm:text-sm font-black text-[#00A86B]">
-                    {formatUsdPrice(item.price)}
-                  </span>
-                  
-                  <button 
-                    onClick={() => openInquiryModal({ id: item.id, name: item.name, price: item.price, substance: item.generic, category: "Top Selling", unit: item.unit, rating: 5, reviewsCount: 12, isAvailable: true, badges: [], description: "", precautions: "", dosageAndUsage: "", sideEffects: "" } as any)}
-                    className="w-full bg-[#00A86B] hover:bg-[#008f5a] text-white py-2 px-3 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 shadow-sm cursor-pointer"
-                  >
-                    <Send className="w-3 h-3" />
-                    <span>Inquiry</span>
-                  </button>
+              <Link href={`/products/${item.id}`} className="block">
+                <div className="h-28 w-full bg-slate-50 rounded-xl overflow-hidden flex items-center justify-center p-2 mb-2">
+                  <img 
+                    src={item.image} 
+                    alt={item.name} 
+                    className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
+
+                <div className="flex flex-col gap-0.5">
+                  <h3 className="text-xs sm:text-sm font-bold text-[#0A3981] group-hover:text-[#00A86B] transition-colors leading-tight line-clamp-1">
+                    {item.name}
+                  </h3>
+                  <span className="text-[10.5px] text-slate-500 font-medium line-clamp-1">{item.generic}</span>
+                  <span className="text-[9.5px] text-slate-400">{item.unit}</span>
+                </div>
+              </Link>
+                
+              <div className="mt-auto pt-2 flex flex-col gap-2">
+                <span className="text-xs sm:text-sm font-black text-[#00A86B]">
+                  {formatUsdPrice(item.price)}
+                </span>
+                
+                <button 
+                  onClick={() => openInquiryModal({ id: item.id, name: item.name, price: item.price, substance: item.generic, category: "Top Selling", unit: item.unit, rating: 5, reviewsCount: 12, isAvailable: true, badges: [], description: "", precautions: "", dosageAndUsage: "", sideEffects: "" } as any)}
+                  className="w-full bg-[#00A86B] hover:bg-[#008f5a] text-white py-2 px-3 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 shadow-sm cursor-pointer"
+                >
+                  <Send className="w-3 h-3" />
+                  <span>Inquiry</span>
+                </button>
               </div>
             </div>
           ))}
@@ -362,39 +366,41 @@ export default function Home() {
                 <Heart className="w-3.5 h-3.5" />
               </button>
 
-              <div className="h-28 w-full bg-slate-50 rounded-xl overflow-hidden flex items-center justify-center p-2 mb-2 mt-3">
-                <img 
-                  src={item.image} 
-                  alt={item.name} 
-                  className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-
-              <div className="flex flex-col flex-1 gap-0.5">
-                <h3 className="text-xs sm:text-sm font-bold text-[#0A3981] group-hover:text-[#00A86B] transition-colors leading-tight line-clamp-1">
-                  {item.name}
-                </h3>
-                <span className="text-[10.5px] text-slate-500 font-medium line-clamp-1">{item.generic}</span>
-                <span className="text-[9.5px] text-slate-400">{item.unit}</span>
-                
-                <div className="mt-auto pt-2 flex flex-col gap-2">
-                  <div className="flex items-baseline gap-1.5">
-                    <span className="text-xs sm:text-sm font-black text-[#FF3B30]">
-                      {formatUsdPrice(item.price)}
-                    </span>
-                    <span className="text-[10px] font-semibold text-slate-400 line-through">
-                      {formatUsdPrice(item.oldPrice)}
-                    </span>
-                  </div>
-                  
-                  <button 
-                    onClick={() => openInquiryModal({ id: item.id, name: item.name, price: item.price, substance: item.generic, category: "Best Offer", unit: item.unit, rating: 5, reviewsCount: 12, isAvailable: true, badges: [item.badge], description: "", precautions: "", dosageAndUsage: "", sideEffects: "" } as any)}
-                    className="w-full bg-[#00A86B] hover:bg-[#008f5a] text-white py-2 px-3 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 shadow-sm cursor-pointer"
-                  >
-                    <Send className="w-3 h-3" />
-                    <span>Inquiry</span>
-                  </button>
+              <Link href={`/products/${item.id}`} className="block">
+                <div className="h-28 w-full bg-slate-50 rounded-xl overflow-hidden flex items-center justify-center p-2 mb-2 mt-3">
+                  <img 
+                    src={item.image} 
+                    alt={item.name} 
+                    className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
+
+                <div className="flex flex-col gap-0.5">
+                  <h3 className="text-xs sm:text-sm font-bold text-[#0A3981] group-hover:text-[#00A86B] transition-colors leading-tight line-clamp-1">
+                    {item.name}
+                  </h3>
+                  <span className="text-[10.5px] text-slate-500 font-medium line-clamp-1">{item.generic}</span>
+                  <span className="text-[9.5px] text-slate-400">{item.unit}</span>
+                </div>
+              </Link>
+                
+              <div className="mt-auto pt-2 flex flex-col gap-2">
+                <div className="flex items-baseline gap-1.5">
+                  <span className="text-xs sm:text-sm font-black text-[#FF3B30]">
+                    {formatUsdPrice(item.price)}
+                  </span>
+                  <span className="text-[10px] font-semibold text-slate-400 line-through">
+                    {formatUsdPrice(item.oldPrice)}
+                  </span>
+                </div>
+                
+                <button 
+                  onClick={() => openInquiryModal({ id: item.id, name: item.name, price: item.price, substance: item.generic, category: "Best Offer", unit: item.unit, rating: 5, reviewsCount: 12, isAvailable: true, badges: [item.badge], description: "", precautions: "", dosageAndUsage: "", sideEffects: "" } as any)}
+                  className="w-full bg-[#00A86B] hover:bg-[#008f5a] text-white py-2 px-3 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 shadow-sm cursor-pointer"
+                >
+                  <Send className="w-3 h-3" />
+                  <span>Inquiry</span>
+                </button>
               </div>
             </div>
           ))}

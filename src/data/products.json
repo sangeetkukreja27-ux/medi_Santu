@@ -5,7 +5,7 @@
     "substance": "Ivermectin 12mg",
     "category": "Anti Parasite",
     "categoryKey": "anti-parasite",
-    "price": 40.0,
+    "price": 40,
     "unit": "100 Tablet Box",
     "rating": 4.8,
     "reviewsCount": 1245,
@@ -22,7 +22,9 @@
     "thumbnails": [
       "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=100&auto=format&fit=crop&q=60"
     ],
-    "badges": ["Hot"],
+    "badges": [
+      "Hot"
+    ],
     "inStock": true,
     "brand": "Healing Pharma",
     "form": "Tablet"
@@ -33,7 +35,7 @@
     "substance": "Ivermectin 12mg",
     "category": "Anti Parasite",
     "categoryKey": "anti-parasite",
-    "price": 40.0,
+    "price": 40,
     "unit": "100 Tablet Box",
     "rating": 4.6,
     "reviewsCount": 382,
@@ -50,7 +52,9 @@
     "thumbnails": [
       "https://images.unsplash.com/photo-1550572017-edd951b55104?w=100&auto=format&fit=crop&q=60"
     ],
-    "badges": ["Popular"],
+    "badges": [
+      "Popular"
+    ],
     "inStock": true,
     "brand": "ivylink",
     "form": "Tablet"
@@ -61,7 +65,7 @@
     "substance": "Ivermectin 24mg",
     "category": "Anti Parasite",
     "categoryKey": "anti-parasite",
-    "price": 60.0,
+    "price": 60,
     "unit": "100 Tablet Box",
     "rating": 4.9,
     "reviewsCount": 815,
@@ -78,7 +82,9 @@
     "thumbnails": [
       "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?w=100&auto=format&fit=crop&q=60"
     ],
-    "badges": ["Best Seller"],
+    "badges": [
+      "Best Seller"
+    ],
     "inStock": true,
     "brand": "Healing Pharma",
     "form": "Tablet"
@@ -89,7 +95,7 @@
     "substance": "Ivermectin 6mg",
     "category": "Anti Parasite",
     "categoryKey": "anti-parasite",
-    "price": 30.0,
+    "price": 30,
     "unit": "100 Tablet Box",
     "rating": 4.7,
     "reviewsCount": 652,
@@ -117,7 +123,7 @@
     "substance": "Ivermectin Cream 1%",
     "category": "Anti Parasite",
     "categoryKey": "anti-parasite",
-    "price": 20.0,
+    "price": 20,
     "unit": "1 Cream Pack",
     "rating": 4.5,
     "reviewsCount": 184,
@@ -145,7 +151,7 @@
     "substance": "Doxycycline",
     "category": "Antibiotics",
     "categoryKey": "antibiotics",
-    "price": 25.0,
+    "price": 25,
     "unit": "10x10 Tablet Box",
     "rating": 4.7,
     "reviewsCount": 934,
@@ -162,7 +168,9 @@
     "thumbnails": [
       "https://images.unsplash.com/photo-1584017911766-d451b3d0e843?w=100&auto=format&fit=crop&q=60"
     ],
-    "badges": ["Antibiotics"],
+    "badges": [
+      "Antibiotics"
+    ],
     "inStock": true,
     "brand": "Sun Pharma",
     "form": "Tablet"
@@ -173,7 +181,7 @@
     "substance": "Tramadol",
     "category": "Pain Relief",
     "categoryKey": "pain-relief",
-    "price": 18.0,
+    "price": 18,
     "unit": "10x10 Tablet Box",
     "rating": 4.8,
     "reviewsCount": 1542,
@@ -190,7 +198,9 @@
     "thumbnails": [
       "https://images.unsplash.com/photo-1471864190281-a93a3070b6de?w=100&auto=format&fit=crop&q=60"
     ],
-    "badges": ["Pain Relief"],
+    "badges": [
+      "Pain Relief"
+    ],
     "inStock": true,
     "brand": "Cipla",
     "form": "Tablet"
@@ -201,7 +211,7 @@
     "substance": "Mifepristone + Misoprostol",
     "category": "Contraceptives",
     "categoryKey": "contraceptives",
-    "price": 45.0,
+    "price": 45,
     "unit": "1 Kit",
     "rating": 4.9,
     "reviewsCount": 2410,
@@ -218,7 +228,9 @@
     "thumbnails": [
       "https://images.unsplash.com/photo-1584017911766-d451b3d0e843?w=100&auto=format&fit=crop&q=60"
     ],
-    "badges": ["Contraceptives"],
+    "badges": [
+      "Contraceptives"
+    ],
     "inStock": true,
     "brand": "Swiss",
     "form": "Tablet"
@@ -229,7 +241,7 @@
     "substance": "Testosterone 250mg",
     "category": "Hormone Therapy",
     "categoryKey": "hormone-therapy",
-    "price": 32.0,
+    "price": 32,
     "unit": "1 Vial",
     "rating": 4.7,
     "reviewsCount": 310,
@@ -246,7 +258,9 @@
     "thumbnails": [
       "https://images.unsplash.com/photo-1611078489935-0cb964de46d6?w=100&auto=format&fit=crop&q=60"
     ],
-    "badges": ["Hormone Therapy"],
+    "badges": [
+      "Hormone Therapy"
+    ],
     "inStock": true,
     "brand": "Healing Pharma",
     "form": "Injection"
@@ -257,7 +271,7 @@
     "substance": "Cholecalciferol 60000 IU",
     "category": "Vitamins & Supplements",
     "categoryKey": "vitamins-supplements",
-    "price": 12.0,
+    "price": 12,
     "unit": "4 Capsules",
     "rating": 4.8,
     "reviewsCount": 2280,
@@ -274,7 +288,9 @@
     "thumbnails": [
       "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=100&auto=format&fit=crop&q=60"
     ],
-    "badges": ["Vitamins"],
+    "badges": [
+      "Vitamins"
+    ],
     "inStock": true,
     "brand": "Sun Pharma",
     "form": "Capsule"
@@ -285,7 +301,7 @@
     "substance": "Alprazolam",
     "category": "Sleeping Disorder",
     "categoryKey": "sleeping-disorder",
-    "price": 10.0,
+    "price": 10,
     "unit": "10x10 Tablet Box",
     "rating": 4.8,
     "reviewsCount": 1812,
@@ -302,9 +318,494 @@
     "thumbnails": [
       "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=100&auto=format&fit=crop&q=60"
     ],
-    "badges": ["Sleeping Disorder"],
+    "badges": [
+      "Sleeping Disorder"
+    ],
     "inStock": true,
     "brand": "Cipla",
     "form": "Tablet"
+  },
+  {
+    "id": "fenbendazole-150-mg",
+    "name": "Fenbendazole for Humans 150 mg (Wormentel)",
+    "substance": "Fenbendazole 150mg",
+    "category": "Antiparasitic",
+    "categoryKey": "antiparasitic",
+    "price": 28,
+    "unit": "10x10 Tablets",
+    "rating": 5,
+    "reviewsCount": 0,
+    "manufacturer": "Kachhela Medex Private Limited",
+    "composition": "Fenbendazole 150mg",
+    "packaging": "10 tablets in 1 strip",
+    "shelfLife": "36 Months",
+    "description": "Wormentel 150 mg (Fenbendazole) is an antiparasitic medication used to treat various parasitic infections such as roundworm infections, tapeworms, hookworms, strongyloidiasis, and more. It works by binding to parts inside the parasite, eventually paralyzing and killing them, which helps clear the infection from your body.",
+    "benefits": "Broad-spectrum eradication of common and complex parasitic infections. High bioavailability and established clinical safety profile.",
+    "sideEffects": "Mild and temporary abdominal discomfort or nausea. Consult your doctor if symptoms persist.",
+    "howToUse": "Take this medicine in the dose and duration as advised by your doctor. Swallow it as a whole with water.",
+    "shippingReturns": "Global tracked shipping in 10-15 business days. 100% full refund guarantee if damaged.",
+    "image": "/images/products/fenbendazole-main.jpg",
+    "thumbnails": [
+      "/images/products/fenbendazole-thumb-1.jpg",
+      "/images/products/fenbendazole-thumb-2.jpg",
+      "/images/products/fenbendazole-thumb-3.jpg",
+      "/images/products/fenbendazole-thumb-4.jpg"
+    ],
+    "badges": [
+      "Popular"
+    ],
+    "inStock": true,
+    "brand": "Kachhela Medex",
+    "form": "Tablet"
+  },
+  {
+    "id": "p1",
+    "name": "Imatinib 400mg",
+    "substance": "Generic Gleevec",
+    "category": "Anticancer",
+    "categoryKey": "anticancer",
+    "price": 28,
+    "unit": "10 Tablets",
+    "rating": 5,
+    "reviewsCount": 24,
+    "manufacturer": "Novartis / Generic",
+    "composition": "Imatinib Mesylate 400mg",
+    "packaging": "10 Tablets in 1 Strip",
+    "shelfLife": "24 Months",
+    "description": "Imatinib 400mg is a targeted therapy kinase inhibitor used to treat chronic myeloid leukemia (CML) and gastrointestinal stromal tumors (GIST).",
+    "benefits": "Targeted BCR-ABL tyrosine kinase inhibitor with proven efficacy in international oncology clinical trials.",
+    "sideEffects": "Fluid retention, nausea, muscle cramps, or fatigue.",
+    "howToUse": "Take once daily with a large glass of water and a meal to reduce stomach irritation.",
+    "shippingReturns": "Temperature-monitored international air freight express shipping (10-15 days).",
+    "image": "/images/mockup/pop-1-imatinib.png",
+    "thumbnails": [
+      "/images/mockup/pop-1-imatinib.png"
+    ],
+    "badges": [
+      "Popular"
+    ],
+    "inStock": true,
+    "brand": "Novartis / Generic",
+    "form": "Tablet"
+  },
+  {
+    "id": "p2",
+    "name": "Sofosbuvir 400mg",
+    "substance": "Generic Sovaldi",
+    "category": "Hepatitis",
+    "categoryKey": "hepatitis",
+    "price": 45,
+    "unit": "28 Tablets",
+    "rating": 5,
+    "reviewsCount": 36,
+    "manufacturer": "Gilead / Generic",
+    "composition": "Sofosbuvir 400mg",
+    "packaging": "28 Tablets Bottle",
+    "shelfLife": "24 Months",
+    "description": "Sofosbuvir 400mg is a direct-acting antiviral medication used as part of combination therapy to treat chronic hepatitis C virus (HCV) infection.",
+    "benefits": "High sustained virologic response (cure) rates for Hepatitis C across all major genotypes.",
+    "sideEffects": "Fatigue, headache, nausea, and insomnia.",
+    "howToUse": "Take 1 tablet daily with or without food. Do not miss doses for optimal antiviral results.",
+    "shippingReturns": "Tracked express shipping in insulated containers worldwide.",
+    "image": "/images/mockup/pop-2-sofosbuvir.png",
+    "thumbnails": [
+      "/images/mockup/pop-2-sofosbuvir.png"
+    ],
+    "badges": [
+      "Popular"
+    ],
+    "inStock": true,
+    "brand": "Gilead / Generic",
+    "form": "Tablet"
+  },
+  {
+    "id": "p3",
+    "name": "Lenalidomide 25mg",
+    "substance": "Generic Revlimid",
+    "category": "Anticancer",
+    "categoryKey": "anticancer",
+    "price": 62,
+    "unit": "21 Capsules",
+    "rating": 5,
+    "reviewsCount": 18,
+    "manufacturer": "Celgene / Generic",
+    "composition": "Lenalidomide 25mg",
+    "packaging": "21 Capsules in 3 Blister Strips",
+    "shelfLife": "36 Months",
+    "description": "Lenalidomide is an immunomodulatory drug indicated for the treatment of multiple myeloma and myelodysplastic syndromes.",
+    "benefits": "Potent anti-angiogenic and immunomodulatory activity helping improve remission in hematological malignancies.",
+    "sideEffects": "Thrombocytopenia, neutropenia, diarrhea, and fatigue.",
+    "howToUse": "Take capsule whole with water once daily at approximately the same time each day.",
+    "shippingReturns": "Secure tamper-proof export carton with full customs documentation.",
+    "image": "/images/mockup/pop-3-lenalidomide.png",
+    "thumbnails": [
+      "/images/mockup/pop-3-lenalidomide.png"
+    ],
+    "badges": [
+      "Popular"
+    ],
+    "inStock": true,
+    "brand": "Celgene / Generic",
+    "form": "Capsule"
+  },
+  {
+    "id": "p4",
+    "name": "Apixaban 5mg",
+    "substance": "Generic Eliquis",
+    "category": "Cardiovascular",
+    "categoryKey": "cardiovascular",
+    "price": 38,
+    "unit": "60 Tablets",
+    "rating": 4.9,
+    "reviewsCount": 42,
+    "manufacturer": "Bristol-Myers Squibb / Generic",
+    "composition": "Apixaban 5mg",
+    "packaging": "60 Tablets Box",
+    "shelfLife": "36 Months",
+    "description": "Apixaban is an oral direct factor Xa inhibitor anticoagulant used to lower the risk of stroke and systemic embolism in patients with nonvalvular atrial fibrillation.",
+    "benefits": "Predictable anticoagulation without need for routine INR monitoring.",
+    "sideEffects": "Mild bruising or minor nosebleeds.",
+    "howToUse": "Take 1 tablet twice daily with water, with or without food.",
+    "shippingReturns": "Worldwide delivery in 10-15 business days with live shipment tracking.",
+    "image": "/images/mockup/pop-4-apixaban.png",
+    "thumbnails": [
+      "/images/mockup/pop-4-apixaban.png"
+    ],
+    "badges": [
+      "Popular"
+    ],
+    "inStock": true,
+    "brand": "BMS / Generic",
+    "form": "Tablet"
+  },
+  {
+    "id": "p5",
+    "name": "Daclatasvir 60mg",
+    "substance": "Generic Daklinza",
+    "category": "Hepatitis",
+    "categoryKey": "hepatitis",
+    "price": 40,
+    "unit": "28 Tablets",
+    "rating": 4.9,
+    "reviewsCount": 29,
+    "manufacturer": "BMS / Generic",
+    "composition": "Daclatasvir 60mg",
+    "packaging": "28 Tablets Box",
+    "shelfLife": "24 Months",
+    "description": "Daclatasvir is a potent inhibitor of HCV nonstructural protein 5A (NS5A), used in combination with Sofosbuvir for Hepatitis C.",
+    "benefits": "Direct NS5A replication blocker offering high pan-genotypic cure rates.",
+    "sideEffects": "Headache, fatigue, and nausea.",
+    "howToUse": "Take once daily along with other prescribed direct-acting antivirals.",
+    "shippingReturns": "Express air cargo to 107+ countries.",
+    "image": "/images/mockup/pop-5-daclatasvir.png",
+    "thumbnails": [
+      "/images/mockup/pop-5-daclatasvir.png"
+    ],
+    "badges": [
+      "Popular"
+    ],
+    "inStock": true,
+    "brand": "BMS / Generic",
+    "form": "Tablet"
+  },
+  {
+    "id": "t1",
+    "name": "Tadalafil 20mg",
+    "substance": "Generic Cialis",
+    "category": "Men's Health",
+    "categoryKey": "mens-health",
+    "price": 12,
+    "unit": "10 Tablets",
+    "rating": 5,
+    "reviewsCount": 154,
+    "manufacturer": "Centurion Laboratories",
+    "composition": "Tadalafil 20mg",
+    "packaging": "10 Tablets in 1 Strip",
+    "shelfLife": "36 Months",
+    "description": "Tadalafil 20mg (Vidalista 20 / Generic Cialis) is a PDE5 inhibitor used for the treatment of erectile dysfunction. Known as the weekend pill due to its 36-hour window of efficacy.",
+    "benefits": "Long duration of action up to 36 hours. Enhances blood flow when sexual stimulation occurs.",
+    "sideEffects": "Headache, flushing, nasal congestion, back pain.",
+    "howToUse": "Take 1 tablet 30-45 minutes before intimacy with water.",
+    "shippingReturns": "Discreet packaging with 100% privacy guarantee.",
+    "image": "/images/mockup/top-1-tadalafil.png",
+    "thumbnails": [
+      "/images/mockup/top-1-tadalafil.png"
+    ],
+    "badges": [
+      "Top Selling"
+    ],
+    "inStock": true,
+    "brand": "Centurion Laboratories",
+    "form": "Tablet"
+  },
+  {
+    "id": "t2",
+    "name": "Sildenafil 100mg",
+    "substance": "Generic Viagra",
+    "category": "Men's Health",
+    "categoryKey": "mens-health",
+    "price": 10,
+    "unit": "10 Tablets",
+    "rating": 5,
+    "reviewsCount": 220,
+    "manufacturer": "Centurion / Fortune Health Care",
+    "composition": "Sildenafil Citrate 100mg",
+    "packaging": "10 Tablets in 1 Strip",
+    "shelfLife": "36 Months",
+    "description": "Sildenafil Citrate 100mg (Cenforce 100 / Fildena 100) is the world's most proven treatment for erectile dysfunction.",
+    "benefits": "Fast acting (30-60 mins), reliable firmness and satisfaction for men.",
+    "sideEffects": "Flushing, headache, visual hue change, indigestion.",
+    "howToUse": "Take 1 tablet on an empty or light stomach 45 minutes prior.",
+    "shippingReturns": "Plain box shipping with no pharmacy markings.",
+    "image": "/images/mockup/top-2-sildenafil.png",
+    "thumbnails": [
+      "/images/mockup/top-2-sildenafil.png"
+    ],
+    "badges": [
+      "Top Selling"
+    ],
+    "inStock": true,
+    "brand": "Centurion",
+    "form": "Tablet"
+  },
+  {
+    "id": "t3",
+    "name": "Metformin 500mg",
+    "substance": "Diabetes Care",
+    "category": "Diabetes",
+    "categoryKey": "diabetes",
+    "price": 6,
+    "unit": "100 Tablets",
+    "rating": 4.8,
+    "reviewsCount": 89,
+    "manufacturer": "USV / Generic",
+    "composition": "Metformin Hydrochloride 500mg",
+    "packaging": "100 Tablets Box",
+    "shelfLife": "36 Months",
+    "description": "Metformin 500mg is the first-line medication for the treatment of type 2 diabetes, helping control blood glucose levels.",
+    "benefits": "Reduces liver glucose production and increases insulin sensitivity.",
+    "sideEffects": "Gastrointestinal upset, metallic taste.",
+    "howToUse": "Take with or after meals to minimize stomach upset.",
+    "shippingReturns": "Export dispatch in 24-48 hours.",
+    "image": "/images/mockup/top-3-metformin.png",
+    "thumbnails": [
+      "/images/mockup/top-3-metformin.png"
+    ],
+    "badges": [
+      "Top Selling"
+    ],
+    "inStock": true,
+    "brand": "USV / Generic",
+    "form": "Tablet"
+  },
+  {
+    "id": "t4",
+    "name": "Omeprazole 20mg",
+    "substance": "Acidity Relief",
+    "category": "Gastroenterology",
+    "categoryKey": "gastroenterology",
+    "price": 7,
+    "unit": "100 Capsules",
+    "rating": 4.8,
+    "reviewsCount": 65,
+    "manufacturer": "Dr. Reddy's / Generic",
+    "composition": "Omeprazole 20mg",
+    "packaging": "100 Capsules Box",
+    "shelfLife": "24 Months",
+    "description": "Omeprazole 20mg is a proton pump inhibitor (PPI) that decreases the amount of acid produced in the stomach.",
+    "benefits": "Long-lasting relief from acid reflux, GERD, and stomach ulcers.",
+    "sideEffects": "Headache, abdominal pain, flatulence.",
+    "howToUse": "Take once daily in the morning before breakfast.",
+    "shippingReturns": "Standard international tracked shipping.",
+    "image": "/images/mockup/top-4-omeprazole.png",
+    "thumbnails": [
+      "/images/mockup/top-4-omeprazole.png"
+    ],
+    "badges": [
+      "Top Selling"
+    ],
+    "inStock": true,
+    "brand": "Dr. Reddy's",
+    "form": "Capsule"
+  },
+  {
+    "id": "t5",
+    "name": "Amlodipine 5mg",
+    "substance": "Blood Pressure",
+    "category": "Cardiovascular",
+    "categoryKey": "cardiovascular",
+    "price": 5,
+    "unit": "100 Tablets",
+    "rating": 4.8,
+    "reviewsCount": 78,
+    "manufacturer": "Torrent / Generic",
+    "composition": "Amlodipine Besylate 5mg",
+    "packaging": "100 Tablets Box",
+    "shelfLife": "36 Months",
+    "description": "Amlodipine 5mg is a calcium channel blocker used to treat high blood pressure (hypertension) and chest pain (angina).",
+    "benefits": "Smooths arterial tension, lowers blood pressure, and decreases cardiac workload.",
+    "sideEffects": "Swelling in ankles/feet, dizziness, tiredness.",
+    "howToUse": "Take 1 tablet daily at any time with water.",
+    "shippingReturns": "Worldwide delivery to 107+ countries.",
+    "image": "/images/mockup/top-5-amlodipine.png",
+    "thumbnails": [
+      "/images/mockup/top-5-amlodipine.png"
+    ],
+    "badges": [
+      "Top Selling"
+    ],
+    "inStock": true,
+    "brand": "Torrent",
+    "form": "Tablet"
+  },
+  {
+    "id": "o1",
+    "name": "Everolimus 10mg",
+    "substance": "Generic Afinitor",
+    "category": "Anticancer",
+    "categoryKey": "anticancer",
+    "price": 70,
+    "unit": "30 Tablets",
+    "rating": 5,
+    "reviewsCount": 31,
+    "manufacturer": "Novartis / Generic",
+    "composition": "Everolimus 10mg",
+    "packaging": "30 Tablets Box",
+    "shelfLife": "24 Months",
+    "description": "Everolimus 10mg is an mTOR inhibitor used in oncology and for the prevention of organ transplant rejection.",
+    "benefits": "Inhibits downstream protein synthesis and tumor cell proliferation.",
+    "sideEffects": "Mouth sores, fatigue, decreased appetite.",
+    "howToUse": "Take once daily consistently with or without food.",
+    "shippingReturns": "Cold-chain air cargo export packaging.",
+    "image": "/images/mockup/offer-1-everolimus.png",
+    "thumbnails": [
+      "/images/mockup/offer-1-everolimus.png"
+    ],
+    "badges": [
+      "Flat 20% OFF"
+    ],
+    "inStock": true,
+    "brand": "Novartis / Generic",
+    "form": "Tablet"
+  },
+  {
+    "id": "o2",
+    "name": "Dasatinib 70mg",
+    "substance": "Generic Sprycel",
+    "category": "Anticancer",
+    "categoryKey": "anticancer",
+    "price": 55,
+    "unit": "60 Tablets",
+    "rating": 4.9,
+    "reviewsCount": 22,
+    "manufacturer": "BMS / Generic",
+    "composition": "Dasatinib 70mg",
+    "packaging": "60 Tablets Bottle",
+    "shelfLife": "36 Months",
+    "description": "Dasatinib 70mg is an oral dual BCR-ABL and SRC family tyrosine kinase inhibitor used in Philadelphia chromosome-positive CML.",
+    "benefits": "Active against imatinib-resistant BCR-ABL mutations.",
+    "sideEffects": "Pleural effusion, myelosuppression, headache.",
+    "howToUse": "Take once daily morning or evening with a full glass of water.",
+    "shippingReturns": "Express shipping with full customs handling.",
+    "image": "/images/mockup/offer-2-dasatinib.png",
+    "thumbnails": [
+      "/images/mockup/offer-2-dasatinib.png"
+    ],
+    "badges": [
+      "Special Price"
+    ],
+    "inStock": true,
+    "brand": "BMS / Generic",
+    "form": "Tablet"
+  },
+  {
+    "id": "o3",
+    "name": "Rivaroxaban 20mg",
+    "substance": "Generic Xarelto",
+    "category": "Cardiovascular",
+    "categoryKey": "cardiovascular",
+    "price": 42,
+    "unit": "30 Tablets",
+    "rating": 4.9,
+    "reviewsCount": 51,
+    "manufacturer": "Bayer / Generic",
+    "composition": "Rivaroxaban 20mg",
+    "packaging": "30 Tablets Box",
+    "shelfLife": "36 Months",
+    "description": "Rivaroxaban 20mg is a direct factor Xa inhibitor anticoagulant used for prevention of DVT and pulmonary embolism.",
+    "benefits": "Rapid onset of action with consistent anticoagulation.",
+    "sideEffects": "Minor bleeding tendencies.",
+    "howToUse": "Take once daily with an evening meal for optimal absorption.",
+    "shippingReturns": "Shipped in 24 hours.",
+    "image": "/images/mockup/offer-3-rivaroxaban.png",
+    "thumbnails": [
+      "/images/mockup/offer-3-rivaroxaban.png"
+    ],
+    "badges": [
+      "Limited Offer"
+    ],
+    "inStock": true,
+    "brand": "Bayer / Generic",
+    "form": "Tablet"
+  },
+  {
+    "id": "o4",
+    "name": "Enzalutamide 40mg",
+    "substance": "Generic Xtandi",
+    "category": "Anticancer",
+    "categoryKey": "anticancer",
+    "price": 95,
+    "unit": "112 Capsules",
+    "rating": 5,
+    "reviewsCount": 19,
+    "manufacturer": "Astellas / Generic",
+    "composition": "Enzalutamide 40mg",
+    "packaging": "112 Liquid Capsules Box",
+    "shelfLife": "24 Months",
+    "description": "Enzalutamide 40mg is an androgen receptor inhibitor indicated for patients with metastatic castration-resistant prostate cancer.",
+    "benefits": "Triple-mechanism androgen receptor blockade preventing nuclear translocation.",
+    "sideEffects": "Fatigue, hot flashes, joint stiffness.",
+    "howToUse": "Take four 40mg capsules (160mg total) once daily with or without food.",
+    "shippingReturns": "Global temperature-stable transit.",
+    "image": "/images/mockup/offer-4-enzalutamide.png",
+    "thumbnails": [
+      "/images/mockup/offer-4-enzalutamide.png"
+    ],
+    "badges": [
+      "Save More"
+    ],
+    "inStock": true,
+    "brand": "Astellas / Generic",
+    "form": "Capsule"
+  },
+  {
+    "id": "o5",
+    "name": "Semaglutide 1mg",
+    "substance": "Diabetes / Weight Loss",
+    "category": "Diabetes",
+    "categoryKey": "diabetes",
+    "price": 110,
+    "unit": "4 Pens",
+    "rating": 5,
+    "reviewsCount": 88,
+    "manufacturer": "Novo Nordisk / Generic",
+    "composition": "Semaglutide 1mg/dose",
+    "packaging": "4 Pre-filled Pens Box",
+    "shelfLife": "24 Months",
+    "description": "Semaglutide 1mg is a GLP-1 receptor agonist used for blood sugar regulation and chronic weight management.",
+    "benefits": "Significant reduction in HbA1c and substantial clinically verified weight reduction.",
+    "sideEffects": "Mild nausea in initial weeks, decreased appetite.",
+    "howToUse": "Subcutaneous injection once weekly on the same day each week.",
+    "shippingReturns": "Shipped with cold-packs in insulated styrofoam boxes.",
+    "image": "/images/mockup/offer-5-semaglutide.png",
+    "thumbnails": [
+      "/images/mockup/offer-5-semaglutide.png"
+    ],
+    "badges": [
+      "Best Deal"
+    ],
+    "inStock": true,
+    "brand": "Novo Nordisk / Generic",
+    "form": "Injection"
   }
 ]
