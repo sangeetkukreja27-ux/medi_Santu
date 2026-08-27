@@ -88,9 +88,27 @@ export default function AdminDashboard() {
   const [newProdDesc, setNewProdDesc] = useState("");
   const [newProdImage, setNewProdImage] = useState("");
   const [newProdInStock, setNewProdInStock] = useState(true);
+  const [adminProductSearch, setAdminProductSearch] = useState("");
   const [isAddingProduct, setIsAddingProduct] = useState(false);
   const [productAddFeedback, setProductAddFeedback] = useState("");
   const [isUploadingImage, setIsUploadingImage] = useState(false);
+
+  const handleProductDelete = async (id: string, name: string) => {
+    if (!confirm(`Are you sure you want to delete "${name}" permanently from catalog?`)) return;
+    try {
+      const res = await fetch(`/api/admin/products?id=${id}`, { method: "DELETE" });
+      const data = await res.json();
+      if (res.ok && data.success) {
+        setProductsList(prev => prev.filter(p => p.id !== id));
+        setProductAddFeedback(`Product "${name}" deleted.`);
+        setTimeout(() => setProductAddFeedback(""), 3000);
+      } else {
+        alert(data.error || "Failed to delete product");
+      }
+    } catch (e) {
+      alert("Error connecting to server to delete product.");
+    }
+  };
 
   // Homepage CMS states
   const [siteLogoImage, setSiteLogoImage] = useState("");
@@ -1131,35 +1149,76 @@ export default function AdminDashboard() {
               
               {/* Left Side: Product Table List */}
               <div className="lg:col-span-7 bg-white rounded-3xl border border-slate-100 shadow-sm p-6 flex flex-col gap-4">
-                <h4 className="text-xs font-black text-slate-400 uppercase tracking-wider border-b border-slate-50 pb-2">
-                  Active Products Directory
-                </h4>
+                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 border-b border-slate-50 pb-3">
+                  <h4 className="text-xs font-black text-slate-400 uppercase tracking-wider">
+                    Active Products Directory ({productsList.length})
+                  </h4>
+                  <input
+                    type="text"
+                    placeholder="Search medicine or brand..."
+                    value={adminProductSearch}
+                    onChange={(e) => setAdminProductSearch(e.target.value)}
+                    className="border border-slate-200 rounded-xl px-3 py-1.5 text-xs text-slate-700 outline-none focus:border-[#005B41] w-full sm:w-56"
+                  />
+                </div>
 
-                <div className="w-full overflow-x-auto">
+                <div className="w-full overflow-x-auto max-h-[500px] overflow-y-auto">
                   <table className="w-full text-xs text-slate-600 font-semibold border-collapse">
-                    <thead>
+                    <thead className="sticky top-0 bg-white shadow-xs">
                       <tr className="border-b border-slate-100 text-left text-slate-400 uppercase text-[9px] tracking-wider font-bold">
                         <th className="pb-3 px-2">Medicine Info</th>
                         <th className="pb-3 px-2">Category</th>
                         <th className="pb-3 px-2 text-right">Price</th>
                         <th className="pb-3 px-2 text-right">Status</th>
+                        <th className="pb-3 px-2 text-center">Action</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-slate-50 text-[11px]">
-                      {productsList.map((prod) => (
+                      {productsList
+                        .filter((p) => {
+                          if (!adminProductSearch) return true;
+                          const q = adminProductSearch.toLowerCase();
+                          return (
+                            p.name?.toLowerCase().includes(q) ||
+                            p.substance?.toLowerCase().includes(q) ||
+                            p.category?.toLowerCase().includes(q) ||
+                            p.brand?.toLowerCase().includes(q)
+                          );
+                        })
+                        .map((prod) => (
                         <tr key={prod.id} className="hover:bg-slate-50/50 transition-colors">
                           <td className="py-3 px-2 text-slate-800 text-left">
                             <span className="block font-bold text-xs text-slate-800">{prod.name}</span>
                             <span className="block text-[9px] text-slate-400 font-bold -mt-0.5">{prod.substance} ({prod.brand || prod.manufacturer})</span>
                           </td>
                           <td className="py-3 px-2 text-slate-500 text-left">{prod.category}</td>
-                          <td className="py-3 px-2 text-right font-extrabold text-slate-700">₹{prod.price.toFixed(2)}</td>
+                          <td className="py-3 px-2 text-right font-extrabold text-slate-700">₹{Number(prod.price).toFixed(2)}</td>
                           <td className="py-3 px-2 text-right">
                             <span className={`inline-block py-0.5 px-2 rounded-full font-bold text-[8px] uppercase tracking-wider ${
                               prod.inStock ? "bg-emerald-50 text-emerald-600 border border-emerald-500/5" : "bg-red-50 text-red-600 border border-red-500/5"
                             }`}>
                               {prod.inStock ? "In Stock" : "Out of Stock"}
                             </span>
+                          </td>
+                          <td className="py-3 px-2 text-center">
+                            <div className="flex items-center justify-center gap-1.5">
+                              <Link 
+                                href={`/products/${prod.id}`}
+                                target="_blank"
+                                className="text-slate-400 hover:text-[#005B41] p-1.5 rounded-lg hover:bg-slate-100 transition-colors"
+                                title="View Public Page"
+                              >
+                                <Eye className="w-3.5 h-3.5" />
+                              </Link>
+                              <button
+                                type="button"
+                                onClick={() => handleProductDelete(prod.id, prod.name)}
+                                className="text-red-400 hover:text-red-600 p-1.5 rounded-lg hover:bg-red-50 transition-colors cursor-pointer"
+                                title="Delete Product"
+                              >
+                                <Trash2 className="w-3.5 h-3.5" />
+                              </button>
+                            </div>
                           </td>
                         </tr>
                       ))}

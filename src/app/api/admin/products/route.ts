@@ -89,3 +89,86 @@ export async function POST(request: Request) {
     );
   }
 }
+
+export async function DELETE(request: Request) {
+  try {
+    const { searchParams } = new URL(request.url);
+    let id = searchParams.get("id");
+    
+    if (!id) {
+      try {
+        const body = await request.json();
+        id = body.id;
+      } catch (e) {}
+    }
+
+    if (!id) {
+      return NextResponse.json({ success: false, error: "Product ID is required" }, { status: 400 });
+    }
+
+    let productsList = [];
+    try {
+      const data = await fs.readFile(dbPath, "utf-8");
+      productsList = JSON.parse(data);
+    } catch (e) {
+      return NextResponse.json({ success: false, error: "Product database not found" }, { status: 404 });
+    }
+
+    const initialLength = productsList.length;
+    productsList = productsList.filter((p: any) => p.id !== id);
+
+    if (productsList.length === initialLength) {
+      return NextResponse.json({ success: false, error: "Product not found" }, { status: 404 });
+    }
+
+    await fs.writeFile(dbPath, JSON.stringify(productsList, null, 2), "utf-8");
+
+    return NextResponse.json({
+      success: true,
+      message: `Product ${id} deleted successfully.`
+    });
+  } catch (error) {
+    console.error("Backend error deleting product:", error);
+    return NextResponse.json({ success: false, error: "Failed to delete product" }, { status: 500 });
+  }
+}
+
+export async function PUT(request: Request) {
+  try {
+    const body = await request.json();
+    const { id, ...updates } = body;
+
+    if (!id) {
+      return NextResponse.json({ success: false, error: "Product ID is required" }, { status: 400 });
+    }
+
+    let productsList = [];
+    try {
+      const data = await fs.readFile(dbPath, "utf-8");
+      productsList = JSON.parse(data);
+    } catch (e) {
+      return NextResponse.json({ success: false, error: "Product database not found" }, { status: 404 });
+    }
+
+    const index = productsList.findIndex((p: any) => p.id === id);
+    if (index === -1) {
+      return NextResponse.json({ success: false, error: "Product not found" }, { status: 404 });
+    }
+
+    productsList[index] = {
+      ...productsList[index],
+      ...updates
+    };
+
+    await fs.writeFile(dbPath, JSON.stringify(productsList, null, 2), "utf-8");
+
+    return NextResponse.json({
+      success: true,
+      product: productsList[index],
+      message: `Product ${id} updated successfully.`
+    });
+  } catch (error) {
+    console.error("Backend error updating product:", error);
+    return NextResponse.json({ success: false, error: "Failed to update product" }, { status: 500 });
+  }
+}
