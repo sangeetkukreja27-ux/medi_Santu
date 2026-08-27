@@ -63,30 +63,60 @@ export default function Home() {
     { title: "More", icon: <LayoutGrid className="w-5 h-5 text-slate-500" />, colorClass: "text-slate-600 bg-slate-50 hover:bg-slate-100", link: "/products" },
   ];
 
-  // EXACT Products Data from Mockup Screenshot
-  const popularMedicinesData = [
-    { id: "p1", name: "Imatinib 400mg", generic: "(Generic Gleevec)", unit: "10 Tablets", price: 28, image: "/images/mockup/pop-1-imatinib.png" },
-    { id: "p2", name: "Sofosbuvir 400mg", generic: "(Generic Sovaldi)", unit: "28 Tablets", price: 45, image: "/images/mockup/pop-2-sofosbuvir.png" },
-    { id: "p3", name: "Lenalidomide 25mg", generic: "(Generic Revlimid)", unit: "21 Capsules", price: 62, image: "/images/mockup/pop-3-lenalidomide.png" },
-    { id: "p4", name: "Apixaban 5mg", generic: "(Generic Eliquis)", unit: "60 Tablets", price: 38, image: "/images/mockup/pop-4-apixaban.png" },
-    { id: "p5", name: "Daclatasvir 60mg", generic: "(Generic Daklinza)", unit: "28 Tablets", price: 40, image: "/images/mockup/pop-5-daclatasvir.png" },
-  ];
+  // Dynamic Products with Mockup Fallback
+  const popularMedicinesData = productsList.length >= 5
+    ? productsList.slice(0, 5).map(p => ({
+        id: p.id,
+        name: p.name,
+        generic: `(${p.substance})`,
+        unit: p.unit || p.packaging || "10 Tablets",
+        price: p.price,
+        image: p.image || "/images/mockup/pop-1-imatinib.png"
+      }))
+    : [
+        { id: "p1", name: "Imatinib 400mg", generic: "(Generic Gleevec)", unit: "10 Tablets", price: 28, image: "/images/mockup/pop-1-imatinib.png" },
+        { id: "p2", name: "Sofosbuvir 400mg", generic: "(Generic Sovaldi)", unit: "28 Tablets", price: 45, image: "/images/mockup/pop-2-sofosbuvir.png" },
+        { id: "p3", name: "Lenalidomide 25mg", generic: "(Generic Revlimid)", unit: "21 Capsules", price: 62, image: "/images/mockup/pop-3-lenalidomide.png" },
+        { id: "p4", name: "Apixaban 5mg", generic: "(Generic Eliquis)", unit: "60 Tablets", price: 38, image: "/images/mockup/pop-4-apixaban.png" },
+        { id: "p5", name: "Daclatasvir 60mg", generic: "(Generic Daklinza)", unit: "28 Tablets", price: 40, image: "/images/mockup/pop-5-daclatasvir.png" },
+      ];
 
-  const topSellingData = [
-    { id: "t1", name: "Tadalafil 20mg", generic: "(Generic Cialis)", unit: "10 Tablets", price: 12, image: "/images/mockup/top-1-tadalafil.png" },
-    { id: "t2", name: "Sildenafil 100mg", generic: "(Generic Viagra)", unit: "10 Tablets", price: 10, image: "/images/mockup/top-2-sildenafil.png" },
-    { id: "t3", name: "Metformin 500mg", generic: "(Diabetes Care)", unit: "100 Tablets", price: 6, image: "/images/mockup/top-3-metformin.png" },
-    { id: "t4", name: "Omeprazole 20mg", generic: "(Acidity Relief)", unit: "100 Capsules", price: 7, image: "/images/mockup/top-4-omeprazole.png" },
-    { id: "t5", name: "Amlodipine 5mg", generic: "(Blood Pressure)", unit: "100 Tablets", price: 5, image: "/images/mockup/top-5-amlodipine.png" },
-  ];
+  const topSellingData = productsList.length >= 10
+    ? productsList.slice(5, 10).map(p => ({
+        id: p.id,
+        name: p.name,
+        generic: `(${p.substance})`,
+        unit: p.unit || p.packaging || "10 Tablets",
+        price: p.price,
+        image: p.image || "/images/mockup/top-1-tadalafil.png"
+      }))
+    : [
+        { id: "t1", name: "Tadalafil 20mg", generic: "(Generic Cialis)", unit: "10 Tablets", price: 12, image: "/images/mockup/top-1-tadalafil.png" },
+        { id: "t2", name: "Sildenafil 100mg", generic: "(Generic Viagra)", unit: "10 Tablets", price: 10, image: "/images/mockup/top-2-sildenafil.png" },
+        { id: "t3", name: "Metformin 500mg", generic: "(Diabetes Care)", unit: "100 Tablets", price: 6, image: "/images/mockup/top-3-metformin.png" },
+        { id: "t4", name: "Omeprazole 20mg", generic: "(Acidity Relief)", unit: "100 Capsules", price: 7, image: "/images/mockup/top-4-omeprazole.png" },
+        { id: "t5", name: "Amlodipine 5mg", generic: "(Blood Pressure)", unit: "100 Tablets", price: 5, image: "/images/mockup/top-5-amlodipine.png" },
+      ];
 
-  const bestOffersData = [
-    { id: "o1", badge: "Flat 20% OFF", badgeColor: "bg-[#FF3B30]", name: "Everolimus 10mg", generic: "(Generic Afinitor)", unit: "30 Tablets", price: 70, oldPrice: 88, image: "/images/mockup/offer-1-everolimus.png" },
-    { id: "o2", badge: "Special Price", badgeColor: "bg-[#FF9500]", name: "Dasatinib 70mg", generic: "(Generic Sprycel)", unit: "60 Tablets", price: 55, oldPrice: 72, image: "/images/mockup/offer-2-dasatinib.png" },
-    { id: "o3", badge: "Limited Offer", badgeColor: "bg-[#FF3B30]", name: "Rivaroxaban 20mg", generic: "(Generic Xarelto)", unit: "30 Tablets", price: 42, oldPrice: 60, image: "/images/mockup/offer-3-rivaroxaban.png" },
-    { id: "o4", badge: "Save More", badgeColor: "bg-[#00A86B]", name: "Enzalutamide 40mg", generic: "(Generic Xtandi)", unit: "112 Capsules", price: 95, oldPrice: 120, image: "/images/mockup/offer-4-enzalutamide.png" },
-    { id: "o5", badge: "Best Deal", badgeColor: "bg-[#FF9500]", name: "Semaglutide 1mg", generic: "(Diabetes / Weight Loss)", unit: "4 Pens", price: 110, oldPrice: 140, image: "/images/mockup/offer-5-semaglutide.png" },
-  ];
+  const bestOffersData = productsList.length >= 15
+    ? productsList.slice(10, 15).map((p, idx) => ({
+        id: p.id,
+        badge: idx === 0 ? "Flat 20% OFF" : idx === 1 ? "Special Price" : idx === 2 ? "Limited Offer" : idx === 3 ? "Save More" : "Best Deal",
+        badgeColor: idx === 0 || idx === 2 ? "bg-[#FF3B30]" : idx === 3 ? "bg-[#00A86B]" : "bg-[#FF9500]",
+        name: p.name,
+        generic: `(${p.substance})`,
+        unit: p.unit || p.packaging || "30 Tablets",
+        price: p.price,
+        oldPrice: Math.round(p.price * 1.25),
+        image: p.image || "/images/mockup/offer-1-everolimus.png"
+      }))
+    : [
+        { id: "o1", badge: "Flat 20% OFF", badgeColor: "bg-[#FF3B30]", name: "Everolimus 10mg", generic: "(Generic Afinitor)", unit: "30 Tablets", price: 70, oldPrice: 88, image: "/images/mockup/offer-1-everolimus.png" },
+        { id: "o2", badge: "Special Price", badgeColor: "bg-[#FF9500]", name: "Dasatinib 70mg", generic: "(Generic Sprycel)", unit: "60 Tablets", price: 55, oldPrice: 72, image: "/images/mockup/offer-2-dasatinib.png" },
+        { id: "o3", badge: "Limited Offer", badgeColor: "bg-[#FF3B30]", name: "Rivaroxaban 20mg", generic: "(Generic Xarelto)", unit: "30 Tablets", price: 42, oldPrice: 60, image: "/images/mockup/offer-3-rivaroxaban.png" },
+        { id: "o4", badge: "Save More", badgeColor: "bg-[#00A86B]", name: "Enzalutamide 40mg", generic: "(Generic Xtandi)", unit: "112 Capsules", price: 95, oldPrice: 120, image: "/images/mockup/offer-4-enzalutamide.png" },
+        { id: "o5", badge: "Best Deal", badgeColor: "bg-[#FF9500]", name: "Semaglutide 1mg", generic: "(Diabetes / Weight Loss)", unit: "4 Pens", price: 110, oldPrice: 140, image: "/images/mockup/offer-5-semaglutide.png" },
+      ];
 
   return (
     <div className="w-full flex flex-col bg-white font-sans">
