@@ -5,10 +5,42 @@ const conn = new Client();
 conn.on('ready', () => {
   console.log('SSH Connection :: ready');
   const cmd = `
-    echo "=== Fetching https://trustedmedshop.com/?v=2 CSS and JS links ==="
-    curl -s -k "https://trustedmedshop.com/?v=2" | grep -o '<link[^>]*>' || true
-    echo "=== Testing status of new CSS file ==="
-    curl -s -I -k "https://trustedmedshop.com/_next/static/css/32b5793f331197bc.css" | head -n 5
+    export PATH=/opt/alt/alt-nodejs22/root/usr/bin:$PATH
+    export NEXT_CPU_NUM=1
+    
+    echo "=== 1. Pulling latest code in last-source ==="
+    cd /home/u743928828/domains/trustedmedshop.com/hbuilds/last-source/
+    git fetch origin main
+    git checkout main
+    git reset --hard origin/main
+    git log -n 1 --oneline
+
+    echo "=== 2. Building Next.js Webpack ==="
+    NEXT_CPU_NUM=1 npm run build
+
+    echo "=== 3. Syncing build files into active version ==="
+    CURRENT_NODEJS=$(readlink -f /home/u743928828/domains/trustedmedshop.com/hbuilds/current)/nodejs
+    echo "Target nodejs folder: $CURRENT_NODEJS"
+    
+    cp -rf .next "$CURRENT_NODEJS/"
+    cp -rf public "$CURRENT_NODEJS/"
+    cp -rf src "$CURRENT_NODEJS/"
+    cp -f next.config.mjs "$CURRENT_NODEJS/"
+    cp -f package.json "$CURRENT_NODEJS/"
+
+    # Also copy static assets to public_html for direct serving
+    mkdir -p /home/u743928828/domains/trustedmedshop.com/public_html/_next/static
+    cp -rf .next/static/* /home/u743928828/domains/trustedmedshop.com/public_html/_next/static/ 2>/dev/null || true
+    cp -rf public/* /home/u743928828/domains/trustedmedshop.com/public_html/ 2>/dev/null || true
+
+    echo "=== 4. Triggering LiteSpeed Node restart ==="
+    mkdir -p /home/u743928828/domains/trustedmedshop.com/public_html/tmp
+    touch /home/u743928828/domains/trustedmedshop.com/public_html/tmp/restart.txt
+    mkdir -p "$CURRENT_NODEJS/tmp"
+    touch "$CURRENT_NODEJS/tmp/restart.txt"
+    pkill -9 -f "trustedmedshop" || true
+
+    echo "=== ALL DONE SUCCESSFULLY ==="
   `;
   
   conn.exec(cmd, (err, stream) => {
