@@ -35,7 +35,7 @@ import {
 } from "lucide-react";
 
 export default function Home() {
-  const { openInquiryModal, formatPrice, currency } = useCart();
+  const { openInquiryModal, formatPrice, formatUsdPrice, currency } = useCart();
   const router = useRouter();
   const [productsList, setProductsList] = useState<Product[]>([]);
 
@@ -241,7 +241,7 @@ export default function Home() {
                 
                 <div className="mt-auto pt-2 flex flex-col gap-2">
                   <span className="text-xs sm:text-sm font-black text-[#00A86B]">
-                    USD {item.price.toFixed(2)}
+                    {formatUsdPrice(item.price)}
                   </span>
                   
                   <button 
@@ -307,7 +307,7 @@ export default function Home() {
                 
                 <div className="mt-auto pt-2 flex flex-col gap-2">
                   <span className="text-xs sm:text-sm font-black text-[#00A86B]">
-                    USD {item.price.toFixed(2)}
+                    {formatUsdPrice(item.price)}
                   </span>
                   
                   <button 
@@ -380,10 +380,10 @@ export default function Home() {
                 <div className="mt-auto pt-2 flex flex-col gap-2">
                   <div className="flex items-baseline gap-1.5">
                     <span className="text-xs sm:text-sm font-black text-[#FF3B30]">
-                      USD {item.price.toFixed(2)}
+                      {formatUsdPrice(item.price)}
                     </span>
                     <span className="text-[10px] font-semibold text-slate-400 line-through">
-                      USD {item.oldPrice.toFixed(2)}
+                      {formatUsdPrice(item.oldPrice)}
                     </span>
                   </div>
                   

@@ -25,6 +25,7 @@ interface CartContextType {
   exchangeRate: number;
   setExchangeRate: (rate: number) => void;
   formatPrice: (amountInINR: number) => string;
+  formatUsdPrice: (amountInUSD: number) => string;
   formattedCartTotal: string;
   // Inquiry Modal Controls
   isInquiryModalOpen: boolean;
@@ -90,6 +91,16 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
       return `$ ${usdVal.toFixed(2)}`;
     }
     return `₹ ${amountInINR.toFixed(2)}`;
+  };
+
+  const formatUsdPrice = (amountInUSD: number): string => {
+    if (isNaN(amountInUSD)) return currency === "USD" ? "USD 0.00" : "₹ 0";
+    if (currency === "INR") {
+      const rate = exchangeRate > 0 ? exchangeRate : 85;
+      const inrVal = Math.round(amountInUSD * rate);
+      return `₹ ${inrVal.toLocaleString("en-IN")}`;
+    }
+    return `USD ${amountInUSD.toFixed(2)}`;
   };
 
   const addToCart = (product: Product, quantity = 1) => {
@@ -160,6 +171,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
         exchangeRate,
         setExchangeRate,
         formatPrice,
+        formatUsdPrice,
         formattedCartTotal,
         isInquiryModalOpen,
         inquiryProduct,

@@ -27,29 +27,18 @@ export const Footer: React.FC = () => {
         
         {/* Column 1: Brand & Info (4 cols) */}
         <div className="lg:col-span-4 flex flex-col gap-4 text-left">
-          <Link href="/" className="flex items-center gap-2">
-            {siteLogo ? (
-              <img 
-                src={siteLogo} 
-                alt="trustedmedshop" 
-                style={{ height: `${siteLogoHeight}px` }} 
-                className="w-auto object-contain max-w-[260px]" 
-              />
-            ) : (
-              <div className="flex items-center gap-2">
-                <div className="bg-[#00A86B] p-2 rounded-xl text-white">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M12 4v16m8-8H4" />
-                  </svg>
-                </div>
-                <div>
-                  <span className="text-xl font-black tracking-tight text-white flex items-center gap-0.5">
-                    trusted<span className="text-[#00A86B]">medshop</span>
-                  </span>
-                  <span className="block text-[10px] text-slate-400 font-semibold tracking-wider -mt-1">Verified medicine delivery</span>
-                </div>
-              </div>
-            )}
+          <Link href="/" className="flex items-center gap-2 group">
+            <div className="bg-[#00A86B] p-2 rounded-xl text-white shadow-md">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M12 4v16m8-8H4" />
+              </svg>
+            </div>
+            <div>
+              <span className="text-xl font-black tracking-tight text-white flex items-center gap-0.5">
+                trusted<span className="text-[#00A86B]">medshop</span>
+              </span>
+              <span className="block text-[10px] text-slate-300 font-semibold tracking-wider -mt-1">Verified medicine delivery</span>
+            </div>
           </Link>
           <p className="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-sm mt-1">
             trustedmedshop is a global pharmaceutical company specializing in the export of high-quality, affordable and life-saving medicines worldwide.
