@@ -15,6 +15,7 @@ import {
   TrendingUp,
   Smile,
   CheckCircle,
+  CheckCircle2,
   Clock,
   ArrowRight,
   MessageSquare,
@@ -101,11 +102,51 @@ export default function AboutUs() {
   ];
 
   const certifications = [
-    { name: "WHO-GMP", desc: "Certified" },
-    { name: "ISO", desc: "9001:2015 Certified" },
-    { name: "GDP", desc: "Good Distribution Practice" },
-    { name: "HACCP", desc: "Food Safety Certified" },
-    { name: "SSL", desc: "Secure & Encrypted Payments" }
+    { 
+      name: "WHO-GMP", 
+      title: "WHO-GMP Certified", 
+      desc: "Good Manufacturing Practice certified for authentic pharmaceutical production.",
+      badge: "Verified Standard",
+      icon: <Award className="w-7 h-7 text-[#00A86B]" />,
+      bgGradient: "from-emerald-50 to-teal-50",
+      iconBg: "bg-emerald-100/70 text-[#00A86B]"
+    },
+    { 
+      name: "ISO 9001", 
+      title: "ISO 9001:2015", 
+      desc: "Global standard for quality management systems and operational compliance.",
+      badge: "Quality Assured",
+      icon: <CheckCircle2 className="w-7 h-7 text-sky-600" />,
+      bgGradient: "from-sky-50 to-blue-50",
+      iconBg: "bg-sky-100/70 text-sky-600"
+    },
+    { 
+      name: "GDP", 
+      title: "GDP Certified", 
+      desc: "Good Distribution Practice ensuring temperature-controlled logistics integrity.",
+      badge: "Logistics Standard",
+      icon: <Truck className="w-7 h-7 text-indigo-600" />,
+      bgGradient: "from-indigo-50 to-purple-50",
+      iconBg: "bg-indigo-100/70 text-indigo-600"
+    },
+    { 
+      name: "HACCP", 
+      title: "HACCP Certified", 
+      desc: "Comprehensive hazard analysis and critical control points safety certification.",
+      badge: "Safety Control",
+      icon: <ShieldCheck className="w-7 h-7 text-teal-600" />,
+      bgGradient: "from-teal-50 to-emerald-50",
+      iconBg: "bg-teal-100/70 text-teal-600"
+    },
+    { 
+      name: "SSL 256-Bit", 
+      title: "256-Bit SSL", 
+      desc: "End-to-end encrypted communications and secure payment verification.",
+      badge: "Bank-Grade Security",
+      icon: <Lock className="w-7 h-7 text-[#0A3981]" />,
+      bgGradient: "from-blue-50 to-slate-50",
+      iconBg: "bg-blue-100/70 text-[#0A3981]"
+    }
   ];
 
   const whyChooseFeatures = [
@@ -297,33 +338,67 @@ export default function AboutUs() {
         </div>
       </section>
 
-      {/* Statistics Section (Teal Banner) */}
-      <section className="w-full bg-[#005B41] text-white py-12 px-4 sm:px-6 lg:px-8">
+      {/* Statistics Section (Deep Navy Brand Banner) */}
+      <section className="w-full bg-[#0A3981] text-white py-14 px-4 sm:px-6 lg:px-8 shadow-inner">
         <div className="max-w-7xl mx-auto flex flex-wrap justify-around items-center gap-8">
           {stats.map((stat, i) => (
-            <div key={i} className="text-center flex flex-col gap-1 min-w-[140px]">
-              <span className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#00A877]">{stat.value}</span>
-              <span className="text-xs sm:text-sm text-slate-300 font-semibold uppercase tracking-wider mt-1">{stat.label}</span>
+            <div key={i} className="text-center flex flex-col items-center gap-1 min-w-[140px]">
+              <span className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#00A86B] tracking-tight">{stat.value}</span>
+              <span className="text-xs text-slate-300 font-bold uppercase tracking-wider mt-1">{stat.label}</span>
             </div>
           ))}
         </div>
       </section>
 
       {/* Certifications Grid */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
-        <div className="flex flex-col items-center gap-3 mb-12">
-          <span className="text-[#00A877] text-xs font-bold uppercase tracking-wider">Quality Assurance</span>
-          <h2 className="text-3xl font-extrabold text-[#0A3981]">Our Certifications</h2>
-          <div className="h-1 w-16 bg-[#00A877] rounded-full mt-1"></div>
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center w-full">
+        <div className="flex flex-col items-center gap-2 mb-12">
+          <span className="text-[#00A86B] text-[11px] font-black uppercase tracking-widest bg-emerald-50 text-[#00A86B] px-3.5 py-1 rounded-full border border-emerald-100">
+            Quality Assurance &amp; Compliance
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-black text-[#0A3981] tracking-tight mt-1">
+            Our Certifications &amp; Standards
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-500 max-w-xl font-medium">
+            Rigorous compliance with international regulatory bodies ensures genuine, safe, and WHO-GMP approved pharmaceutical sourcing.
+          </p>
+          <div className="h-1 w-14 bg-[#00A86B] rounded-full mt-2"></div>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
           {certifications.map((c, idx) => (
-            <div key={idx} className="bg-slate-50 border border-slate-100 p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow flex flex-col items-center justify-center gap-3 min-h-[140px]">
-              <div className="bg-[#005B41] text-[#00A877] font-black text-lg py-2.5 px-4 rounded-xl border border-[#00A877]/10 flex items-center justify-center">
-                {c.name}
+            <div 
+              key={idx} 
+              className="bg-white border border-slate-200/80 rounded-2xl p-6 shadow-sm hover:shadow-xl hover:border-[#00A86B]/40 transition-all duration-300 flex flex-col items-center text-center gap-3 group relative overflow-hidden"
+            >
+              {/* Top Accent Bar */}
+              <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-[#00A86B] to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              
+              {/* Icon Bubble */}
+              <div className={`w-14 h-14 rounded-2xl ${c.iconBg} flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform duration-300`}>
+                {c.icon}
               </div>
-              <span className="text-xs font-bold text-slate-600 tracking-wide max-w-[120px] leading-snug">{c.desc}</span>
+
+              {/* Title & Badge */}
+              <div className="flex flex-col items-center gap-1">
+                <span className="text-[10px] font-black text-[#00A86B] uppercase tracking-wider bg-emerald-50/80 px-2.5 py-0.5 rounded-md border border-emerald-200/40">
+                  {c.badge}
+                </span>
+                <h3 className="text-sm font-black text-[#0A3981] group-hover:text-[#00A86B] transition-colors mt-1">
+                  {c.title}
+                </h3>
+              </div>
+
+              {/* Description */}
+              <p className="text-[11.5px] text-slate-500 font-medium leading-relaxed mt-0.5">
+                {c.desc}
+              </p>
+
+              {/* Verified Checkmark */}
+              <div className="mt-auto pt-2 flex items-center gap-1 text-[10px] font-bold text-[#00A86B]">
+                <CheckCircle2 className="w-3.5 h-3.5" />
+                <span>Verified Compliance</span>
+              </div>
             </div>
           ))}
         </div>

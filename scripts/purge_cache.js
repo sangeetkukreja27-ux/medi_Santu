@@ -5,9 +5,10 @@ const conn = new Client();
 conn.on('ready', () => {
   console.log('SSH Connection :: ready');
   const cmd = `
-    echo "=== Verify Contact Page Header ==="
-    curl -s -k "https://trustedmedshop.com/contact?v=test_contact" | grep -o "bg-gradient-to-r from-\[#EBF5FB\]" || echo "Gradient class present"
-    curl -s -k "https://trustedmedshop.com/contact?v=test_contact" | grep -o "We’re Here to Help" || echo "Contact title found"
+    echo "=== Test Favicon Endpoints ==="
+    curl -s -I -k "https://trustedmedshop.com/favicon.ico?v=brand" | head -n 8
+    curl -s -I -k "https://trustedmedshop.com/logo-icon.png?v=brand" | head -n 8
+    curl -s -I -k "https://trustedmedshop.com/icon.png?v=brand" | head -n 8
   `;
   
   conn.exec(cmd, (err, stream) => {
