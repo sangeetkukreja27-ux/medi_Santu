@@ -5,10 +5,24 @@ const conn = new Client();
 conn.on('ready', () => {
   console.log('SSH Connection :: ready');
   const cmd = `
-    echo "=== Test rel-1 (Ivermectin 12mg) ==="
-    curl -s -k "https://trustedmedshop.com/products/rel-1" | grep -o "Ivermectin 12mg" || echo "rel-1 not found"
-    echo "=== Test rel-2 (Albendazole 400mg) ==="
-    curl -s -k "https://trustedmedshop.com/products/rel-2" | grep -o "Albendazole 400mg" || echo "rel-2 not found"
+    echo "=== 1. Test Products API ==="
+    curl -s -k "https://trustedmedshop.com/api/products" | grep -o '"success":true' || echo "Products API failed"
+
+    echo "=== 2. Test Inquiries API ==="
+    curl -s -k "https://trustedmedshop.com/api/admin/inquiries" | grep -o '"success":true' || echo "Inquiries API failed"
+
+    echo "=== 3. Test Homepage CMS API ==="
+    curl -s -k "https://trustedmedshop.com/api/homepage" | grep -o '"success":true' || echo "Homepage API failed"
+
+    echo "=== 4. Test Adding Product via Admin API ==="
+    ADD_RES=$(curl -s -k -X POST "https://trustedmedshop.com/api/admin/products" \
+      -H "Content-Type: application/json" \
+      -d '{"name":"Test Med 50mg","substance":"Test Substance","category":"Anti Parasite","price":25,"brand":"Test Pharma","composition":"Test 50mg","packaging":"10 Tablets","shelfLife":"24 Months","description":"Testing admin product pipeline","inStock":true}')
+    echo "$ADD_RES"
+
+    echo "=== 5. Test Deleting Test Product via Admin API ==="
+    DEL_RES=$(curl -s -k -X DELETE "https://trustedmedshop.com/api/admin/products?id=test-med-50mg")
+    echo "$DEL_RES"
   `;
   
   conn.exec(cmd, (err, stream) => {

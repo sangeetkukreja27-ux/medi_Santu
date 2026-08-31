@@ -151,9 +151,19 @@ export const Header: React.FC = () => {
                   className="w-auto object-contain max-w-[190px] sm:max-w-[260px] transition-all" 
                 />
               ) : (
-                <span className="text-lg sm:text-2xl font-bold tracking-tight text-[#005B41] flex items-center gap-1">
-                  trusted<span className="text-[#00A877]">medshop</span>
-                </span>
+                <div className="flex items-center gap-2">
+                  <div className="bg-[#00A86B] p-2 rounded-xl text-white shadow-md group-hover:scale-105 transition-transform">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M12 4v16m8-8H4" />
+                    </svg>
+                  </div>
+                  <div className="text-left">
+                    <span className="text-xl sm:text-2xl font-black tracking-tight text-[#0A3981] flex items-center gap-0.5 leading-none">
+                      trusted<span className="text-[#00A86B]">medshop</span>
+                    </span>
+                    <span className="block text-[9.5px] text-slate-500 font-semibold tracking-wider mt-0.5">Verified medicine delivery</span>
+                  </div>
+                </div>
               )}
             </Link>
 
