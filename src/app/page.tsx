@@ -150,7 +150,7 @@ export default function HomePage() {
     },
     {
       name: "Ahmed Al-Farsi",
-      role: "Healthcare Importer, UAE",
+      role: "Healthcare Distributor, UAE",
       initial: "A",
       avatarBg: "bg-emerald-600",
       quote: "Good quality medicines and professional service. Smooth export process."
@@ -178,8 +178,8 @@ export default function HomePage() {
             </div>
             
             <h1 className="text-3xl sm:text-5xl lg:text-5.5xl font-black tracking-tight leading-tight text-white">
-              Import & Export <br />
-              Medicines <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00A86B] to-[#00E676]">Worldwide</span>
+              Trusted Medicines <br />
+              Worldwide <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00A86B] to-[#00E676]">Exports</span>
             </h1>
             
             <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-lg font-medium">
@@ -284,7 +284,7 @@ export default function HomePage() {
               {/* 4 Floating Pills on the right side */}
               <div className="absolute right-4 top-6 flex flex-col gap-2 z-20">
                 <div className="bg-[#08203B]/90 backdrop-blur-md px-3 py-1.5 rounded-xl border border-emerald-500/30 text-emerald-400 text-xs font-bold flex items-center gap-1.5 shadow-md">
-                  <CheckCircle2 className="w-3.5 h-3.5" /> <span>Import</span>
+                  <CheckCircle2 className="w-3.5 h-3.5" /> <span>Quality</span>
                 </div>
                 <div className="bg-[#08203B]/90 backdrop-blur-md px-3 py-1.5 rounded-xl border border-emerald-500/30 text-emerald-400 text-xs font-bold flex items-center gap-1.5 shadow-md">
                   <CheckCircle2 className="w-3.5 h-3.5" /> <span>Export</span>

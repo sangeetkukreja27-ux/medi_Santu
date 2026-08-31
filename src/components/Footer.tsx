@@ -89,8 +89,8 @@ export const Footer: React.FC = () => {
         <div className="lg:col-span-3 flex flex-col gap-3.5 text-left">
           <span className="text-sm font-bold text-white tracking-wide">Our Services</span>
           <nav className="flex flex-col gap-2 text-xs text-slate-400">
-            <span className="hover:text-white transition-colors cursor-default">Import Medicines</span>
-            <span className="hover:text-white transition-colors cursor-default">Export Medicines</span>
+            <span className="hover:text-white transition-colors cursor-default">Global Export</span>
+            <span className="hover:text-white transition-colors cursor-default">Worldwide Supply</span>
             <span className="hover:text-white transition-colors cursor-default">Bulk Supply</span>
             <span className="hover:text-white transition-colors cursor-default">Private Label</span>
             <span className="hover:text-white transition-colors cursor-default">Regulatory Support</span>

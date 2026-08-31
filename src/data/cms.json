@@ -4,9 +4,9 @@
     "siteLogoHeight": 109,
     "usdExchangeRate": 83.5,
     "heroSubTitle": "Trusted by Healthcare. Chosen Worldwide.",
-    "heroTitle": "Global Importer & Exporter of Quality Medicines",
+    "heroTitle": "Global Exporter of Quality Medicines",
     "heroTitleHighlight": "Quality Medicines",
-    "heroDescription": "trustedmedshop is a leading pharmaceutical company specialized in the import and export of authentic, high-quality medicines to healthcare markets worldwide.",
+    "heroDescription": "trustedmedshop is a leading pharmaceutical company specialized in the export and global supply of authentic, high-quality medicines to healthcare markets worldwide.",
     "heroBenefits": [
       "WHO-GMP Certified Products",
       "Wide Range of Trusted Brands",
@@ -26,11 +26,11 @@
   "about": {
     "title": "About Us",
     "heroSubtitle": "Trusted by healthcare. Chosen worldwide.",
-    "description": "trustedmedshop is a global pharmaceutical company specialized in the import and export of high-quality, authentic medicines. We connect healthcare with trust, delivering life-saving medicines to 107+ countries.",
+    "description": "trustedmedshop is a global pharmaceutical company specialized in the export and global distribution of high-quality, authentic medicines. We connect healthcare with trust, delivering life-saving medicines to 107+ countries.",
     "imageCorporate": "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&auto=format&fit=crop&q=60",
     "imageScientist": "https://images.unsplash.com/photo-1532187643603-ba119ca4109e?w=400&auto=format&fit=crop&q=60",
     "mission": "To make quality medicines accessible worldwide by delivering authentic, affordable, and reliable pharmaceutical solutions through ethical business practices and dependable service.",
-    "vision": "To be the most trusted global partner in pharmaceutical export-import, recognized for our integrity, quality, and commitment to improving global healthcare.",
+    "vision": "To be the most trusted global partner in pharmaceutical export and supply, recognized for our integrity, quality, and commitment to improving global healthcare.",
     "values": [
       "Quality & Safety First",
       "Integrity & Transparency",
@@ -58,6 +58,6 @@
     "address": "123, Healthcare Street, Andheri East, Mumbai - 400001, Maharashtra, India.",
     "addressSub": "Registration Division",
     "workingHours": "Mon - Sat: 9:00 AM - 7:00 PM IST",
-    "workingHoursSub": "Sunday: Closed"
+    "emergencySupport": "24/7 Priority Emergency Support"
   }
 }

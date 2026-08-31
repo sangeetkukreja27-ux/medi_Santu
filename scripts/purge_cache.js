@@ -5,24 +5,16 @@ const conn = new Client();
 conn.on('ready', () => {
   console.log('SSH Connection :: ready');
   const cmd = `
-    echo "=== 1. Test Products API ==="
-    curl -s -k "https://trustedmedshop.com/api/products" | grep -o '"success":true' || echo "Products API failed"
+    echo "=== 1. Test TrustSeals in Header ==="
+    curl -s -k "https://trustedmedshop.com/" | grep -o "TrustSeal" || echo "TrustSeal not found"
+    curl -s -k "https://trustedmedshop.com/" | grep -o "IndiaMART" || echo "IndiaMART not found"
+    curl -s -k "https://trustedmedshop.com/" | grep -o "Payment" || echo "Payment not found"
 
-    echo "=== 2. Test Inquiries API ==="
-    curl -s -k "https://trustedmedshop.com/api/admin/inquiries" | grep -o '"success":true' || echo "Inquiries API failed"
+    echo "=== 2. Test Hero Title ==="
+    curl -s -k "https://trustedmedshop.com/" | grep -o "Import &amp; Export" || curl -s -k "https://trustedmedshop.com/" | grep -o "Import & Export" || echo "Hero Title not found"
 
-    echo "=== 3. Test Homepage CMS API ==="
-    curl -s -k "https://trustedmedshop.com/api/homepage" | grep -o '"success":true' || echo "Homepage API failed"
-
-    echo "=== 4. Test Adding Product via Admin API ==="
-    ADD_RES=$(curl -s -k -X POST "https://trustedmedshop.com/api/admin/products" \
-      -H "Content-Type: application/json" \
-      -d '{"name":"Test Med 50mg","substance":"Test Substance","category":"Anti Parasite","price":25,"brand":"Test Pharma","composition":"Test 50mg","packaging":"10 Tablets","shelfLife":"24 Months","description":"Testing admin product pipeline","inStock":true}')
-    echo "$ADD_RES"
-
-    echo "=== 5. Test Deleting Test Product via Admin API ==="
-    DEL_RES=$(curl -s -k -X DELETE "https://trustedmedshop.com/api/admin/products?id=test-med-50mg")
-    echo "$DEL_RES"
+    echo "=== 3. Test Categories ==="
+    curl -s -k "https://trustedmedshop.com/" | grep -o "Anticancer" || echo "Anticancer not found"
   `;
   
   conn.exec(cmd, (err, stream) => {

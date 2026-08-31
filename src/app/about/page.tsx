@@ -39,7 +39,7 @@ export default function AboutUs() {
     imageCorporate: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&auto=format&fit=crop&q=60",
     imageScientist: "https://images.unsplash.com/photo-1532187643603-ba119ca4109e?w=400&auto=format&fit=crop&q=60",
     mission: "To make quality medicines accessible worldwide by delivering authentic, affordable, and reliable pharmaceutical solutions through ethical business practices and dependable service.",
-    vision: "To be the most trusted global partner in pharmaceutical export-import, recognized for our integrity, quality, and commitment to improving global healthcare.",
+    vision: "To be the most trusted global partner in pharmaceutical export and supply, recognized for our integrity, quality, and commitment to improving global healthcare.",
     values: [
       "Quality & Safety First",
       "Integrity & Transparency",
