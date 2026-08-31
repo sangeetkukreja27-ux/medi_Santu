@@ -8,14 +8,22 @@ import {
   Search, 
   ShoppingCart, 
   User, 
+  Menu, 
+  X, 
+  ChevronDown, 
   Phone, 
   Mail, 
-  ChevronDown, 
-  Menu, 
-  X,
-  MessageSquare,
-  Globe,
-  Coins
+  Globe, 
+  ShieldCheck, 
+  Clock, 
+  Coins, 
+  Send,
+  Lock,
+  Award,
+  Package,
+  Headphones,
+  Home,
+  CheckCircle2
 } from "lucide-react";
 
 export const Header: React.FC = () => {
@@ -23,12 +31,27 @@ export const Header: React.FC = () => {
   const router = useRouter();
   const { cartCount, openInquiryModal, currency, setCurrency } = useCart();
   
-  const [searchQuery, setSearchQuery] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("All Categories");
-  const [isCategoryMenuOpen, setIsCategoryMenuOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [isCategoryMenuOpen, setIsCategoryMenuOpen] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState("All Categories");
   const [siteLogo, setSiteLogo] = useState<string>("");
-  const [siteLogoHeight, setSiteLogoHeight] = useState<number>(55);
+  const [siteLogoHeight, setSiteLogoHeight] = useState<number>(48);
+
+  const categories = [
+    "All Categories",
+    "Anticancer",
+    "Antibiotics",
+    "Cardiovascular",
+    "Diabetes",
+    "HIV / AIDS",
+    "Hepatitis",
+    "Hormones",
+    "Neurology",
+    "Respiratory",
+    "Antiparasitic",
+    "Men's Health"
+  ];
 
   useEffect(() => {
     fetch(`/api/cms?t=${Date.now()}`)
@@ -39,37 +62,22 @@ export const Header: React.FC = () => {
         if (logo) setSiteLogo(logo);
         if (height) setSiteLogoHeight(Number(height));
       })
-      .catch((err) => console.error("CMS Logo load error:", err));
+      .catch((err) => console.error("CMS Logo load error in Header:", err));
   }, []);
-
-  const categories = [
-    "All Categories",
-    "Anti Parasite",
-    "Antibiotics",
-    "Contraceptives",
-    "Erectile Dysfunction",
-    "Hormone Therapy",
-    "Pain Relief",
-    "Sleeping Disorder",
-    "Vitamins & Supplements"
-  ];
 
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    let queryParams = [];
-    if (searchQuery) {
-      queryParams.push(`search=${encodeURIComponent(searchQuery)}`);
+    if (searchQuery.trim()) {
+      let url = `/products?search=${encodeURIComponent(searchQuery.trim())}`;
+      if (selectedCategory !== "All Categories") {
+        url += `&category=${encodeURIComponent(selectedCategory.toLowerCase())}`;
+      }
+      router.push(url);
     }
-    if (selectedCategory !== "All Categories") {
-      queryParams.push(`category=${encodeURIComponent(selectedCategory.toLowerCase().replace(/\s+/g, "-"))}`);
-    }
-    
-    const queryString = queryParams.length > 0 ? `?${queryParams.join("&")}` : "";
-    router.push(`/products${queryString}`);
   };
 
   const navLinks = [
-    { name: "Home", href: "/" },
+    { name: "Home", href: "/", icon: <Home className="w-3.5 h-3.5" /> },
     { name: "All Medicines", href: "/products" },
     { name: "By Category", href: "/products" },
     { name: "By Brand", href: "/products" },
@@ -86,118 +94,178 @@ export const Header: React.FC = () => {
   };
 
   return (
-    <header className="w-full flex flex-col z-50 bg-white shadow-sm sticky top-0 md:relative">
-      {/* 1. TOP BANNER STRIP */}
-      <div className="w-full bg-[#0A3981] text-white py-1.5 px-3 sm:px-6 lg:px-8 text-[11px] sm:text-xs font-medium">
+    <header className="w-full flex flex-col z-50 bg-[#040E1E] text-slate-200 border-b border-[#102A4C] sticky top-0 font-sans shadow-md">
+      
+      {/* 1. TOP UTILITY STRIP */}
+      <div className="w-full bg-[#020A14] text-slate-300 py-1.5 px-3 sm:px-6 lg:px-8 text-[11px] font-medium border-b border-[#0A1C33]">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-2">
-          {/* Trust points */}
-          <div className="flex items-center gap-3 sm:gap-4 overflow-x-auto hide-scrollbar text-[11px]">
-            <span className="flex items-center gap-1 whitespace-nowrap text-slate-200">
-              <Globe className="w-3.5 h-3.5 text-[#00A86B]" /> Global Supplier of Genuine Medicines
-            </span>
-            <span className="hidden md:flex items-center gap-1 whitespace-nowrap text-slate-200">
-              🛡️ TrustSeal Verified
-            </span>
-            <span className="hidden lg:flex items-center gap-1 whitespace-nowrap text-slate-200">
-              🔒 Payment Protected
-            </span>
-            <span className="hidden xl:flex items-center gap-1 whitespace-nowrap text-slate-200">
-              ⭐ IndiaMART Verified Exporter
+          {/* Left item */}
+          <div className="flex items-center gap-2">
+            <span className="flex items-center gap-1.5 text-slate-300">
+              <Globe className="w-3.5 h-3.5 text-[#00A86B]" /> 
+              <span>Global Supplier of Genuine Medicines</span>
             </span>
           </div>
 
           {/* Right items */}
-          <div className="flex items-center gap-3 sm:gap-4 flex-shrink-0">
-            {/* Currency Selector (INR ↔ USD) */}
-            <div className="flex items-center gap-1 bg-white/10 px-2 py-0.5 rounded-lg border border-white/20">
+          <div className="flex items-center gap-3 sm:gap-5 flex-shrink-0 text-slate-300">
+            <span className="hidden md:flex items-center gap-1 hover:text-white transition-colors cursor-pointer">
+              <Globe className="w-3 h-3 text-[#00A86B]" /> Export Worldwide
+            </span>
+            <span className="hidden sm:flex items-center gap-1 hover:text-white transition-colors cursor-pointer">
+              <Package className="w-3 h-3 text-[#00A86B]" /> Bulk Orders
+            </span>
+            <span className="hidden sm:flex items-center gap-1 hover:text-white transition-colors cursor-pointer">
+              <Headphones className="w-3 h-3 text-[#00A86B]" /> 24/7 Support
+            </span>
+
+            {/* Currency Selector (USD / INR) */}
+            <div className="flex items-center gap-1 bg-[#0A1D36] px-2 py-0.5 rounded-md border border-[#16375E]">
               <Coins className="w-3 h-3 text-[#00A86B]" />
               <select
                 value={currency}
                 onChange={(e) => setCurrency(e.target.value as "INR" | "USD")}
-                className="bg-transparent text-white font-bold text-[10px] sm:text-xs outline-none cursor-pointer"
+                className="bg-transparent text-white font-bold text-[10.5px] outline-none cursor-pointer"
               >
-                <option value="USD" className="bg-[#0A3981] text-white font-bold">USD ($)</option>
-                <option value="INR" className="bg-[#0A3981] text-white font-bold">INR (₹)</option>
+                <option value="USD" className="bg-[#040E1E] text-white font-bold">USD ($)</option>
+                <option value="INR" className="bg-[#040E1E] text-white font-bold">INR (₹)</option>
               </select>
             </div>
-            <span className="text-slate-300 text-xs hidden sm:inline">English</span>
           </div>
         </div>
       </div>
 
       {/* 2. MAIN HEADER BAR */}
-      <div className="w-full border-b border-slate-100 py-2.5 sm:py-3 px-3 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-3 md:gap-4">
+      <div className="w-full py-3 px-3 sm:px-6 lg:px-8 bg-[#040E1E]">
+        <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
           
-          {/* Mobile Top Row: Hamburger + Logo + Cart/User */}
-          <div className="flex items-center justify-between w-full md:w-auto">
-            {/* Hamburger Button (Mobile Only) */}
+          {/* Left: Brand Logo */}
+          <div className="flex items-center gap-3">
+            {/* Mobile Hamburger */}
             <button 
               type="button"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-1.5 -ml-1 text-slate-700 hover:text-[#0A3981] rounded-lg hover:bg-slate-100 transition-colors"
-              aria-label="Toggle Navigation Menu"
+              className="lg:hidden p-1.5 text-slate-300 hover:text-white rounded-lg hover:bg-slate-800 transition-colors"
+              aria-label="Toggle Menu"
             >
               <Menu className="w-6 h-6" />
             </button>
 
-            {/* Brand Logo */}
             <Link href="/" className="flex items-center gap-2 group">
               {siteLogo ? (
                 <img 
                   src={siteLogo} 
                   alt="trustedmedshop" 
                   style={{ height: `${siteLogoHeight}px` }} 
-                  className="w-auto object-contain max-w-[190px] sm:max-w-[260px] transition-all" 
+                  className="w-auto object-contain max-w-[190px] sm:max-w-[240px] transition-all" 
                 />
               ) : (
                 <div className="flex items-center gap-2">
-                  <div className="bg-[#00A86B] p-2 rounded-xl text-white shadow-md group-hover:scale-105 transition-transform">
+                  <div className="bg-[#00A86B] p-2 rounded-xl text-white shadow-lg shadow-[#00A86B]/20 group-hover:scale-105 transition-transform">
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M12 4v16m8-8H4" />
                     </svg>
                   </div>
                   <div className="text-left">
-                    <span className="text-xl sm:text-2xl font-black tracking-tight text-[#0A3981] flex items-center gap-0.5 leading-none">
+                    <span className="text-xl sm:text-2xl font-black tracking-tight text-white flex items-center gap-0.5 leading-none">
                       trusted<span className="text-[#00A86B]">medshop</span>
                     </span>
-                    <span className="block text-[9.5px] text-slate-500 font-semibold tracking-wider mt-0.5">Verified medicine delivery</span>
+                    <span className="block text-[9.5px] text-slate-400 font-semibold tracking-wider mt-0.5">Verified medicine delivery</span>
                   </div>
                 </div>
               )}
             </Link>
-
-            {/* Mobile Actions (Cart & User icons) */}
-            <div className="flex items-center gap-1.5 md:hidden">
-              <Link href="/login" className="p-2 text-slate-700 hover:text-[#0A3981]">
-                <User className="w-5 h-5" />
-              </Link>
-              <Link href="/cart" className="p-2 text-slate-700 hover:text-[#0A3981] relative">
-                <ShoppingCart className="w-5 h-5" />
-                {cartCount > 0 && (
-                  <span className="absolute top-0.5 right-0.5 bg-[#00A86B] text-white font-bold text-[9px] w-4 h-4 rounded-full flex items-center justify-center border border-white">
-                    {cartCount}
-                  </span>
-                )}
-              </Link>
-            </div>
           </div>
 
-          {/* Search Bar (Responsive full width on mobile) */}
-          <form onSubmit={handleSearchSubmit} className="flex flex-1 w-full max-w-xl border border-slate-200 rounded-full bg-slate-50 hover:border-slate-300 focus-within:border-[#00A86B] focus-within:ring-2 focus-within:ring-[#00A86B]/10 transition-all overflow-hidden items-center">
-            {/* Category Dropdown (Desktop/Tablet) */}
-            <div className="relative border-r border-slate-200 hidden sm:block">
+          {/* Center: 3 Prominent Trust Seals (Circled in mockup screenshot) */}
+          <div className="hidden lg:flex items-center gap-3 bg-[#08192E]/80 border border-[#143254] p-1.5 px-3 rounded-2xl shadow-inner">
+            
+            {/* Seal 1: TrustSeal Verified */}
+            <div className="flex items-center gap-2 px-3 py-1 bg-[#0B223D] border border-amber-500/20 rounded-xl">
+              <div className="w-6 h-6 rounded-lg bg-gradient-to-br from-amber-400 to-amber-600 text-slate-950 flex items-center justify-center font-bold text-xs shadow-sm">
+                🛡️
+              </div>
+              <div className="text-left leading-tight">
+                <span className="block text-[11px] font-extrabold text-amber-300">TrustSeal</span>
+                <span className="block text-[9px] font-semibold text-slate-400">Verified</span>
+              </div>
+            </div>
+
+            {/* Seal 2: Payment Protected */}
+            <div className="flex items-center gap-2 px-3 py-1 bg-[#0B223D] border border-emerald-500/20 rounded-xl">
+              <div className="w-6 h-6 rounded-lg bg-gradient-to-br from-emerald-400 to-emerald-600 text-white flex items-center justify-center font-bold text-xs shadow-sm">
+                <Lock className="w-3.5 h-3.5" />
+              </div>
+              <div className="text-left leading-tight">
+                <span className="block text-[11px] font-extrabold text-emerald-300">Payment</span>
+                <span className="block text-[9px] font-semibold text-slate-400">Protected</span>
+              </div>
+            </div>
+
+            {/* Seal 3: IndiaMART Verified Exporter */}
+            <div className="flex items-center gap-2 px-3 py-1 bg-[#0B223D] border border-rose-500/20 rounded-xl">
+              <div className="w-6 h-6 rounded-lg bg-gradient-to-br from-red-500 to-amber-500 text-white flex items-center justify-center font-bold text-xs shadow-sm">
+                <Award className="w-3.5 h-3.5" />
+              </div>
+              <div className="text-left leading-tight">
+                <span className="block text-[11px] font-extrabold text-white">IndiaMART</span>
+                <span className="block text-[9px] font-semibold text-slate-400">Verified Exporter</span>
+              </div>
+            </div>
+
+          </div>
+
+          {/* Right: Account & Inquiry Cart */}
+          <div className="flex items-center gap-3 sm:gap-4">
+            
+            {/* Account */}
+            <Link href="/login" className="flex items-center gap-2 text-slate-300 hover:text-white transition-colors group">
+              <div className="w-8 h-8 rounded-full bg-[#0A1F38] border border-[#163B66] flex items-center justify-center group-hover:border-[#00A86B] transition-colors">
+                <User className="w-4 h-4 text-slate-300 group-hover:text-white" />
+              </div>
+              <div className="hidden sm:block text-left text-xs font-semibold">
+                <span className="block text-slate-400 text-[10px] leading-tight">My Account</span>
+                <span className="block text-white font-bold group-hover:text-[#00A86B]">Account</span>
+              </div>
+            </Link>
+
+            {/* Inquiry Cart Button */}
+            <Link 
+              href="/cart" 
+              className="flex items-center gap-2 bg-[#00A86B] hover:bg-[#008f5a] text-white px-3.5 py-2 rounded-xl text-xs font-bold transition-all shadow-lg shadow-[#00A86B]/20 cursor-pointer relative"
+            >
+              <ShoppingCart className="w-4 h-4" />
+              <span className="hidden sm:inline">Inquiry</span>
+              <span className="bg-white text-[#00A86B] text-[10.5px] font-black px-1.5 py-0.2 rounded-full min-w-[18px] text-center">
+                {cartCount}
+              </span>
+            </Link>
+
+          </div>
+
+        </div>
+      </div>
+
+      {/* 3. SEARCH & NAVIGATION ROW */}
+      <div className="w-full bg-[#030B17] py-2.5 px-3 sm:px-6 lg:px-8 border-t border-[#0C1E36]">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3">
+          
+          {/* Search Bar */}
+          <form onSubmit={handleSearchSubmit} className="flex flex-1 w-full max-w-2xl border border-[#173B63] rounded-xl bg-[#07172B] hover:border-[#00A86B]/50 focus-within:border-[#00A86B] transition-all overflow-hidden items-center">
+            
+            {/* Category Dropdown */}
+            <div className="relative border-r border-[#173B63] hidden sm:block">
               <button 
                 type="button" 
                 onClick={() => setIsCategoryMenuOpen(!isCategoryMenuOpen)}
-                className="flex items-center gap-1 px-3.5 py-2 text-xs font-semibold text-slate-700 hover:text-slate-900 focus:outline-none"
+                className="flex items-center gap-1.5 px-3.5 py-2 text-xs font-bold text-slate-300 hover:text-white focus:outline-none"
               >
                 <span className="truncate max-w-[120px]">{selectedCategory}</span>
-                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${isCategoryMenuOpen ? "rotate-180" : ""}`} />
+                <ChevronDown className={`w-3.5 h-3.5 text-slate-400 transition-transform ${isCategoryMenuOpen ? "rotate-180" : ""}`} />
               </button>
               
               {isCategoryMenuOpen && (
-                <div className="absolute left-0 mt-2 w-52 rounded-xl border border-slate-100 bg-white shadow-xl z-50 py-1.5 animate-in fade-in slide-in-from-top-2 duration-150">
+                <div className="absolute left-0 mt-2 w-52 rounded-xl border border-[#173B63] bg-[#0A1F38] shadow-2xl z-50 py-1.5 text-left">
                   {categories.map((cat) => (
                     <button
                       key={cat}
@@ -206,7 +274,7 @@ export const Header: React.FC = () => {
                         setSelectedCategory(cat);
                         setIsCategoryMenuOpen(false);
                       }}
-                      className={`w-full text-left px-4 py-2 text-xs font-medium text-slate-700 hover:bg-[#F0F5FA] hover:text-[#0A3981] transition-colors ${selectedCategory === cat ? "bg-[#F0F5FA] text-[#0A3981] font-semibold" : ""}`}
+                      className={`w-full text-left px-4 py-2 text-xs font-semibold text-slate-300 hover:bg-[#00A86B]/20 hover:text-[#00A86B] transition-colors ${selectedCategory === cat ? "bg-[#00A86B]/20 text-[#00A86B] font-bold" : ""}`}
                     >
                       {cat}
                     </button>
@@ -217,201 +285,130 @@ export const Header: React.FC = () => {
 
             <input 
               type="text" 
-              placeholder="Search for medicines, brands or conditions..." 
+              placeholder="Search for medicines, brands, active ingredients or categories..." 
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="flex-1 px-4 sm:px-5 py-2 text-xs sm:text-sm bg-transparent border-none outline-none text-slate-800 placeholder-slate-400"
+              className="flex-1 px-4 py-2 text-xs sm:text-sm bg-transparent border-none outline-none text-white placeholder-slate-500 font-medium"
             />
             
-            <button type="submit" className="bg-[#00A86B] hover:bg-[#008f5a] text-white p-2.5 sm:p-3 rounded-full mr-1 transition-colors flex items-center justify-center cursor-pointer shadow-sm">
-              <Search className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+            <button 
+              type="submit" 
+              className="bg-[#00A86B] hover:bg-[#008f5a] text-white px-4 py-2 mr-1 rounded-lg transition-colors flex items-center justify-center cursor-pointer font-bold text-xs gap-1"
+            >
+              <Search className="w-3.5 h-3.5" />
             </button>
           </form>
 
-          {/* Desktop User & Cart Info */}
-          <div className="hidden md:flex items-center gap-5 lg:gap-6">
-            <Link href="/login" className="flex items-center gap-2 text-slate-700 hover:text-[#0A3981] transition-colors group">
-              <div className="bg-slate-50 p-2 rounded-full group-hover:bg-slate-100 transition-colors border border-slate-200 shadow-sm">
-                <User className="w-4.5 h-4.5 text-slate-700 group-hover:text-[#0A3981] transition-colors" />
-              </div>
-              <div className="hidden xl:block text-left text-xs font-medium">
-                <span className="block text-slate-400 text-[10px] leading-tight font-semibold">My Account</span>
-                <span className="block text-slate-800 font-bold group-hover:text-[#0A3981] text-xs">Sign In / Register</span>
-              </div>
-            </Link>
-            
-            <Link href="/cart" className="flex items-center gap-2 text-slate-700 hover:text-[#0A3981] transition-colors group relative">
-              <div className="bg-slate-50 p-2 rounded-full group-hover:bg-slate-100 transition-colors relative border border-slate-200 shadow-sm">
-                <ShoppingCart className="w-4.5 h-4.5 text-slate-700 group-hover:text-[#0A3981] transition-colors" />
-                {cartCount > 0 && (
-                  <span className="absolute -top-1.5 -right-1.5 bg-[#00A86B] text-white font-bold text-[10px] w-4.5 h-4.5 rounded-full flex items-center justify-center border-2 border-white">
-                    {cartCount}
-                  </span>
-                )}
-              </div>
-              <div className="hidden xl:block text-left text-xs font-medium">
-                <span className="block text-slate-400 text-[10px] leading-tight font-semibold">Your Cart</span>
-                <span className="block text-slate-800 font-bold group-hover:text-[#0A3981] text-xs">{cartCount} Items</span>
-              </div>
-            </Link>
+          {/* Quick Inquiry CTA Button */}
+          <div className="hidden md:flex items-center">
+            <button
+              onClick={() => openInquiryModal({ id: "bulk-inquiry", name: "General Medicine Sourcing Inquiry", price: 0 } as any)}
+              className="bg-[#0A2444] hover:bg-[#0E315C] text-emerald-400 hover:text-emerald-300 border border-emerald-500/30 px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 shadow-sm"
+            >
+              <Send className="w-3 h-3" />
+              <span>Direct Bulk Inquiry</span>
+            </button>
           </div>
 
         </div>
       </div>
 
-      {/* 3. NAVIGATION BAR (Desktop Only Nav + Inquiry CTA) */}
-      <div className="w-full border-b border-slate-100 bg-[#F4F7FB]/80 backdrop-blur-sm px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto flex justify-between items-center py-2">
-          
-          {/* Desktop Nav Links */}
-          <nav className="hidden md:flex items-center gap-2 lg:gap-3">
-            {navLinks.map((link) => {
-              const active = isActive(link.href);
-              if (link.name === "Home" && active) {
-                return (
-                  <Link 
-                    key={link.name} 
-                    href={link.href}
-                    className="bg-[#00A86B] hover:bg-[#008f5a] text-white text-xs sm:text-sm font-bold px-5 py-1.5 rounded-lg shadow-sm transition-all"
-                  >
-                    {link.name}
-                  </Link>
-                );
-              }
-              return (
-                <Link 
-                  key={link.name} 
+      {/* 4. NAV LINKS ROW */}
+      <div className="w-full bg-[#040E1E] py-1.5 px-3 sm:px-6 lg:px-8 border-t border-[#091A2E] hidden lg:block">
+        <div className="max-w-7xl mx-auto flex items-center gap-2 overflow-x-auto hide-scrollbar text-xs font-bold">
+          {navLinks.map((link) => (
+            <Link
+              key={link.name}
+              href={link.href}
+              className={`px-3.5 py-1.5 rounded-lg transition-all flex items-center gap-1.5 whitespace-nowrap ${
+                isActive(link.href)
+                  ? "bg-[#0A2444] text-[#00A86B] border border-[#00A86B]/30"
+                  : "text-slate-300 hover:text-white hover:bg-white/5"
+              }`}
+            >
+              {link.icon}
+              <span>{link.name}</span>
+            </Link>
+          ))}
+        </div>
+      </div>
+
+      {/* 5. MOBILE DRAWER NAVIGATION */}
+      {isMobileMenuOpen && (
+        <div className="lg:hidden fixed inset-0 z-50 bg-black/70 backdrop-blur-sm animate-in fade-in duration-200">
+          <div className="fixed left-0 top-0 bottom-0 w-4/5 max-w-sm bg-[#040E1E] border-r border-[#143254] p-5 flex flex-col gap-5 overflow-y-auto text-left">
+            
+            <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+              <div className="flex items-center gap-2">
+                <div className="bg-[#00A86B] p-1.5 rounded-lg text-white">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M12 4v16m8-8H4" />
+                  </svg>
+                </div>
+                <span className="text-base font-black text-white">trusted<span className="text-[#00A86B]">medshop</span></span>
+              </div>
+              <button 
+                type="button"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-slate-400 hover:text-white p-1"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Mobile Trust Seals */}
+            <div className="flex flex-col gap-2 bg-[#08192E] p-3 rounded-xl border border-[#143254]">
+              <div className="flex items-center gap-2 text-xs text-amber-300 font-bold">
+                <span>🛡️</span> <span>TrustSeal Verified Exporter</span>
+              </div>
+              <div className="flex items-center gap-2 text-xs text-emerald-300 font-bold">
+                <Lock className="w-3.5 h-3.5" /> <span>100% Payment Protected</span>
+              </div>
+            </div>
+
+            {/* Nav links list */}
+            <div className="flex flex-col gap-1">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
                   href={link.href}
-                  className={`text-xs sm:text-sm font-semibold tracking-wide transition-colors px-3 py-1.5 rounded-lg hover:text-[#0A3981] hover:bg-slate-100/60 ${
-                    active 
-                      ? "text-[#0A3981] font-bold" 
-                      : "text-slate-700"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`px-3 py-2.5 rounded-xl font-bold text-sm transition-colors flex items-center gap-2 ${
+                    isActive(link.href)
+                      ? "bg-[#0A2444] text-[#00A86B]"
+                      : "text-slate-300 hover:bg-white/5 hover:text-white"
                   }`}
                 >
+                  {link.icon}
                   <span>{link.name}</span>
                 </Link>
-              );
-            })}
-          </nav>
-
-          {/* Quick Inquiry & Contact CTAs */}
-          <div className="flex items-center justify-between w-full md:w-auto gap-3">
-            <button 
-              onClick={() => openInquiryModal()}
-              className="w-full md:w-auto bg-gradient-to-r from-[#0A3981] to-[#00A86B] hover:opacity-95 text-white px-5 py-2 rounded-full text-xs font-bold tracking-wide transition-all shadow-md shadow-[#0A3981]/15 flex items-center justify-center gap-2 hover:scale-[1.02] cursor-pointer"
-            >
-              <span>Inquiry Now</span>
-              <MessageSquare className="w-3.5 h-3.5" />
-            </button>
-
-            <div className="hidden sm:flex items-center gap-1.5 border-l border-slate-200 pl-3">
-              <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" className="bg-[#25D366]/10 hover:bg-[#25D366]/20 p-1.5 rounded-full text-[#25D366] transition-colors" title="WhatsApp Us">
-                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                  <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.42 9.864-9.852.002-2.631-1.019-5.105-2.876-6.964a9.813 9.813 0 0 0-6.99-2.883c-5.441 0-9.867 4.422-9.87 9.854-.002 1.761.472 3.479 1.374 5.01l-1.025 3.74 3.864-1.013c1.513.826 3.185 1.258 4.717 1.258zm5.409-12.78c-.27-.604-.554-.616-.81-.627-.21-.008-.45-.008-.69-.008-.24 0-.63.09-1.01.5-.38.41-1.44 1.41-1.44 3.43s1.47 3.98 1.67 4.26c.2.28 2.9 4.43 7.03 6.21 1 .43 1.78.69 2.39.88.94.3 1.8.26 2.48.16.76-.11 2.33-.95 2.66-1.87.33-.92.33-1.71.23-1.87-.1-.16-.38-.26-.81-.47-.43-.21-2.54-1.25-2.93-1.39-.39-.14-.68-.21-.97.21-.29.42-1.12 1.39-1.37 1.67-.25.28-.5.31-.93.1-.43-.21-1.8-1.02-3.43-2.47-1.27-1.13-2.13-2.53-2.38-2.96-.25-.43-.03-.66.19-.87.2-.19.43-.51.65-.76.22-.25.3-.43.45-.72.15-.29.07-.55-.04-.76-.11-.21-.81-1.95-1.11-2.68z" />
-                </svg>
-              </a>
-              <a href="https://t.me/trustedmedshop" target="_blank" rel="noopener noreferrer" className="bg-[#0088cc]/10 hover:bg-[#0088cc]/20 p-1.5 rounded-full text-[#0088cc] transition-colors" title="Telegram Us">
-                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-1-.65-.35-1 .22-1.62.15-.15 2.72-2.5 2.77-2.7.01-.03.01-.13-.05-.19-.06-.05-.14-.04-.2-.02-.08.02-1.35.86-3.82 2.53-.36.25-.69.37-.98.36-.32-.01-.94-.18-1.4-.33-.56-.18-1-.28-.96-.59.02-.16.24-.33.67-.5 2.62-1.14 4.37-1.89 5.25-2.25 2.5-1.02 3.02-1.2 3.36-1.2.07 0 .24.02.35.12.09.08.12.18.13.26.01.07.01.14 0 .22z" />
-                </svg>
-              </a>
-              <a href="mailto:info@trustedmedshop.com" className="bg-[#dd4b39]/10 hover:bg-[#dd4b39]/20 p-1.5 rounded-full text-[#dd4b39] transition-colors" title="Email Us">
-                <Mail className="w-4 h-4" />
-              </a>
+              ))}
             </div>
-          </div>
 
-        </div>
-      </div>
-
-      {/* 4. MOBILE DRAWER NAVIGATION MENU */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 transition-all flex justify-start">
-          <div className="bg-white w-4/5 max-w-sm h-full p-5 shadow-2xl flex flex-col justify-between animate-in slide-in-from-left duration-200 overflow-y-auto">
-            <div className="flex flex-col gap-5">
-              {/* Mobile Drawer Header */}
-              <div className="flex justify-between items-center border-b border-slate-100 pb-3.5">
-                <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-2">
-                  {siteLogo ? (
-                    <img src={siteLogo} alt="Logo" style={{ height: `${siteLogoHeight}px` }} className="w-auto object-contain max-w-[160px]" />
-                  ) : (
-                    <span className="text-base font-bold text-[#0A3981]">
-                      trusted<span className="text-[#00A86B]">medshop</span>
-                    </span>
-                  )}
-                </Link>
-                <button 
-                  onClick={() => setIsMobileMenuOpen(false)} 
-                  className="p-1.5 text-slate-400 hover:text-slate-700 bg-slate-50 rounded-full"
-                >
-                  <X className="w-5 h-5" />
-                </button>
-              </div>
-
-              {/* Mobile Navigation Links */}
-              <nav className="flex flex-col gap-1">
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.name}
-                    href={link.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className={`text-sm font-bold py-2.5 px-3 rounded-xl transition-all flex items-center justify-between ${
-                      isActive(link.href) 
-                        ? "bg-[#0A3981]/10 text-[#0A3981] font-extrabold" 
-                        : "text-slate-700 hover:bg-slate-50"
-                    }`}
-                  >
-                    <span>{link.name}</span>
-                    {isActive(link.href) && <span className="w-2 h-2 rounded-full bg-[#00A86B]" />}
-                  </Link>
-                ))}
-              </nav>
-
-              {/* Mobile Contact & Social Actions */}
-              <div className="flex flex-col gap-3.5 border-t border-slate-100 pt-4">
-                <span className="text-[10px] font-extrabold text-slate-400 uppercase tracking-widest">Global Support Direct</span>
-                <div className="flex flex-col gap-2.5 text-xs font-semibold text-slate-700">
-                  <a href="tel:+919876543210" className="flex items-center gap-2.5 p-2 rounded-xl bg-slate-50 hover:bg-slate-100">
-                    <Phone className="w-4 h-4 text-[#00A86B]" />
-                    <span>+91 98765 43210</span>
-                  </a>
-                  <a href="mailto:info@trustedmedshop.com" className="flex items-center gap-2.5 p-2 rounded-xl bg-slate-50 hover:bg-slate-100">
-                    <Mail className="w-4 h-4 text-[#00A86B]" />
-                    <span>info@trustedmedshop.com</span>
-                  </a>
-                </div>
-
-                <div className="flex items-center gap-2.5 mt-1">
-                  <a 
-                    href="https://wa.me/919876543210" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="flex-1 bg-[#25D366] text-white py-2.5 px-3 rounded-xl text-xs font-bold flex items-center justify-center gap-2"
-                  >
-                    <svg className="w-4 h-4 fill-current text-white" viewBox="0 0 24 24">
-                      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.42 9.864-9.852.002-2.631-1.019-5.105-2.876-6.964a9.813 9.813 0 0 0-6.99-2.883c-5.441 0-9.867 4.422-9.87 9.854-.002 1.761.472 3.479 1.374 5.01l-1.025 3.74 3.864-1.013c1.513.826 3.185 1.258 4.717 1.258zm5.409-12.78c-.27-.604-.554-.616-.81-.627-.21-.008-.45-.008-.69-.008-.24 0-.63.09-1.01.5-.38.41-1.44 1.41-1.44 3.43s1.47 3.98 1.67 4.26c.2.28 2.9 4.43 7.03 6.21 1 .43 1.78.69 2.39.88.94.3 1.8.26 2.48.16.76-.11 2.33-.95 2.66-1.87.33-.92.33-1.71.23-1.87-.1-.16-.38-.26-.81-.47-.43-.21-2.54-1.25-2.93-1.39-.39-.14-.68-.21-.97.21-.29.42-1.12 1.39-1.37 1.67-.25.28-.5.31-.93.1-.43-.21-1.8-1.02-3.43-2.47-1.27-1.13-2.13-2.53-2.38-2.96-.25-.43-.03-.66.19-.87.2-.19.43-.51.65-.76.22-.25.3-.43.45-.72.15-.29.07-.55-.04-.76-.11-.21-.81-1.95-1.11-2.68z" />
-                    </svg>
-                    <span>WhatsApp</span>
-                  </a>
-                  <a 
-                    href="https://t.me/trustedmedshop" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="flex-1 bg-[#0088cc] text-white py-2.5 px-3 rounded-xl text-xs font-bold flex items-center justify-center gap-2"
-                  >
-                    <svg className="w-4 h-4 fill-current text-white" viewBox="0 0 24 24">
-                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-1-.65-.35-1 .22-1.62.15-.15 2.72-2.5 2.77-2.7.01-.03.01-.13-.05-.19-.06-.05-.14-.04-.2-.02-.08.02-1.35.86-3.82 2.53-.36.25-.69.37-.98.36-.32-.01-.94-.18-1.4-.33-.56-.18-1-.28-.96-.59.02-.16.24-.33.67-.5 2.62-1.14 4.37-1.89 5.25-2.25 2.5-1.02 3.02-1.2 3.36-1.2.07 0 .24.02.35.12.09.08.12.18.13.26.01.07.01.14 0 .22z" />
-                    </svg>
-                    <span>Telegram</span>
-                  </a>
-                </div>
-              </div>
-
+            {/* Mobile Quick Action Buttons */}
+            <div className="mt-auto flex flex-col gap-2 pt-4 border-t border-slate-800">
+              <Link 
+                href="/login" 
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="w-full bg-[#0A2444] text-white text-center py-2.5 rounded-xl text-xs font-bold border border-[#163B66]"
+              >
+                Sign In / Register
+              </Link>
+              <Link 
+                href="/cart" 
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="w-full bg-[#00A86B] text-white text-center py-2.5 rounded-xl text-xs font-bold shadow-md"
+              >
+                View Inquiry Cart ({cartCount})
+              </Link>
             </div>
+
           </div>
         </div>
       )}
+
     </header>
   );
 };
+
 export default Header;
