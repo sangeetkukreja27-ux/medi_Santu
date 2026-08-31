@@ -4,7 +4,7 @@ import React, { createContext, useContext, useState, useEffect } from "react";
 import { Product } from "@/data/products";
 import { InquiryModal } from "@/components/InquiryModal";
 
-export type Currency = "INR" | "USD";
+export type Currency = "USD";
 
 export interface CartItem {
   product: Product;
@@ -19,12 +19,11 @@ interface CartContextType {
   clearCart: () => void;
   cartCount: number;
   cartTotal: number;
-  // Multi-Currency & Price Conversion
   currency: Currency;
   setCurrency: (c: Currency) => void;
   exchangeRate: number;
   setExchangeRate: (rate: number) => void;
-  formatPrice: (amountInINR: number) => string;
+  formatPrice: (amount: number) => string;
   formatUsdPrice: (amountInUSD: number) => string;
   formattedCartTotal: string;
   // Inquiry Modal Controls
@@ -41,11 +40,11 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [isInquiryModalOpen, setIsInquiryModalOpen] = useState(false);
   const [inquiryProduct, setInquiryProduct] = useState<Product | null>(null);
 
-  // Multi-Currency State
-  const [currency, setCurrencyState] = useState<Currency>("INR");
-  const [exchangeRate, setExchangeRate] = useState<number>(83.5);
+  // Strictly USD Currency
+  const [currency, setCurrencyState] = useState<Currency>("USD");
+  const [exchangeRate, setExchangeRate] = useState<number>(1);
 
-  // Load cart and currency from localStorage on mount
+  // Load cart from localStorage on mount
   useEffect(() => {
     const savedCart = localStorage.getItem("trustedmedshop_cart");
     if (savedCart) {
@@ -55,22 +54,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
         console.error("Failed to parse cart items", e);
       }
     }
-
-    const savedCurrency = localStorage.getItem("trustedmedshop_currency");
-    if (savedCurrency === "USD" || savedCurrency === "INR") {
-      setCurrencyState(savedCurrency as Currency);
-    }
-
-    // Fetch exchange rate from CMS API
-    fetch(`/api/cms?t=${Date.now()}`)
-      .then((res) => res.json())
-      .then((data) => {
-        const rate = data.cms?.homepage?.usdExchangeRate || data.settings?.usdExchangeRate || data.settings?.homepage?.usdExchangeRate;
-        if (rate && !isNaN(Number(rate))) {
-          setExchangeRate(Number(rate));
-        }
-      })
-      .catch((err) => console.error("CMS Exchange rate fetch error:", err));
+    localStorage.setItem("trustedmedshop_currency", "USD");
   }, []);
 
   // Save cart to localStorage when changed
@@ -79,41 +63,30 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }, [cartItems]);
 
   const setCurrency = (c: Currency) => {
-    setCurrencyState(c);
-    localStorage.setItem("trustedmedshop_currency", c);
+    setCurrencyState("USD");
+    localStorage.setItem("trustedmedshop_currency", "USD");
   };
 
-  const formatPrice = (amountInINR: number): string => {
-    if (isNaN(amountInINR)) return currency === "USD" ? "$ 0.00" : "₹ 0.00";
-    if (currency === "USD") {
-      const rate = exchangeRate > 0 ? exchangeRate : 83.5;
-      const usdVal = amountInINR / rate;
-      return `$ ${usdVal.toFixed(2)}`;
-    }
-    return `₹ ${amountInINR.toFixed(2)}`;
+  const formatPrice = (amount: number): string => {
+    if (isNaN(amount)) return "USD 0.00";
+    return `$ ${Number(amount).toFixed(2)}`;
   };
 
   const formatUsdPrice = (amountInUSD: number): string => {
-    if (isNaN(amountInUSD)) return currency === "USD" ? "USD 0.00" : "₹ 0";
-    if (currency === "INR") {
-      const rate = exchangeRate > 0 ? exchangeRate : 85;
-      const inrVal = Math.round(amountInUSD * rate);
-      return `₹ ${inrVal.toLocaleString("en-IN")}`;
-    }
-    return `USD ${amountInUSD.toFixed(2)}`;
+    if (isNaN(amountInUSD)) return "USD 0.00";
+    return `USD ${Number(amountInUSD).toFixed(2)}`;
   };
 
   const addToCart = (product: Product, quantity = 1) => {
     setCartItems((prevItems) => {
-      const existingItem = prevItems.find((item) => item.product.id === product.id);
-      if (existingItem) {
-        return prevItems.map((item) =>
-          item.product.id === product.id
-            ? { ...item, quantity: item.quantity + quantity }
-            : item
-        );
+      const existingItemIndex = prevItems.findIndex((item) => item.product.id === product.id);
+      if (existingItemIndex > -1) {
+        const updated = [...prevItems];
+        updated[existingItemIndex].quantity += quantity;
+        return updated;
+      } else {
+        return [...prevItems, { product, quantity }];
       }
-      return [...prevItems, { product, quantity }];
     });
   };
 
@@ -138,12 +111,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   const openInquiryModal = (product?: Product) => {
-    if (product) {
-      setInquiryProduct(product);
-      addToCart(product, 1);
-    } else if (cartItems.length > 0) {
-      setInquiryProduct(cartItems[cartItems.length - 1].product);
-    }
+    setInquiryProduct(product || null);
     setIsInquiryModalOpen(true);
   };
 
@@ -153,7 +121,11 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
-  const cartTotal = cartItems.reduce((total, item) => total + item.product.price * item.quantity, 0);
+  const cartTotal = cartItems.reduce(
+    (total, item) => total + (item.product.price || 0) * item.quantity,
+    0
+  );
+
   const formattedCartTotal = formatPrice(cartTotal);
 
   return (

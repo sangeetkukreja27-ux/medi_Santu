@@ -301,19 +301,19 @@ const ProductsContent: React.FC = () => {
           <div className="flex flex-col gap-3 pt-3 border-t border-slate-100">
             <div className="flex justify-between items-center">
               <span className="text-xs font-black text-slate-400 uppercase tracking-wider">Price Range</span>
-              <span className="text-xs font-bold text-[#005B41]">₹{priceRange} Max</span>
+              <span className="text-xs font-bold text-[#005B41]">USD ${priceRange} Max</span>
             </div>
             <input 
               type="range" 
-              min="10" 
+              min="5" 
               max="200" 
               value={priceRange} 
               onChange={(e) => setPriceRange(Number(e.target.value))}
               className="w-full h-1.5 bg-slate-100 rounded-lg appearance-none cursor-pointer accent-[#005B41]"
             />
             <div className="flex items-center justify-between text-[11px] font-bold text-slate-400 mt-0.5">
-              <span>₹10 Min</span>
-              <span>₹200 Max</span>
+              <span>$5 Min</span>
+              <span>$200 Max</span>
             </div>
           </div>
 

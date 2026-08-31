@@ -119,17 +119,10 @@ export const Header: React.FC = () => {
               <Headphones className="w-3 h-3 text-[#00A86B]" /> 24/7 Support
             </span>
 
-            {/* Currency Selector (USD / INR) */}
-            <div className="flex items-center gap-1 bg-[#0A1D36] px-2 py-0.5 rounded-md border border-[#16375E]">
+            {/* Currency Badge (USD) */}
+            <div className="flex items-center gap-1.5 bg-[#0A1D36] px-2.5 py-0.5 rounded-md border border-[#16375E] text-white font-bold text-[10.5px]">
               <Coins className="w-3 h-3 text-[#00A86B]" />
-              <select
-                value={currency}
-                onChange={(e) => setCurrency(e.target.value as "INR" | "USD")}
-                className="bg-transparent text-white font-bold text-[10.5px] outline-none cursor-pointer"
-              >
-                <option value="USD" className="bg-[#040E1E] text-white font-bold">USD ($)</option>
-                <option value="INR" className="bg-[#040E1E] text-white font-bold">INR (₹)</option>
-              </select>
+              <span>USD ($)</span>
             </div>
           </div>
         </div>
